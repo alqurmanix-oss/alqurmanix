@@ -1,68 +1,66 @@
-<div dir="rtl" style="font-family: 'Cairo', sans-serif; line-height: 1.8; color: #1e293b; max-width: 1000px; margin: auto; padding: 20px; background: #ffffff; overflow-wrap: break-word; word-wrap: break-word;">
+<div dir="rtl" style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color: #020617; color: #e2e8f0; padding: 40px 20px; border-radius: 20px; border: 1px solid #1e293b;">
 
-  <div style="text-align: center; padding: 60px 15px; background: #0f172a; border-radius: 40px; margin-bottom: 50px; color: #ffffff;">
-    <h1 style="font-size: clamp(1.8rem, 5vw, 3rem); margin: 0; font-weight: 800; color: #f1d293;">حقوق الملكية الفكرية</h1>
-    <p style="font-size: 1.1rem; opacity: 0.8; margin-top: 15px;">Qurmani X Intellectual Property Policy</p>
+  <div style="text-align: center; background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%); padding: 80px 20px; border-radius: 30px; border-bottom: 4px solid #c5a059; margin-bottom: 60px; box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);">
+    <h1 style="color: #f1d293; font-size: 3.5rem; margin: 0; letter-spacing: -1px; text-shadow: 2px 2px 4px rgba(0,0,0,0.3);">Qurmani X</h1>
+    <p style="color: #94a3b8; font-size: 1.4rem; margin-top: 10px; font-weight: 300;">وثيقة حماية الملكية الفكرية والأصول الرقمية</p>
+    <div style="width: 80px; height: 4px; background: #c5a059; margin: 30px auto; border-radius: 2px;"></div>
   </div>
 
-  <div style="margin-bottom: 50px; padding: 0 10px;">
-    <h2 style="color: #0f172a; font-size: 1.8rem; border-right: 5px solid #c5a059; padding-right: 15px; margin-bottom: 25px;">بيان الملكية الموحد</h2>
-    <p style="font-size: 1.15rem; text-align: justify; color: #444;">
-      كافة المحتويات الرقمية المنشورة تحت مظلة <b>Qurmani X</b> هي ملكية فكرية حصرية. يشمل ذلك المقالات، الدراسات، الأكواد البرمجية، والتصاميم الموزعة على جميع أقسامنا (التقنية، الطبية، المالية، والدينية). نحن نطبق معايير حماية عالمية لضمان عدم تعرض هذا الجهد الفكري للسرقة أو التشويه.
+  <div style="max-width: 900px; margin: 0 auto 60px auto; text-align: center;">
+    <h2 style="color: #f1d293; font-size: 2rem; margin-bottom: 20px;">🛡️ بيان السيادة الفكرية</h2>
+    <p style="font-size: 1.3rem; line-height: 1.8; color: #cbd5e1;">
+      كافة الحقوق محفوظة لمظلة <span style="color: #c5a059; font-weight: bold;">Qurmani X</span>. هذا المشروع يمثل خلاصة ابتكار تقني وبحثي مكثف، وهو محمي بموجب قوانين الملكية الفكرية الدولية. أي محاولة للنسخ أو التقليد دون تصريح رسمي تُعد انتهاكاً صارخاً للحقوق الرقمية.
     </p>
   </div>
 
-  <div style="display: flex; flex-wrap: wrap; gap: 25px; margin-bottom: 50px;">
+  <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; margin-bottom: 60px;">
     
-    <div style="flex: 1 1 300px; padding: 30px; background: #f8fafc; border-radius: 20px;">
-      <h3 style="color: #c5a059; margin-top: 0;">🛡️ حماية المحتوى النصي</h3>
-      <p style="font-size: 1.05rem; color: #555;">كل مقال هو نتاج جهد بحثي مكثف. يُمنع تماماً نسخ أو إعادة صياغة النصوص دون إذن كتابي رسمي، مع وجوب وضع رابط المصدر المباشر.</p>
+    <div style="background: #0f172a; padding: 35px; border-radius: 25px; border: 1px solid #334155; transition: 0.3s;">
+      <div style="font-size: 2.5rem; margin-bottom: 15px;">💻</div>
+      <h3 style="color: #c5a059; font-size: 1.5rem; margin-bottom: 15px;">الأصول البرمجية</h3>
+      <p style="color: #94a3b8; line-height: 1.6;">الأكواد والسكربتات محمية كأصول تقنية. الاستخدام التجاري محظور، ويسمح بالاطلاع التعليمي فقط مع الاحتفاظ بكافة حقوق المصدر.</p>
     </div>
 
-    <div style="flex: 1 1 300px; padding: 30px; background: #f8fafc; border-radius: 20px;">
-      <h3 style="color: #0f172a; margin-top: 0;">💻 الابتكار البرمجي</h3>
-      <p style="font-size: 1.05rem; color: #555;">الأكواد والسكربتات الحصرية هي "أصول رقمية" محمية. مسموح بالاستخدام التعليمي فقط، ويُحظر إعادة النشر التجاري نهائياً.</p>
+    <div style="background: #0f172a; padding: 35px; border-radius: 25px; border: 1px solid #334155;">
+      <div style="font-size: 2.5rem; margin-bottom: 15px;">📝</div>
+      <h3 style="color: #c5a059; font-size: 1.5rem; margin-bottom: 15px;">المحتوى الفكري</h3>
+      <p style="color: #94a3b8; line-height: 1.6;">المقالات والدراسات (الطبية، المالية، الدينية) هي نتاج جهد حصري. الاقتباس المحدود يتطلب ذكر المصدر برابط مباشر وصريح.</p>
     </div>
 
+    <div style="background: #0f172a; padding: 35px; border-radius: 25px; border: 1px solid #334155;">
+      <div style="font-size: 2.5rem; margin-bottom: 15px;">⚖️</div>
+      <h3 style="color: #c5a059; font-size: 1.5rem; margin-bottom: 15px;">الملاحقة القانونية</h3>
+      <p style="color: #94a3b8; line-height: 1.6;">نستخدم أنظمة تتبع رقمية ذكية. أي انتهاك سيواجه فوراً بطلبات إزالة DMCA وملاحقة قضائية لتعويض الأضرار.</p>
+    </div>
   </div>
 
-  <div style="margin-bottom: 50px; overflow-x: auto;">
-    <h2 style="color: #0f172a; text-align: center; margin-bottom: 30px;">معايير الحماية القانونية</h2>
-    <table style="width: 100%; border-collapse: collapse; min-width: 500px;">
-      <thead>
-        <tr style="border-bottom: 2px solid #0f172a;">
-          <th style="padding: 15px; text-align: right;">النوع</th>
-          <th style="padding: 15px; text-align: right;">سياسة الاستخدام</th>
+  <div style="background: #0f172a; border-radius: 25px; overflow: hidden; border: 1px solid #334155; margin-bottom: 60px;">
+    <table style="width: 100%; border-collapse: collapse; text-align: right;">
+      <thead style="background: #1e293b;">
+        <tr>
+          <th style="padding: 20px; color: #f1d293;">نوع المحتوى</th>
+          <th style="padding: 20px; color: #f1d293;">سياسة الاستخدام المعتمدة</th>
         </tr>
       </thead>
       <tbody>
-        <tr style="border-bottom: 1px solid #eee;">
-          <td style="padding: 15px; font-weight: bold; color: #c5a059;">العلامة التجارية</td>
-          <td style="padding: 15px;">محظور استخدام اسم Qurmani X تجارياً للغير.</td>
+        <tr style="border-bottom: 1px solid #1e293b;">
+          <td style="padding: 20px; font-weight: bold;">العلامة التجارية</td>
+          <td style="padding: 20px; color: #94a3b8;">حصرية تماماً - يمنع استخدام اسم Qurmani X في أي نشاط تجاري خارجي.</td>
         </tr>
         <tr>
-          <td style="padding: 15px; font-weight: bold; color: #c5a059;">المحتوى الحصري</td>
-          <td style="padding: 15px;">الاقتباس محدود بـ 10% فقط مع ذكر المصدر.</td>
+          <td style="padding: 20px; font-weight: bold;">حقوق الاقتباس</td>
+          <td style="padding: 20px; color: #94a3b8;">مسموح بحد أقصى 10% للأغراض البحثية مع وجوب الإشارة للمصدر.</td>
         </tr>
       </tbody>
     </table>
   </div>
 
-  <div style="padding: 40px; background: #0f172a; color: #fff; border-radius: 30px; text-align: center; margin-bottom: 50px;">
-    <h3 style="color: #f1d293; margin-top: 0;">ملاحقة الانتهاكات</h3>
-    <p style="font-size: 1.1rem; opacity: 0.9;">نحن نستخدم تقنيات التتبع الرقمي لرصد السرقات الفكرية. أي انتهاك سيواجه بإجراءات قانونية فورية وطلبات إزالة DMCA رسمية.</p>
-  </div>
-
-  <div style="margin-bottom: 50px;">
-    <details style="margin-bottom: 15px; padding: 15px; background: #fff; border-bottom: 1px solid #eee; cursor: pointer;">
-      <summary style="font-weight: bold; color: #0f172a;">هل يمكن مشاركة الروابط؟</summary>
-      <p style="margin-top: 10px; color: #666;">نعم، نشجع مشاركة الروابط المباشرة للمقالات لدعم انتشار المعرفة.</p>
-    </details>
-  </div>
-
-  <div style="text-align: center; padding-top: 30px; border-top: 1px solid #eee;">
-    <p style="font-weight: bold; color: #0f172a; margin: 0;">QURMANI X</p>
-    <p style="font-size: 0.9rem; color: #999;">Copyright © 2026 | Global Excellence</p>
+  <div style="text-align: center; padding-top: 40px; border-top: 1px solid #334155;">
+    <p style="color: #f1d293; font-weight: bold; font-size: 1.2rem; margin: 0;">QURMANI X DIGITAL ENTERPRISE</p>
+    <p style="color: #64748b; font-size: 0.9rem; margin-top: 10px;">Copyright © 2026 | Global Standards of Excellence</p>
+    <div style="margin-top: 20px;">
+       <span style="background: #c5a059; color: #020617; padding: 5px 15px; border-radius: 50px; font-size: 0.8rem; font-weight: bold;">OFFICIAL POLICY</span>
+    </div>
   </div>
 
 </div>
