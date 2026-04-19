@@ -1,231 +1,654 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ar" dir="rtl">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>Alqurmani X | Empire System</title>
-
+<title>Alqurmani X | المنصات الرقمية</title>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700;900&family=Cairo:wght@300;400;600;700;900&display=swap" rel="stylesheet">
 <style>
-
-body{
-  margin:0;
-  font-family:Arial, sans-serif;
-  background:#050507;
-  color:#fff;
-  transition:0.4s;
+:root {
+  --gold: #d4af37;
+  --gold2: #f0d060;
+  --gold3: #a8830a;
+  --dark: #050507;
+  --dark2: #0a0a0e;
+  --dark3: #111118;
+  --glass: rgba(212,175,55,0.07);
+  --border: rgba(212,175,55,0.22);
+  --text: #e8e0cc;
+  --muted: #777;
 }
 
-/* ===== كرة الأرض ===== */
-.globe-container{
+*, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+html { scroll-behavior:smooth; }
+
+body {
+  font-family:'Cairo', sans-serif;
+  background: var(--dark);
+  color: var(--text);
+  overflow-x: hidden;
+  min-height: 100vh;
+}
+
+/* ===== PARTICLES ===== */
+#particles {
+  position:fixed; inset:0;
+  pointer-events:none; z-index:0; overflow:hidden;
+}
+.pt {
+  position:absolute; border-radius:50%;
+  background:var(--gold); opacity:0;
+  animation: float-pt linear infinite;
+}
+@keyframes float-pt {
+  0%  { opacity:0; transform:translateY(100vh) scale(0); }
+  10% { opacity:0.5; }
+  90% { opacity:0.2; }
+  100%{ opacity:0; transform:translateY(-10vh) scale(1.5); }
+}
+
+/* ===== BACK ARROW ===== */
+#back-btn {
   position:fixed;
-  top:20px;
-  left:20px;
-  width:80px;
-  height:80px;
-  cursor:pointer;
-  z-index:999;
+  bottom: 36px; left: 50%;
+  transform: translateX(-50%) translateY(120px);
+  width: 52px; height: 52px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--gold), var(--gold3));
+  border: none; cursor: pointer;
+  display:flex; align-items:center; justify-content:center;
+  font-size: 22px; color:#000; font-weight:900;
+  box-shadow: 0 0 30px rgba(212,175,55,0.45);
+  z-index: 990;
+  transition: transform 0.5s cubic-bezier(.23,1,.32,1), box-shadow 0.4s;
+  animation: pulse-btn 2.5s ease-in-out infinite;
+}
+#back-btn.show { transform: translateX(-50%) translateY(0); }
+#back-btn:hover {
+  transform: translateX(-50%) translateY(-6px) scale(1.12);
+  box-shadow: 0 0 55px rgba(212,175,55,0.7);
+}
+@keyframes pulse-btn {
+  0%,100%{ box-shadow:0 0 30px rgba(212,175,55,0.4); }
+  50%    { box-shadow:0 0 55px rgba(212,175,55,0.75); }
 }
 
-.globe{
-  width:100%;
-  height:100%;
-  border-radius:50%;
-  background: radial-gradient(circle at 30% 30%, #2a7fff, #001133);
-  box-shadow:0 0 20px rgba(0,150,255,0.5);
-  animation:spin 6s linear infinite;
-  position:relative;
+/* ===== MENU TOGGLE (4 bars, top-right) ===== */
+#menu-toggle {
+  position:fixed; top:22px; right:22px;
+  width:52px; height:52px; border-radius:14px;
+  background:rgba(212,175,55,0.1);
+  border:1.5px solid var(--border);
+  display:flex; flex-direction:column;
+  align-items:center; justify-content:center; gap:6px;
+  cursor:pointer; z-index:1000;
+  transition:all 0.3s; backdrop-filter:blur(10px);
+}
+#menu-toggle:hover { background:rgba(212,175,55,0.2); border-color:var(--gold); box-shadow:0 0 22px rgba(212,175,55,0.3); }
+.bar {
+  width:24px; height:2px; background:var(--gold);
+  border-radius:2px; transition:all 0.4s cubic-bezier(.23,1,.32,1);
+  transform-origin:center;
+}
+#menu-toggle.open .bar:nth-child(1){ transform:rotate(45deg) translate(6px,6px); }
+#menu-toggle.open .bar:nth-child(2){ opacity:0; transform:scaleX(0); }
+#menu-toggle.open .bar:nth-child(3){ opacity:0; }
+#menu-toggle.open .bar:nth-child(4){ transform:rotate(-45deg) translate(6px,-6px); }
+
+/* ===== SIDEBAR ===== */
+#sidebar-overlay {
+  position:fixed; inset:0; background:rgba(0,0,0,0.72);
+  z-index:998; opacity:0; pointer-events:none;
+  transition:opacity 0.4s; backdrop-filter:blur(5px);
+}
+#sidebar-overlay.open { opacity:1; pointer-events:all; }
+
+#sidebar {
+  position:fixed; top:0; right:-370px; width:330px; height:100vh;
+  background:linear-gradient(180deg,#08080d,#0d0d14);
+  border-left:1px solid var(--border);
+  z-index:999; transition:right 0.5s cubic-bezier(.23,1,.32,1);
+  display:flex; flex-direction:column;
+  padding:100px 28px 40px; overflow-y:auto;
+  box-shadow:-20px 0 80px rgba(0,0,0,0.85);
+}
+#sidebar.open { right:0; }
+
+.sb-clock {
+  text-align:center; padding:18px 14px;
+  border:1px solid var(--border); border-radius:14px;
+  background:var(--glass); margin-bottom:26px;
+}
+.sb-day  { font-size:12px; color:var(--muted); margin-bottom:4px; }
+.sb-time { font-size:30px; font-weight:700; color:var(--gold); font-family:'Cinzel',serif; letter-spacing:2px; }
+.sb-date { font-size:12px; color:var(--muted); margin-top:4px; }
+
+.sb-nav a {
+  display:flex; align-items:center; gap:12px;
+  padding:13px 15px; border-radius:12px;
+  color:var(--text); text-decoration:none;
+  font-size:14px; font-weight:600;
+  transition:all 0.3s; margin-bottom:5px;
+  border:1px solid transparent; position:relative; overflow:hidden;
+}
+.sb-nav a::before {
+  content:''; position:absolute; left:0; top:0; bottom:0; width:0;
+  background:linear-gradient(90deg,rgba(212,175,55,0.14),transparent);
+  transition:width 0.4s;
+}
+.sb-nav a:hover::before { width:100%; }
+.sb-nav a:hover { color:var(--gold); border-color:var(--border); }
+.sb-nav a .em { font-size:19px; }
+
+/* ===== GLOBE LANG ===== */
+#lang-zone {
+  position:fixed; top:22px; left:22px;
+  display:flex; align-items:center; gap:10px; z-index:1000;
+}
+.globe-btn {
+  width:52px; height:52px; border-radius:50%;
+  background:rgba(212,175,55,0.1); border:1.5px solid var(--border);
+  display:flex; align-items:center; justify-content:center;
+  cursor:pointer; transition:all 0.3s; backdrop-filter:blur(10px);
+  overflow:hidden; position:relative;
+}
+.globe-btn:hover { border-color:var(--gold); box-shadow:0 0 22px rgba(212,175,55,0.35); }
+
+/* CSS-only spinning globe SVG */
+.globe-svg {
+  width:32px; height:32px;
+  animation: globe-y 6s linear infinite;
+}
+@keyframes globe-y {
+  0%   { transform: rotateY(0deg); }
+  100% { transform: rotateY(360deg); }
 }
 
-@keyframes spin{
-  from{transform:rotate(0deg);}
-  to{transform:rotate(360deg);}
+.lang-badge {
+  display:flex; align-items:center; gap:6px;
+  background:rgba(212,175,55,0.1); border:1px solid var(--border);
+  border-radius:20px; padding:6px 13px; font-size:13px;
+  color:var(--gold); font-weight:700; cursor:pointer;
+  backdrop-filter:blur(10px); transition:all 0.3s;
+}
+.lang-badge:hover { border-color:var(--gold); }
+
+#lang-drop {
+  position:absolute; top:62px; left:0;
+  background:#0c0c14; border:1px solid var(--border);
+  border-radius:16px; padding:10px; display:none;
+  min-width:215px; box-shadow:0 22px 65px rgba(0,0,0,0.85); z-index:1001;
+}
+#lang-drop.show { display:block; animation:dropin 0.3s ease; }
+@keyframes dropin{ from{opacity:0;transform:translateY(-10px);}to{opacity:1;transform:translateY(0);} }
+
+.lo {
+  display:flex; align-items:center; gap:10px;
+  padding:10px 14px; border-radius:10px;
+  cursor:pointer; transition:all 0.2s; font-size:14px;
+}
+.lo:hover { background:rgba(212,175,55,0.1); color:var(--gold); }
+.lf { font-size:21px; }
+.lc { font-weight:700; color:var(--gold); font-size:12px; min-width:28px; }
+
+/* ===== HERO ===== */
+.hero {
+  min-height: 55vh;
+  display:flex; flex-direction:column;
+  align-items:center; justify-content:center;
+  text-align:center; padding:140px 20px 60px;
+  position:relative; z-index:1;
+}
+.hero-tag {
+  display:inline-flex; align-items:center; gap:8px;
+  padding:7px 22px; border:1px solid var(--border);
+  border-radius:30px; font-size:11px; color:var(--gold);
+  letter-spacing:3px; text-transform:uppercase;
+  margin-bottom:30px; background:rgba(212,175,55,0.05);
+  backdrop-filter:blur(10px);
+  animation:fadeup 0.9s ease forwards;
+}
+.hero-tag::before,.hero-tag::after { content:'✦'; font-size:9px; }
+
+.hero-title {
+  font-family:'Cinzel',serif;
+  font-size:clamp(38px,7vw,88px);
+  font-weight:900; letter-spacing:5px; line-height:1;
+  background:linear-gradient(135deg,#f0d060 0%,#d4af37 35%,#a8830a 65%,#d4af37 100%);
+  -webkit-background-clip:text; -webkit-text-fill-color:transparent;
+  background-clip:text; background-size:200% 200%;
+  animation:shimmer 4s ease-in-out infinite, fadeup 1.1s ease forwards;
+  margin-bottom:14px;
+}
+@keyframes shimmer { 0%,100%{background-position:0% 50%} 50%{background-position:100% 50%} }
+
+.hero-sub {
+  font-size:clamp(14px,2.2vw,22px); color:#999;
+  font-weight:300; letter-spacing:2px; margin-bottom:36px;
+  animation:fadeup 1.3s ease forwards;
+}
+@keyframes fadeup { from{opacity:0;transform:translateY(28px);}to{opacity:1;transform:translateY(0);} }
+
+.divider {
+  display:flex; align-items:center; gap:14px;
+  margin:0 auto 20px; width:fit-content;
+}
+.dline { width:70px; height:1px; background:linear-gradient(90deg,transparent,var(--gold)); }
+.dline.r { background:linear-gradient(90deg,var(--gold),transparent); }
+.ddiamond { width:9px; height:9px; background:var(--gold); transform:rotate(45deg); }
+
+/* ===== PLATFORMS GRID ===== */
+.wrap {
+  max-width:1100px; margin:0 auto; padding:20px 30px 100px;
+  position:relative; z-index:1;
 }
 
-/* خطوط وهمية */
-.globe::before{
-  content:"";
-  position:absolute;
-  width:100%;
-  height:100%;
-  border-radius:50%;
-  background: repeating-linear-gradient(
-    90deg,
-    rgba(255,255,255,0.1),
-    rgba(255,255,255,0.1) 2px,
-    transparent 2px,
-    transparent 10px
-  );
-  opacity:0.3;
+.section-label {
+  text-align:center; margin-bottom:60px;
+}
+.sec-tag {
+  display:inline-block; font-size:11px; letter-spacing:4px;
+  color:var(--gold); text-transform:uppercase;
+  padding:5px 18px; border:1px solid var(--border);
+  border-radius:20px; margin-bottom:14px;
+}
+.sec-title {
+  font-family:'Cinzel',serif;
+  font-size:clamp(24px,3.5vw,42px); font-weight:700;
+  background:linear-gradient(135deg,#f0d060,#d4af37,#a8830a);
+  -webkit-background-clip:text; -webkit-text-fill-color:transparent;
+  background-clip:text; margin-bottom:12px;
+}
+.sec-sub { color:#777; font-size:15px; max-width:560px; margin:0 auto; line-height:1.9; }
+
+/* Platform cards */
+#platforms-grid {
+  display:grid;
+  grid-template-columns:repeat(auto-fill, minmax(300px, 1fr));
+  gap:28px;
 }
 
-/* ===== قائمة اللغات ===== */
-.lang-menu{
-  position:fixed;
-  top:110px;
-  left:20px;
-  background:#111;
-  border:1px solid #333;
-  padding:10px;
-  border-radius:10px;
-  display:none;
-  z-index:999;
+.pcard {
+  background:var(--glass);
+  border:1px solid var(--border);
+  border-radius:22px; padding:32px;
+  text-decoration:none; color:var(--text);
+  display:block; position:relative; overflow:hidden;
+  transition:all 0.45s cubic-bezier(.23,1,.32,1);
+  opacity:0; transform:translateY(35px);
+  animation:fadeup 0.7s ease forwards;
+}
+.pcard::before {
+  content:''; position:absolute; inset:0;
+  background:linear-gradient(135deg,rgba(212,175,55,0.09),transparent);
+  opacity:0; transition:opacity 0.4s;
+}
+.pcard::after {
+  content:''; position:absolute; top:-1px; right:28px;
+  width:55px; height:3px;
+  background:linear-gradient(90deg,var(--gold),transparent);
+}
+.pcard:hover::before { opacity:1; }
+.pcard:hover {
+  transform:translateY(-9px) scale(1.01);
+  border-color:rgba(212,175,55,0.58);
+  box-shadow:0 28px 75px rgba(212,175,55,0.14);
 }
 
-.lang-menu button{
-  display:block;
-  width:100%;
-  margin:5px 0;
-  padding:8px;
-  background:#222;
-  color:#fff;
-  border:none;
-  cursor:pointer;
-  transition:0.3s;
+.pc-num {
+  font-family:'Cinzel',serif;
+  font-size:11px; letter-spacing:3px; color:rgba(212,175,55,0.35);
+  margin-bottom:16px; text-transform:uppercase;
+}
+.pc-icon { font-size:40px; margin-bottom:14px; display:block; }
+.pc-name {
+  font-size:19px; font-weight:700; color:var(--gold);
+  margin-bottom:10px; font-family:'Cairo',sans-serif;
+}
+.pc-desc { font-size:13px; color:#777; line-height:1.85; }
+
+.pc-arrow {
+  position:absolute; bottom:22px;
+  font-size:18px; color:var(--gold); opacity:0.25;
+  transition:all 0.3s;
+}
+[dir="rtl"] .pc-arrow { left:22px; }
+[dir="ltr"] .pc-arrow { right:22px; }
+.pcard:hover .pc-arrow { opacity:1; transform:translateX(-4px); }
+[dir="ltr"] .pcard:hover .pc-arrow { transform:translateX(4px); }
+
+/* stagger delay */
+.pcard:nth-child(1){animation-delay:0.05s;}
+.pcard:nth-child(2){animation-delay:0.12s;}
+.pcard:nth-child(3){animation-delay:0.19s;}
+.pcard:nth-child(4){animation-delay:0.26s;}
+.pcard:nth-child(5){animation-delay:0.33s;}
+.pcard:nth-child(6){animation-delay:0.40s;}
+.pcard:nth-child(7){animation-delay:0.47s;}
+.pcard:nth-child(8){animation-delay:0.54s;}
+
+/* glow line */
+.glow-line {
+  height:2px; margin:60px auto 0; width:220px; border-radius:2px;
+  background:linear-gradient(90deg,transparent,var(--gold),var(--gold2),var(--gold),transparent);
+  background-size:200%; animation:linepan 3s linear infinite;
+}
+@keyframes linepan{ 0%{background-position:200%} 100%{background-position:-200%} }
+
+/* separator */
+.sep {
+  width:100%; height:1px; position:relative; z-index:1;
+  background:linear-gradient(90deg,transparent,var(--border),transparent);
 }
 
-.lang-menu button:hover{
-  background:#d4af37;
-  color:#000;
+/* footer */
+footer {
+  text-align:center; padding:50px 30px 35px;
+  border-top:1px solid var(--border); position:relative; z-index:1;
 }
+.foot-logo { font-family:'Cinzel',serif; font-size:26px; color:var(--gold); margin-bottom:6px; }
+.foot-copy { color:#3a3a3a; font-size:12px; letter-spacing:1px; margin-top:18px; }
 
-/* ===== الهيدر ===== */
-header{
-  text-align:center;
-  padding:80px 20px 30px;
+/* responsive */
+@media(max-width:600px){
+  #platforms-grid{ grid-template-columns:1fr; }
+  #sidebar{ width:100%; right:-100%; }
 }
-
-.logo{
-  font-size:50px;
-  color:#d4af37;
-}
-
-/* ===== مشاريع ===== */
-.projects{
-  max-width:800px;
-  margin:40px auto;
-  padding:20px;
-}
-
-.project{
-  background:#111;
-  margin:10px 0;
-  padding:15px;
-  border-radius:10px;
-  border:1px solid #333;
-  transition:0.3s;
-}
-
-.project:hover{
-  border-color:#d4af37;
-}
-
-/* RTL support */
-.rtl{
-  direction:rtl;
-  text-align:right;
-}
-
-.ltr{
-  direction:ltr;
-  text-align:left;
-}
-
 </style>
 </head>
-
 <body>
 
-<!-- 🌍 الكرة -->
-<div class="globe-container" onclick="toggleLangMenu()">
-  <div class="globe"></div>
+<!-- PARTICLES -->
+<div id="particles"></div>
+
+<!-- SIDEBAR OVERLAY -->
+<div id="sidebar-overlay" onclick="closeMenu()"></div>
+
+<!-- MENU TOGGLE -->
+<div id="menu-toggle" onclick="toggleMenu()">
+  <div class="bar"></div>
+  <div class="bar"></div>
+  <div class="bar"></div>
+  <div class="bar"></div>
 </div>
 
-<!-- 🌐 اللغات -->
-<div class="lang-menu" id="langMenu">
-  <button onclick="setLang('ar')">🇸🇦 العربية</button>
-  <button onclick="setLang('en')">🇬🇧 English</button>
-  <button onclick="setLang('fr')">🇫🇷 Français</button>
-  <button onclick="setLang('es')">🇪🇸 Español</button>
-  <button onclick="setLang('it')">🇮🇹 Italiano</button>
-  <button onclick="setLang('tr')">🇹🇷 Türkçe</button>
-  <button onclick="setLang('pt')">🇵🇹 Português</button>
-  <button onclick="setLang('ja')">🇯🇵 日本語</button>
-  <button onclick="setLang('zh')">🇨🇳 中文</button>
-  <button onclick="setLang('ko')">🇰🇷 한국어</button>
-  <button onclick="setLang('hi')">🇮🇳 हिन्दी</button>
+<!-- SIDEBAR -->
+<div id="sidebar">
+  <div class="sb-clock">
+    <div class="sb-day"  id="sb-day">—</div>
+    <div class="sb-time" id="sb-time">00:00:00</div>
+    <div class="sb-date" id="sb-date">—</div>
+  </div>
+  <nav class="sb-nav">
+    <a href="index.html"    onclick="closeMenu()"><span class="em">🏠</span><span data-key="nav_home">الصفحة الرئيسية</span></a>
+    <a href="policies.html" onclick="closeMenu()"><span class="em">📜</span><span data-key="nav_policies">سياسات وقوانين</span></a>
+    <a href="platforms.html"onclick="closeMenu()"><span class="em">🌐</span><span data-key="nav_platforms">منصاتنا</span></a>
+    <a href="store.html"    onclick="closeMenu()"><span class="em">🛒</span><span data-key="nav_store">متجرنا</span></a>
+    <a href="services.html" onclick="closeMenu()"><span class="em">⚙️</span><span data-key="nav_services">خدماتنا</span></a>
+    <a href="faq.html"      onclick="closeMenu()"><span class="em">❓</span><span data-key="nav_faq">الأسئلة الشائعة</span></a>
+    <a href="support.html"  onclick="closeMenu()"><span class="em">🎧</span><span data-key="nav_support">الدعم الفني</span></a>
+    <a href="careers.html"  onclick="closeMenu()"><span class="em">💼</span><span data-key="nav_careers">الوظائف</span></a>
+    <a href="auth.html"     onclick="closeMenu()"><span class="em">🔐</span><span data-key="nav_auth">اشتراك - تسجيل الدخول</span></a>
+  </nav>
 </div>
 
-<header>
-  <div class="logo">Alqurmani X</div>
-  <p id="subtitle">Empire Digital System</p>
-</header>
-
-<div class="projects" id="projects">
-
+<!-- GLOBE LANG -->
+<div id="lang-zone">
+  <div class="globe-btn" onclick="toggleLang()">
+    <!-- SVG globe -->
+    <svg class="globe-svg" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <circle cx="30" cy="30" r="28" stroke="#d4af37" stroke-width="1.5" fill="none" opacity="0.3"/>
+      <ellipse cx="30" cy="30" rx="14" ry="28" stroke="#d4af37" stroke-width="1.2" fill="none" opacity="0.5"/>
+      <ellipse cx="30" cy="30" rx="28" ry="10" stroke="#d4af37" stroke-width="1" fill="none" opacity="0.4"/>
+      <ellipse cx="30" cy="30" rx="28" ry="20" stroke="#d4af37" stroke-width="0.8" fill="none" opacity="0.25"/>
+      <circle cx="30" cy="30" r="4" fill="#d4af37" opacity="0.6"/>
+    </svg>
+  </div>
+  <div class="lang-badge" onclick="toggleLang()">
+    <span id="cur-flag">🇸🇦</span>
+    <span id="cur-code">AR</span>
+  </div>
+  <div id="lang-drop">
+    <div class="lo" onclick="setLang('ar','🇸🇦','AR','rtl')"><span class="lf">🇸🇦</span><span class="lc">AR</span>العربية</div>
+    <div class="lo" onclick="setLang('en','🇺🇸','EN','ltr')"><span class="lf">🇺🇸</span><span class="lc">EN</span>English</div>
+    <div class="lo" onclick="setLang('es','🇪🇸','ES','ltr')"><span class="lf">🇪🇸</span><span class="lc">ES</span>Español</div>
+    <div class="lo" onclick="setLang('it','🇮🇹','IT','ltr')"><span class="lf">🇮🇹</span><span class="lc">IT</span>Italiano</div>
+    <div class="lo" onclick="setLang('fr','🇫🇷','FR','ltr')"><span class="lf">🇫🇷</span><span class="lc">FR</span>Français</div>
+    <div class="lo" onclick="setLang('pt','🇧🇷','PT','ltr')"><span class="lf">🇧🇷</span><span class="lc">PT</span>Português</div>
+    <div class="lo" onclick="setLang('hi','🇮🇳','HI','ltr')"><span class="lf">🇮🇳</span><span class="lc">HI</span>हिन्दी</div>
+    <div class="lo" onclick="setLang('tr','🇹🇷','TR','ltr')"><span class="lf">🇹🇷</span><span class="lc">TR</span>Türkçe</div>
+    <div class="lo" onclick="setLang('zh','🇨🇳','ZH','ltr')"><span class="lf">🇨🇳</span><span class="lc">ZH</span>中文</div>
+    <div class="lo" onclick="setLang('ru','🇷🇺','RU','ltr')"><span class="lf">🇷🇺</span><span class="lc">RU</span>Русский</div>
+    <div class="lo" onclick="setLang('ja','🇯🇵','JA','ltr')"><span class="lf">🇯🇵</span><span class="lc">JA</span>日本語</div>
+    <div class="lo" onclick="setLang('fa','🇮🇷','FA','rtl')"><span class="lf">🇮🇷</span><span class="lc">FA</span>فارسی</div>
+  </div>
 </div>
+
+<!-- BACK ARROW -->
+<button id="back-btn" onclick="history.back()" title="رجوع">↩</button>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-tag"><span data-key="hero_tag">المنظمة الرقمية الرائدة</span></div>
+  <div class="hero-title">ALQURMANI X</div>
+  <div class="hero-sub" data-key="hero_sub">المنصات الرقمية المتكاملة</div>
+  <div class="divider">
+    <div class="dline"></div>
+    <div class="ddiamond"></div>
+    <div class="ddiamond" style="opacity:.45;transform:rotate(45deg) scale(.55);"></div>
+    <div class="ddiamond"></div>
+    <div class="dline r"></div>
+  </div>
+</section>
+
+<div class="sep"></div>
+
+<!-- PLATFORMS -->
+<div class="wrap">
+  <div class="section-label">
+    <div class="sec-tag" data-key="sec_tag">منصاتنا</div>
+    <h2 class="sec-title" data-key="sec_title">المنصات الرقمية</h2>
+    <p class="sec-sub" data-key="sec_sub">منظومة متكاملة من المنصات الرقمية المتخصصة، كل منها مصمم باحترافية عالية لتقديم قيمة حقيقية وتجربة استثنائية.</p>
+  </div>
+
+  <div id="platforms-grid">
+    <!-- Cards injected by JS -->
+  </div>
+
+  <div class="glow-line"></div>
+</div>
+
+<div class="sep"></div>
+
+<footer>
+  <div class="foot-logo">ALQURMANI X</div>
+  <div style="color:var(--muted);font-size:11px;letter-spacing:2px;margin-top:4px;" data-key="foot_tag">منظمة رقمية متكاملة</div>
+  <div class="foot-copy">© 2026 Alqurmani X — All Rights Reserved</div>
+</footer>
 
 <script>
-
-/* ===== مشاريع قابلة للتوسع ===== */
-const projects = [
-  "القرماني ديجيتال",
-  "رواق القرماني",
-  "القرماني كوين",
-  "القرماني هاب",
-  "القرماني لايف"
+/* ============================================================
+   PLATFORM DATA  — لإضافة منصة جديدة: أضف عنصر للمصفوفة
+   ============================================================ */
+const PLATFORMS = [
+  {
+    icon: '🎨',
+    key: 'digital',
+    link: '#',
+    trans: {
+      ar: { name:'القرماني ديجيتال', desc:'منصة التسويق الرقمي والتصميم الإبداعي وبناء الهويات البصرية الاحترافية بمعايير عالمية.' },
+      en: { name:'Alqurmani Digital', desc:'Digital marketing, creative design, and professional visual identity building with global standards.' },
+      es: { name:'Alqurmani Digital', desc:'Marketing digital, diseño creativo e identidad visual profesional con estándares globales.' },
+      it: { name:'Alqurmani Digital', desc:'Marketing digitale, design creativo e identità visiva professionale con standard globali.' },
+      fr: { name:'Alqurmani Digital', desc:'Marketing numérique, design créatif et identité visuelle professionnelle aux normes mondiales.' },
+      pt: { name:'Alqurmani Digital', desc:'Marketing digital, design criativo e identidade visual profissional com padrões globais.' },
+      hi: { name:'Alqurmani Digital', desc:'वैश्विक मानकों के साथ डिजिटल मार्केटिंग, रचनात्मक डिज़ाइन और पेशेवर दृश्य पहचान।' },
+      tr: { name:'Alqurmani Digital', desc:'Global standartlarda dijital pazarlama, yaratıcı tasarım ve profesyonel görsel kimlik.' },
+      zh: { name:'Alqurmani Digital', desc:'全球标准的数字营销、创意设计和专业视觉识别。' },
+      ru: { name:'Alqurmani Digital', desc:'Цифровой маркетинг, креативный дизайн и профессиональная визуальная идентичность по мировым стандартам.' },
+      ja: { name:'Alqurmani Digital', desc:'グローバル基準のデジタルマーケティング、クリエイティブデザイン、プロの視覚的アイデンティティ。' },
+      fa: { name:'Alqurmani Digital', desc:'بازاریابی دیجیتال، طراحی خلاقانه و هویت بصری حرفه‌ای با معیارهای جهانی.' },
+    }
+  },
+  {
+    icon: '🏛️',
+    key: 'hub',
+    link: '#',
+    trans: {
+      ar: { name:'القرماني هاب', desc:'المنصة المركزية لربط الأعمال والمستقلين ورواد الأعمال في بيئة تعاونية متطورة ومتكاملة.' },
+      en: { name:'Alqurmani Hub', desc:'The central platform connecting businesses, freelancers and entrepreneurs in an advanced collaborative environment.' },
+      es: { name:'Alqurmani Hub', desc:'La plataforma central que conecta empresas, freelancers y emprendedores en un entorno colaborativo avanzado.' },
+      it: { name:'Alqurmani Hub', desc:'La piattaforma centrale che connette aziende, freelancer e imprenditori in un ambiente collaborativo avanzato.' },
+      fr: { name:'Alqurmani Hub', desc:'La plateforme centrale connectant entreprises, freelances et entrepreneurs dans un environnement collaboratif avancé.' },
+      pt: { name:'Alqurmani Hub', desc:'A plataforma central conectando empresas, freelancers e empreendedores em um ambiente colaborativo avançado.' },
+      hi: { name:'Alqurmani Hub', desc:'व्यवसायों, फ्रीलांसरों और उद्यमियों को एक उन्नत सहयोगी वातावरण में जोड़ने वाला केंद्रीय मंच।' },
+      tr: { name:'Alqurmani Hub', desc:'İşletmeleri, serbest çalışanları ve girişimcileri gelişmiş bir işbirliği ortamında birleştiren merkezi platform.' },
+      zh: { name:'Alqurmani Hub', desc:'在先进协作环境中连接企业、自由职业者和创业者的中央平台。' },
+      ru: { name:'Alqurmani Hub', desc:'Центральная платформа, соединяющая бизнес, фрилансеров и предпринимателей в продвинутой среде сотрудничества.' },
+      ja: { name:'Alqurmani Hub', desc:'高度な協力環境でビジネス、フリーランサー、起業家をつなぐ中央プラットフォーム。' },
+      fa: { name:'Alqurmani Hub', desc:'پلتفرم مرکزی برای اتصال کسب‌وکارها، فریلنسرها و کارآفرینان در یک محیط همکاری پیشرفته.' },
+    }
+  },
+  {
+    icon: '📚',
+    key: 'rawaq',
+    link: '#',
+    trans: {
+      ar: { name:'رواق القرماني', desc:'منصة تعليمية وثقافية متخصصة في نشر المعرفة الرقمية والمحتوى العلمي والتقني الهادف لبناء جيل واعٍ.' },
+      en: { name:'Rawaq Alqurmani', desc:'An educational and cultural platform specializing in digital knowledge, scientific and technical content to build an aware generation.' },
+      es: { name:'Rawaq Alqurmani', desc:'Una plataforma educativa y cultural especializada en conocimiento digital y contenido científico y técnico.' },
+      it: { name:'Rawaq Alqurmani', desc:'Una piattaforma educativa e culturale specializzata nella conoscenza digitale e nei contenuti scientifici e tecnici.' },
+      fr: { name:'Rawaq Alqurmani', desc:"Une plateforme éducative et culturelle spécialisée dans les connaissances numériques et le contenu scientifique." },
+      pt: { name:'Rawaq Alqurmani', desc:'Uma plataforma educacional e cultural especializada em conhecimento digital e conteúdo científico e técnico.' },
+      hi: { name:'Rawaq Alqurmani', desc:'डिजिटल ज्ञान और वैज्ञानिक सामग्री में विशेषज्ञता रखने वाला शैक्षिक और सांस्कृतिक मंच।' },
+      tr: { name:'Rawaq Alqurmani', desc:'Dijital bilgi ve bilimsel içerikte uzmanlaşmış eğitim ve kültür platformu.' },
+      zh: { name:'Rawaq Alqurmani', desc:'专注于数字知识、科学和技术内容的教育和文化平台。' },
+      ru: { name:'Rawaq Alqurmani', desc:'Образовательная и культурная платформа, специализирующаяся на цифровых знаниях и научном контенте.' },
+      ja: { name:'Rawaq Alqurmani', desc:'デジタル知識と科学的・技術的コンテンツに特化した教育・文化プラットフォーム。' },
+      fa: { name:'Rawaq Alqurmani', desc:'پلتفرم آموزشی و فرهنگی تخصصی در دانش دیجیتال و محتوای علمی و فنی.' },
+    }
+  },
+  /* ——— إضافة منصات جديدة هنا ——— */
 ];
 
-function renderProjects(){
-  const container = document.getElementById("projects");
-  container.innerHTML = "";
-  projects.forEach(p=>{
-    const div = document.createElement("div");
-    div.className = "project";
-    div.innerText = p;
-    container.appendChild(div);
-  });
-}
-renderProjects();
-
-/* ===== اللغات ===== */
-const translations = {
-  en:{subtitle:"Empire Digital System"},
-  ar:{subtitle:"نظام الإمبراطورية الرقمية"},
-  fr:{subtitle:"Système Empire Numérique"},
-  es:{subtitle:"Sistema del Imperio Digital"},
-  it:{subtitle:"Sistema Impero Digitale"},
-  tr:{subtitle:"Dijital İmparatorluk Sistemi"},
-  pt:{subtitle:"Sistema do Império Digital"},
-  ja:{subtitle:"デジタル帝国システム"},
-  zh:{subtitle:"数字帝国系统"},
-  ko:{subtitle:"디지털 제국 시스템"},
-  hi:{subtitle:"डिजिटल साम्राज्य प्रणाली"}
+/* ============================================================
+   UI TRANSLATIONS  (نصوص الصفحة الثابتة)
+   ============================================================ */
+const UI = {
+  ar:{ dir:'rtl', hero_tag:'المنظمة الرقمية الرائدة', hero_sub:'المنصات الرقمية المتكاملة', sec_tag:'منصاتنا', sec_title:'المنصات الرقمية', sec_sub:'منظومة متكاملة من المنصات الرقمية المتخصصة، كل منها مصمم باحترافية عالية.', foot_tag:'منظمة رقمية متكاملة', nav_home:'الصفحة الرئيسية', nav_policies:'سياسات وقوانين', nav_platforms:'منصاتنا', nav_store:'متجرنا', nav_services:'خدماتنا', nav_faq:'الأسئلة الشائعة', nav_support:'الدعم الفني', nav_careers:'الوظائف', nav_auth:'اشتراك - تسجيل الدخول' },
+  en:{ dir:'ltr', hero_tag:'The Leading Digital Organization', hero_sub:'Integrated Digital Platforms', sec_tag:'Our Platforms', sec_title:'Digital Platforms', sec_sub:'An integrated suite of specialized digital platforms, each designed with exceptional professionalism.', foot_tag:'Integrated Digital Organization', nav_home:'Home', nav_policies:'Policies', nav_platforms:'Platforms', nav_store:'Store', nav_services:'Services', nav_faq:'FAQ', nav_support:'Support', nav_careers:'Careers', nav_auth:'Sign Up - Login' },
+  es:{ dir:'ltr', hero_tag:'La Organización Digital Líder', hero_sub:'Plataformas Digitales Integradas', sec_tag:'Nuestras Plataformas', sec_title:'Plataformas Digitales', sec_sub:'Un conjunto integrado de plataformas digitales especializadas, cada una diseñada con excepcional profesionalismo.', foot_tag:'Organización Digital Integrada', nav_home:'Inicio', nav_policies:'Políticas', nav_platforms:'Plataformas', nav_store:'Tienda', nav_services:'Servicios', nav_faq:'FAQ', nav_support:'Soporte', nav_careers:'Empleos', nav_auth:'Registro - Iniciar sesión' },
+  it:{ dir:'ltr', hero_tag:"L'Organizzazione Digitale Leader", hero_sub:'Piattaforme Digitali Integrate', sec_tag:'Le Nostre Piattaforme', sec_title:'Piattaforme Digitali', sec_sub:'Una suite integrata di piattaforme digitali specializzate, ciascuna progettata con eccezionale professionalità.', foot_tag:'Organizzazione Digitale Integrata', nav_home:'Home', nav_policies:'Politiche', nav_platforms:'Piattaforme', nav_store:'Negozio', nav_services:'Servizi', nav_faq:'FAQ', nav_support:'Supporto', nav_careers:'Carriere', nav_auth:'Registrati - Accedi' },
+  fr:{ dir:'ltr', hero_tag:'L\'Organisation Numérique Leader', hero_sub:'Plateformes Numériques Intégrées', sec_tag:'Nos Plateformes', sec_title:'Plateformes Numériques', sec_sub:'Une suite intégrée de plateformes numériques spécialisées, chacune conçue avec un professionnalisme exceptionnel.', foot_tag:'Organisation Numérique Intégrée', nav_home:'Accueil', nav_policies:'Politiques', nav_platforms:'Plateformes', nav_store:'Boutique', nav_services:'Services', nav_faq:'FAQ', nav_support:'Support', nav_careers:'Emplois', nav_auth:'Inscription - Connexion' },
+  pt:{ dir:'ltr', hero_tag:'A Organização Digital Líder', hero_sub:'Plataformas Digitais Integradas', sec_tag:'Nossas Plataformas', sec_title:'Plataformas Digitais', sec_sub:'Um conjunto integrado de plataformas digitais especializadas, cada uma projetada com excepcional profissionalismo.', foot_tag:'Organização Digital Integrada', nav_home:'Início', nav_policies:'Políticas', nav_platforms:'Plataformas', nav_store:'Loja', nav_services:'Serviços', nav_faq:'FAQ', nav_support:'Suporte', nav_careers:'Carreiras', nav_auth:'Cadastro - Login' },
+  hi:{ dir:'ltr', hero_tag:'अग्रणी डिजिटल संगठन', hero_sub:'एकीकृत डिजिटल प्लेटफॉर्म', sec_tag:'हमारे प्लेटफॉर्म', sec_title:'डिजिटल प्लेटफॉर्म', sec_sub:'विशेष डिजिटल प्लेटफार्मों का एक एकीकृत सूट।', foot_tag:'एकीकृत डिजिटल संगठन', nav_home:'होम', nav_policies:'नीतियां', nav_platforms:'प्लेटफॉर्म', nav_store:'स्टोर', nav_services:'सेवाएं', nav_faq:'FAQ', nav_support:'सहायता', nav_careers:'करियर', nav_auth:'साइन अप - लॉगिन' },
+  tr:{ dir:'ltr', hero_tag:'Önde Gelen Dijital Kuruluş', hero_sub:'Entegre Dijital Platformlar', sec_tag:'Platformlarımız', sec_title:'Dijital Platformlar', sec_sub:'Olağanüstü profesyonellikle tasarlanmış uzman dijital platformların entegre bir paketi.', foot_tag:'Entegre Dijital Kuruluş', nav_home:'Ana Sayfa', nav_policies:'Politikalar', nav_platforms:'Platformlar', nav_store:'Mağaza', nav_services:'Hizmetler', nav_faq:'SSS', nav_support:'Destek', nav_careers:'Kariyer', nav_auth:'Kayıt - Giriş' },
+  zh:{ dir:'ltr', hero_tag:'领先数字组织', hero_sub:'综合数字平台', sec_tag:'我们的平台', sec_title:'数字平台', sec_sub:'一套综合的专业数字平台，每个平台都以卓越的专业精神设计。', foot_tag:'综合数字组织', nav_home:'首页', nav_policies:'政策', nav_platforms:'平台', nav_store:'商店', nav_services:'服务', nav_faq:'常见问题', nav_support:'支持', nav_careers:'职业', nav_auth:'注册 - 登录' },
+  ru:{ dir:'ltr', hero_tag:'Ведущая Цифровая Организация', hero_sub:'Интегрированные Цифровые Платформы', sec_tag:'Наши Платформы', sec_title:'Цифровые Платформы', sec_sub:'Интегрированный набор специализированных цифровых платформ, каждая разработана с исключительным профессионализмом.', foot_tag:'Интегрированная Цифровая Организация', nav_home:'Главная', nav_policies:'Политики', nav_platforms:'Платформы', nav_store:'Магазин', nav_services:'Услуги', nav_faq:'FAQ', nav_support:'Поддержка', nav_careers:'Карьера', nav_auth:'Регистрация - Вход' },
+  ja:{ dir:'ltr', hero_tag:'先進デジタル組織', hero_sub:'統合デジタルプラットフォーム', sec_tag:'私たちのプラットフォーム', sec_title:'デジタルプラットフォーム', sec_sub:'それぞれが卓越した専門性で設計された特化型デジタルプラットフォームの統合スイート。', foot_tag:'統合デジタル組織', nav_home:'ホーム', nav_policies:'ポリシー', nav_platforms:'プラットフォーム', nav_store:'ストア', nav_services:'サービス', nav_faq:'FAQ', nav_support:'サポート', nav_careers:'採用情報', nav_auth:'登録 - ログイン' },
+  fa:{ dir:'rtl', hero_tag:'سازمان دیجیتال پیشرو', hero_sub:'پلتفرم‌های دیجیتال یکپارچه', sec_tag:'پلتفرم‌های ما', sec_title:'پلتفرم‌های دیجیتال', sec_sub:'مجموعه‌ای یکپارچه از پلتفرم‌های دیجیتال تخصصی، هر کدام با حرفه‌ای‌گری استثنایی طراحی شده‌اند.', foot_tag:'سازمان دیجیتال یکپارچه', nav_home:'خانه', nav_policies:'سیاست‌ها', nav_platforms:'پلتفرم‌ها', nav_store:'فروشگاه', nav_services:'خدمات', nav_faq:'سوالات متداول', nav_support:'پشتیبانی', nav_careers:'مشاغل', nav_auth:'ثبت‌نام - ورود' },
 };
 
-function setLang(lang){
+let currentLang = 'ar';
 
-  document.body.classList.remove("rtl","ltr");
+/* ——— render cards ——— */
+function renderCards(lang) {
+  const grid = document.getElementById('platforms-grid');
+  grid.innerHTML = '';
+  PLATFORMS.forEach((p, i) => {
+    const t = p.trans[lang] || p.trans['ar'];
+    const arrowChar = document.documentElement.getAttribute('dir') === 'rtl' ? '←' : '→';
+    const card = document.createElement('a');
+    card.href = p.link;
+    card.className = 'pcard';
+    card.style.animationDelay = (0.05 + i * 0.07) + 's';
+    card.innerHTML = `
+      <div class="pc-num">0${i + 1} / PLATFORM</div>
+      <span class="pc-icon">${p.icon}</span>
+      <div class="pc-name">${t.name}</div>
+      <p class="pc-desc">${t.desc}</p>
+      <span class="pc-arrow">${arrowChar}</span>
+    `;
+    grid.appendChild(card);
+  });
+}
 
-  if(lang === "ar"){
-    document.body.classList.add("rtl");
-  } else {
-    document.body.classList.add("ltr");
+/* ——— apply language ——— */
+function applyLang(lang) {
+  const u = UI[lang] || UI['ar'];
+  currentLang = lang;
+
+  document.documentElement.setAttribute('dir', u.dir);
+  document.documentElement.setAttribute('lang', lang);
+
+  document.querySelectorAll('[data-key]').forEach(el => {
+    const k = el.getAttribute('data-key');
+    if (u[k] !== undefined) el.textContent = u[k];
+  });
+
+  renderCards(lang);
+}
+
+/* ——— lang switcher ——— */
+function setLang(lang, flag, code, dir) {
+  document.getElementById('cur-flag').textContent = flag;
+  document.getElementById('cur-code').textContent  = code;
+  document.getElementById('lang-drop').classList.remove('show');
+  applyLang(lang);
+}
+
+function toggleLang() {
+  document.getElementById('lang-drop').classList.toggle('show');
+}
+document.addEventListener('click', e => {
+  if (!document.getElementById('lang-zone').contains(e.target))
+    document.getElementById('lang-drop').classList.remove('show');
+});
+
+/* ——— menu ——— */
+function toggleMenu() {
+  document.getElementById('menu-toggle').classList.toggle('open');
+  document.getElementById('sidebar').classList.toggle('open');
+  document.getElementById('sidebar-overlay').classList.toggle('open');
+}
+function closeMenu() {
+  document.getElementById('menu-toggle').classList.remove('open');
+  document.getElementById('sidebar').classList.remove('open');
+  document.getElementById('sidebar-overlay').classList.remove('open');
+}
+
+/* ——— clock ——— */
+function tick() {
+  const now = new Date();
+  const days_ar = ['الأحد','الاثنين','الثلاثاء','الأربعاء','الخميس','الجمعة','السبت'];
+  const mons_ar = ['يناير','فبراير','مارس','أبريل','مايو','يونيو','يوليو','أغسطس','سبتمبر','أكتوبر','نوفمبر','ديسمبر'];
+  const h = String(now.getHours()).padStart(2,'0');
+  const m = String(now.getMinutes()).padStart(2,'0');
+  const s = String(now.getSeconds()).padStart(2,'0');
+  document.getElementById('sb-time').textContent = `${h}:${m}:${s}`;
+  document.getElementById('sb-day').textContent  = days_ar[now.getDay()];
+  document.getElementById('sb-date').textContent = `${now.getDate()} ${mons_ar[now.getMonth()]} ${now.getFullYear()}`;
+}
+tick(); setInterval(tick, 1000);
+
+/* ——— back btn ——— */
+window.addEventListener('scroll', () => {
+  document.getElementById('back-btn').classList.toggle('show', window.scrollY > 300);
+});
+
+/* ——— particles ——— */
+(function(){
+  const bg = document.getElementById('particles');
+  for(let i=0;i<45;i++){
+    const p=document.createElement('div'); p.className='pt';
+    const s=1+Math.random()*2;
+    p.style.cssText=`left:${Math.random()*100}%;width:${s}px;height:${s}px;animation-duration:${9+Math.random()*18}s;animation-delay:${Math.random()*14}s;`;
+    bg.appendChild(p);
   }
+})();
 
-  document.getElementById("subtitle").innerText =
-    translations[lang]?.subtitle || "Empire System";
-
-  document.getElementById("langMenu").style.display="none";
-}
-
-/* ===== فتح القائمة ===== */
-function toggleLangMenu(){
-  const menu = document.getElementById("langMenu");
-  menu.style.display = menu.style.display === "block" ? "none" : "block";
-}
-
+/* ——— init ——— */
+applyLang('ar');
 </script>
-
 </body>
 </html>
