@@ -1,158 +1,231 @@
 <!DOCTYPE html>
-<html lang="ar" dir="rtl">
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Alqurmani X | الإمبراطورية الرقمية</title>
-
-<meta name="description" content="القرماني اكس - إمبراطورية رقمية تضم مشاريع تقنية وإعلامية واستثمارية.">
-<meta name="keywords" content="alqurmani x, القرماني اكس, إمبراطورية رقمية, القرماني ديجيتال, رواق القرماني, القرماني كوين">
-<meta name="author" content="محمد عبدالله - أبو عبدالله القرماني">
+<title>Alqurmani X | Empire System</title>
 
 <style>
 
 body{
   margin:0;
   font-family:Arial, sans-serif;
-  background: radial-gradient(circle at top, #111 0%, #050507 100%);
+  background:#050507;
   color:#fff;
-  overflow-x:hidden;
+  transition:0.4s;
 }
 
-/* الهيدر */
-header{
-  text-align:center;
-  padding:70px 20px 40px;
+/* ===== كرة الأرض ===== */
+.globe-container{
+  position:fixed;
+  top:20px;
+  left:20px;
+  width:80px;
+  height:80px;
+  cursor:pointer;
+  z-index:999;
 }
 
-.logo{
-  font-size:55px;
-  font-weight:bold;
-  color:#d4af37;
-  letter-spacing:2px;
+.globe{
+  width:100%;
+  height:100%;
+  border-radius:50%;
+  background: radial-gradient(circle at 30% 30%, #2a7fff, #001133);
+  box-shadow:0 0 20px rgba(0,150,255,0.5);
+  animation:spin 6s linear infinite;
+  position:relative;
 }
 
-.subtitle{
-  color:#aaa;
-  margin-top:10px;
+@keyframes spin{
+  from{transform:rotate(0deg);}
+  to{transform:rotate(360deg);}
 }
 
-/* شريط التنقل */
-nav{
-  display:flex;
-  justify-content:center;
-  gap:20px;
-  margin-top:30px;
-  flex-wrap:wrap;
+/* خطوط وهمية */
+.globe::before{
+  content:"";
+  position:absolute;
+  width:100%;
+  height:100%;
+  border-radius:50%;
+  background: repeating-linear-gradient(
+    90deg,
+    rgba(255,255,255,0.1),
+    rgba(255,255,255,0.1) 2px,
+    transparent 2px,
+    transparent 10px
+  );
+  opacity:0.3;
 }
 
-nav a{
-  color:#d4af37;
-  text-decoration:none;
-  border:1px solid #d4af37;
-  padding:8px 15px;
-  border-radius:20px;
+/* ===== قائمة اللغات ===== */
+.lang-menu{
+  position:fixed;
+  top:110px;
+  left:20px;
+  background:#111;
+  border:1px solid #333;
+  padding:10px;
+  border-radius:10px;
+  display:none;
+  z-index:999;
+}
+
+.lang-menu button{
+  display:block;
+  width:100%;
+  margin:5px 0;
+  padding:8px;
+  background:#222;
+  color:#fff;
+  border:none;
+  cursor:pointer;
   transition:0.3s;
 }
 
-nav a:hover{
+.lang-menu button:hover{
   background:#d4af37;
   color:#000;
 }
 
-/* الأقسام */
-section{
-  max-width:900px;
-  margin:50px auto;
-  padding:20px;
+/* ===== الهيدر ===== */
+header{
+  text-align:center;
+  padding:80px 20px 30px;
 }
 
-.card{
-  background:rgba(255,255,255,0.05);
-  border:1px solid rgba(212,175,55,0.2);
-  padding:20px;
-  border-radius:15px;
-  margin:15px 0;
-  box-shadow:0 0 20px rgba(212,175,55,0.05);
-}
-
-.gold{
+.logo{
+  font-size:50px;
   color:#d4af37;
 }
 
-/* تأثير بسيط */
-.glow{
-  text-shadow:0 0 10px rgba(212,175,55,0.5);
+/* ===== مشاريع ===== */
+.projects{
+  max-width:800px;
+  margin:40px auto;
+  padding:20px;
 }
 
-/* الفوتر */
-footer{
-  text-align:center;
-  padding:40px;
-  color:#666;
-  font-size:13px;
+.project{
+  background:#111;
+  margin:10px 0;
+  padding:15px;
+  border-radius:10px;
+  border:1px solid #333;
+  transition:0.3s;
+}
+
+.project:hover{
+  border-color:#d4af37;
+}
+
+/* RTL support */
+.rtl{
+  direction:rtl;
+  text-align:right;
+}
+
+.ltr{
+  direction:ltr;
+  text-align:left;
 }
 
 </style>
-
 </head>
 
 <body>
 
-<header>
-  <div class="logo glow">alqurmani x</div>
-  <div class="subtitle">الإمبراطورية الرقمية للقرماني</div>
+<!-- 🌍 الكرة -->
+<div class="globe-container" onclick="toggleLangMenu()">
+  <div class="globe"></div>
+</div>
 
-  <nav>
-    <a href="#identity">الهوية</a>
-    <a href="#projects">المشاريع</a>
-    <a href="#founder">المؤسس</a>
-    <a href="#network">الشبكة</a>
-  </nav>
+<!-- 🌐 اللغات -->
+<div class="lang-menu" id="langMenu">
+  <button onclick="setLang('ar')">🇸🇦 العربية</button>
+  <button onclick="setLang('en')">🇬🇧 English</button>
+  <button onclick="setLang('fr')">🇫🇷 Français</button>
+  <button onclick="setLang('es')">🇪🇸 Español</button>
+  <button onclick="setLang('it')">🇮🇹 Italiano</button>
+  <button onclick="setLang('tr')">🇹🇷 Türkçe</button>
+  <button onclick="setLang('pt')">🇵🇹 Português</button>
+  <button onclick="setLang('ja')">🇯🇵 日本語</button>
+  <button onclick="setLang('zh')">🇨🇳 中文</button>
+  <button onclick="setLang('ko')">🇰🇷 한국어</button>
+  <button onclick="setLang('hi')">🇮🇳 हिन्दी</button>
+</div>
+
+<header>
+  <div class="logo">Alqurmani X</div>
+  <p id="subtitle">Empire Digital System</p>
 </header>
 
-<section id="identity">
-  <div class="card">
-    <h2 class="gold">هوية المشروع</h2>
-    <p>منصة رقمية مصرية متعددة المشاريع التقنية والإعلامية والاستثمارية.</p>
-    <p>تعمل كنظام كيان واحد يجمع عدة مشاريع تحت اسم واحد: <b>Alqurmani X</b></p>
-  </div>
-</section>
+<div class="projects" id="projects">
 
-<section id="founder">
-  <div class="card">
-    <h2 class="gold">المؤسس</h2>
-    <p>محمد عبدالله</p>
-    <p>الشهير: محمد بسيوني</p>
-    <p>أبو عبدالله القرماني</p>
-    <p>الموقع: مصر - أسوان</p>
-  </div>
-</section>
+</div>
 
-<section id="projects">
-  <div class="card">
-    <h2 class="gold">المشاريع التابعة</h2>
-    <ul>
-      <li>القرماني ديجيتال</li>
-      <li>رواق القرماني</li>
-      <li>القرماني كوين</li>
-      <li>القرماني هاب</li>
-      <li>القرماني لايف</li>
-    </ul>
-  </div>
-</section>
+<script>
 
-<section id="network">
-  <div class="card">
-    <h2 class="gold">الشبكة الإمبراطورية</h2>
-    <p>نظام مترابط من الخدمات والمنصات يعمل كوحدة رقمية واحدة قابلة للتوسع.</p>
-  </div>
-</section>
+/* ===== مشاريع قابلة للتوسع ===== */
+const projects = [
+  "القرماني ديجيتال",
+  "رواق القرماني",
+  "القرماني كوين",
+  "القرماني هاب",
+  "القرماني لايف"
+];
 
-<footer>
-  © 2026 Alqurmani X - Empire System
-</footer>
+function renderProjects(){
+  const container = document.getElementById("projects");
+  container.innerHTML = "";
+  projects.forEach(p=>{
+    const div = document.createElement("div");
+    div.className = "project";
+    div.innerText = p;
+    container.appendChild(div);
+  });
+}
+renderProjects();
+
+/* ===== اللغات ===== */
+const translations = {
+  en:{subtitle:"Empire Digital System"},
+  ar:{subtitle:"نظام الإمبراطورية الرقمية"},
+  fr:{subtitle:"Système Empire Numérique"},
+  es:{subtitle:"Sistema del Imperio Digital"},
+  it:{subtitle:"Sistema Impero Digitale"},
+  tr:{subtitle:"Dijital İmparatorluk Sistemi"},
+  pt:{subtitle:"Sistema do Império Digital"},
+  ja:{subtitle:"デジタル帝国システム"},
+  zh:{subtitle:"数字帝国系统"},
+  ko:{subtitle:"디지털 제국 시스템"},
+  hi:{subtitle:"डिजिटल साम्राज्य प्रणाली"}
+};
+
+function setLang(lang){
+
+  document.body.classList.remove("rtl","ltr");
+
+  if(lang === "ar"){
+    document.body.classList.add("rtl");
+  } else {
+    document.body.classList.add("ltr");
+  }
+
+  document.getElementById("subtitle").innerText =
+    translations[lang]?.subtitle || "Empire System";
+
+  document.getElementById("langMenu").style.display="none";
+}
+
+/* ===== فتح القائمة ===== */
+function toggleLangMenu(){
+  const menu = document.getElementById("langMenu");
+  menu.style.display = menu.style.display === "block" ? "none" : "block";
+}
+
+</script>
 
 </body>
 </html>
