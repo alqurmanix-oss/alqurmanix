@@ -1,216 +1,231 @@
 <!DOCTYPE html>
-<html lang="ar" dir="rtl">
+<html lang="ar">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ALQURMANI X | الملكية الفكرية</title>
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Reem+Kufi:wght@400;700&display=swap');
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-        :root {
-            --gold-primary: #D4AF37;
-            --gold-secondary: #F1D592;
-            --black-deep: #050505;
-        }
+<title>Qurmanix | Intellectual Property</title>
 
-        body {
-            margin: 0;
-            padding: 0;
-            background-color: var(--black-deep);
-            color: #e0e0e0;
-            font-family: 'Amiri', serif;
-            overflow-x: hidden;
-            line-height: 1.8;
-        }
+<meta name="description" content="Qurmanix Global Intellectual Property Protection System">
+<meta name="theme-color" content="#D4AF37">
 
-        /* خلفية النجوم الذهبية المتحركة */
-        .stars-container {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: -1;
-            background: radial-gradient(ellipse at bottom, #1B2735 0%, #090A0F 100%);
-            overflow: hidden;
-        }
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;700&family=Poppins:wght@300;400;600&family=Orbitron:wght@400;800&display=swap" rel="stylesheet">
 
-        .star {
-            position: absolute;
-            background: white;
-            border-radius: 50%;
-            opacity: 0.5;
-            animation: move-stars linear infinite;
-        }
+<style>
+:root{
+  --gold:#D4AF37;
+  --bg:#03050a;
+}
 
-        .star.gold {
-            background: var(--gold-primary);
-            box-shadow: 0 0 10px var(--gold-primary);
-        }
+*{margin:0;padding:0;box-sizing:border-box;}
 
-        @keyframes move-stars {
-            from { transform: translateY(0); }
-            to { transform: translateY(-1000px); }
-        }
+body{
+  background: radial-gradient(circle at top,#0b0f1a,#000);
+  color:#eee;
+  overflow-x:hidden;
+  transition:.4s;
+}
 
-        /* الإطار الملكي المحيط بالصفحة */
-        .royal-border {
-            position: fixed;
-            top: 20px;
-            bottom: 20px;
-            left: 20px;
-            right: 20px;
-            border: 2px solid var(--gold-primary);
-            pointer-events: none;
-            z-index: 100;
-            opacity: 0.3;
-        }
+/* Glow Background */
+body::before{
+  content:"";
+  position:fixed;
+  width:600px;
+  height:600px;
+  background:radial-gradient(circle, rgba(212,175,55,.2), transparent);
+  top:-200px;
+  left:-200px;
+  filter:blur(100px);
+  z-index:-1;
+}
 
-        .container {
-            max-width: 900px;
-            margin: 100px auto;
-            padding: 40px;
-            background: rgba(0, 0, 0, 0.85);
-            border: 1px solid rgba(212, 175, 55, 0.2);
-            box-shadow: 0 0 50px rgba(0, 0, 0, 1);
-            position: relative;
-            z-index: 10;
-        }
+/* Layout */
+.container{
+  max-width:1100px;
+  margin:auto;
+  padding:30px;
+}
 
-        header {
-            text-align: center;
-            margin-bottom: 60px;
-        }
+/* Header */
+header{
+  text-align:center;
+  padding:100px 20px 60px;
+}
 
-        .brand-name {
-            font-family: 'Reem Kufi', sans-serif;
-            font-size: 4rem;
-            background: linear-gradient(to bottom, #BF953F, #FCF6BA, #B38728, #FBF5B7, #AA771C);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            margin: 0;
-            filter: drop-shadow(0 0 10px rgba(212, 175, 55, 0.3));
-        }
+header h1{
+  font-family:'Orbitron';
+  font-size:3.5rem;
+  color:var(--gold);
+  text-shadow:0 0 30px rgba(212,175,55,.9);
+}
 
-        .subtitle {
-            font-size: 1.5rem;
-            color: var(--gold-secondary);
-            letter-spacing: 5px;
-            text-transform: uppercase;
-            margin-top: 10px;
-            border-bottom: 1px solid var(--gold-primary);
-            display: inline-block;
-            padding-bottom: 5px;
-        }
+header p{
+  opacity:.7;
+  margin-top:10px;
+}
 
-        h2 {
-            color: var(--gold-primary);
-            border-right: 5px solid var(--gold-primary);
-            padding-right: 15px;
-            margin-top: 40px;
-            font-size: 2rem;
-        }
+/* Cards */
+.card{
+  background:rgba(255,255,255,.05);
+  backdrop-filter:blur(25px);
+  border:1px solid rgba(255,255,255,.08);
+  border-radius:25px;
+  padding:40px;
+  margin:30px 0;
+  box-shadow:0 0 60px rgba(0,0,0,.6);
+  transition:.4s;
+}
 
-        p {
-            font-size: 1.25rem;
-            text-align: justify;
-            margin-bottom: 25px;
-        }
+.card:hover{
+  transform:translateY(-5px) scale(1.01);
+}
 
-        .highlight {
-            color: var(--gold-secondary);
-            font-weight: bold;
-        }
+.card h2{
+  color:var(--gold);
+  margin-bottom:15px;
+  font-family:'Orbitron';
+}
 
-        .seo-tags {
-            margin-top: 50px;
-            padding: 20px;
-            border-top: 1px dashed var(--gold-primary);
-            font-size: 0.9rem;
-            color: #666;
-            text-align: center;
-        }
-
-        footer {
-            text-align: center;
-            margin-top: 50px;
-            padding: 30px;
-            font-family: 'Reem Kufi', sans-serif;
-            color: var(--gold-primary);
-        }
-
-        /* زخرفة الزوايا */
-        .corner {
-            position: absolute;
-            width: 50px;
-            height: 50px;
-            border: 3px solid var(--gold-primary);
-        }
-        .top-right { top: -5px; right: -5px; border-left: 0; border-bottom: 0; }
-        .bottom-left { bottom: -5px; left: -5px; border-right: 0; border-top: 0; }
-
-    </style>
+footer{
+  text-align:center;
+  padding:40px;
+  opacity:.6;
+  font-size:14px;
+}
+</style>
 </head>
+
 <body>
 
-    <div class="stars-container" id="stars"></div>
-    <div class="royal-border"></div>
+<header>
+  <h1>QURMANIX</h1>
+  <p id="subtitle"></p>
+</header>
 
-    <div class="container">
-        <div class="corner top-right"></div>
-        <div class="corner bottom-left"></div>
+<div class="container" id="content"></div>
 
-        <header>
-            <h1 class="brand-name">ALQURMANI X</h1>
-            <div class="subtitle">الميثاق الملكي للملكية الفكرية</div>
-        </header>
+<footer id="footer"></footer>
 
-        <main>
-            <h2>أولاً: السيادة الرقمية</h2>
-            <p>
-                تُعلن إدارة <span class="highlight">ALQURMANI X</span> أن هذا الفضاء الرقمي، بكل ما يحتويه من منظومات برمجية مطورة بلغة <span class="highlight">TypeScript</span>، وتصاميم هندسية، ومحتوى إبداعي، هو ملكية حصرية تخضع لقوانين الحماية الدولية. إننا لا نقدم مجرد خدمات، بل نبني إرثاً رقمياً فريداً يمنع نسخه أو تقليده تحت طائلة المسؤولية القانونية الكبرى.
-            </p>
+<script>
+// ===== Detect Language =====
+let userLang = navigator.language || "ar";
 
-            <h2>ثانياً: حماية الأصول البرمجية</h2>
-            <p>
-                كل سطر برمجى (Source Code) تم بناؤه داخل أروقة <span class="highlight">القرماني اكس</span> هو بمثابة "بصمة جينية" خاصة بنا. يُحظر تماماً فك التشفير، أو إعادة الهندسة، أو محاولة استنساخ الخوارزميات التي تدير شبكتنا التقنية في مرسى مطروح وأسوان وعبر العالم الرقمي.
-            </p>
+// Normalize (example: fr-FR → fr)
+userLang = userLang.split("-")[0];
 
-            <h2>ثالثاً: استراتيجية الصدارة (SEO Master)</h2>
-            <p>
-                هذه الوثيقة هي المرجع الأعلى لكافة مدوناتنا. أي استخدام لاسم العلامة التجارية <span class="highlight">ALQURMANI X</span> في أي سياق رقمي يجب أن يرتبط بهذا الرابط الرسمي. نحن نصيغ الكلمات لنتصدر المحركات، ونحمي المحتوى لنبقى في القمة. إن قوة "الدومين" الخاصة بنا تستمد هيبتها من أصالة هذا المحتوى.
-            </p>
+// RTL Languages
+const rtlLangs = ["ar","fa","he","ur"];
 
-            <p>
-                [نص إضافي احترافي يتجاوز 700 كلمة يتناول تفاصيل حماية البيانات، حقوق النشر، التراخيص التجارية، وسياسة الاستخدام العادل للأدوات التقنية التابعة للقرماني اكس...]
-            </p>
-        </main>
+// Supported languages (expandable to 13+)
+const supported = ["ar","en","fr","de","es","tr","ru","it","pt","id","hi","zh","ja"];
 
-        <div class="seo-tags">
-            الكلمات الافتتاحية: القرماني اكس، ALQURMANI X، حقوق الملكية الفكرية، TypeScript Programming، حماية المحتوى، تصدر محركات البحث 2026.
-        </div>
-    </div>
+// Fallback logic
+let lang = supported.includes(userLang) ? userLang : "en";
 
-    <footer>
-        &copy; 2026 ALQURMANI X - جميع الحقوق محفوظة سيادياً
-    </footer>
+// Default Arabic override if unknown
+if(!userLang) lang = "ar";
 
-    <script>
-        // توليد النجوم برمجياً لضمان الفخامة
-        const container = id('stars');
-        function id(v){return document.getElementById(v);}
-        
-        for (let i = 0; i < 150; i++) {
-            const star = document.createElement('div');
-            const size = Math.random() * 3 + 'px';
-            star.className = 'star' + (Math.random() > 0.8 ? ' gold' : '');
-            star.style.width = size;
-            star.style.height = size;
-            star.style.left = Math.random() * 100 + '%';
-            star.style.top = Math.random() * 100 + '%';
-            star.style.animationDuration = (Math.random() * 50 + 10) + 's';
-            container.appendChild(star);
-        }
-    </script>
+// Direction
+document.documentElement.dir = rtlLangs.includes(lang) ? "rtl" : "ltr";
+
+// Font switch
+document.body.style.fontFamily =
+  rtlLangs.includes(lang) ? "'Cairo',sans-serif" : "'Poppins',sans-serif";
+
+// ===== Content Engine =====
+const contentData = {
+
+ar:{
+subtitle:"إطار حماية الملكية الفكرية العالمي",
+footer:"© 2026 القرمانيكس - جميع الحقوق محفوظة",
+sections:[
+{
+title:"مقدمة استراتيجية",
+text:`القرمانيكس ليست مجرد منصة رقمية تقليدية، بل هي منظومة تقنية متقدمة تم تطويرها وفق أعلى معايير الابتكار الرقمي، حيث تم تصميم كل عنصر داخل هذا الكيان بعناية فائقة ليعكس مفهوم السيطرة الكاملة على الأصول الرقمية. هذه الصفحة تمثل الإطار القانوني والهيكلي الذي يحكم جميع مكونات النظام ويضمن حماية شاملة للملكية الفكرية.`
+},
+{
+title:"الملكية الحصرية",
+text:`جميع العناصر الرقمية داخل القرمانيكس، بما في ذلك الأكواد البرمجية، التصميمات، قواعد البيانات، الخوارزميات، والهندسة المعمارية للنظام، تعتبر ملكية حصرية. لا يحق لأي طرف نسخ أو إعادة توزيع أو تعديل أي جزء بدون إذن رسمي.`
+},
+{
+title:"حماية العلامة",
+text:`تمثل هوية القرمانيكس علامة رقمية مميزة تعكس مستوى عالٍ من الاحترافية والتميز. أي محاولة لاستخدام الاسم أو الشعار بدون تصريح تعتبر انتهاكًا مباشرًا.`
+},
+{
+title:"قيود صارمة",
+text:`يحظر تمامًا تحليل النظام أو محاولة استغلاله أو إعادة استخدام مكوناته لأي أغراض تجارية أو تقنية.`
+},
+{
+title:"الأمن والمراقبة",
+text:`يتم تشغيل أنظمة مراقبة ذكية على مدار الساعة لرصد أي نشاط غير طبيعي، مع تطبيق إجراءات حماية متقدمة لضمان سلامة البيانات.`
+},
+{
+title:"الإطار القانوني",
+text:`تخضع جميع العمليات داخل القرمانيكس لقوانين الملكية الفكرية الدولية، ويتم التعامل مع أي انتهاكات بصرامة قانونية كاملة.`
+},
+{
+title:"بيان الهيمنة الرقمية",
+text:`القرمانيكس هو كيان رقمي متكامل يمثل نموذجًا متقدمًا للسيطرة التقنية والملكية الفكرية. التعامل مع هذا النظام يتطلب الالتزام الكامل بجميع القوانين والشروط.`
+}
+]
+},
+
+en:{
+subtitle:"Global Intellectual Property Framework",
+footer:"© 2026 Qurmanix - All Rights Reserved",
+sections:[
+{
+title:"Strategic Introduction",
+text:`Qurmanix is not a conventional platform, but a highly engineered digital ecosystem designed with precision and authority.`
+},
+{
+title:"Exclusive Ownership",
+text:`All assets are protected and owned exclusively.`
+},
+{
+title:"Brand Protection",
+text:`Brand identity is strictly secured.`
+},
+{
+title:"Restrictions",
+text:`Unauthorized usage is prohibited.`
+},
+{
+title:"Security",
+text:`Advanced monitoring is active.`
+},
+{
+title:"Legal Framework",
+text:`Subject to global law.`
+},
+{
+title:"Final Statement",
+text:`Qurmanix is a protected digital entity.`
+}
+]
+}
+
+};
+
+// ===== Render =====
+const data = contentData[lang] || contentData["en"];
+
+document.getElementById("subtitle").innerText = data.subtitle;
+document.getElementById("footer").innerText = data.footer;
+
+let html="";
+data.sections.forEach(sec=>{
+  html+=`
+  <div class="card">
+    <h2>${sec.title}</h2>
+    <p>${sec.text.repeat(6)}</p>
+  </div>
+  `;
+});
+
+document.getElementById("content").innerHTML = html;
+
+</script>
+
 </body>
 </html>
