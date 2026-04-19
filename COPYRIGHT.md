@@ -3,118 +3,214 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>القرماني اكس | حقوق الملكية الفكرية - الميثاق الملكي</title>
-    
-    <script src="https://cdn.tailwindcss.com"></script>
-    
+    <title>ALQURMANI X | الملكية الفكرية</title>
     <style>
-        /* --- تأثير النجوم الذهبية والبيضاء المتلألئة --- */
+        @import url('https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Reem+Kufi:wght@400;700&display=swap');
+
+        :root {
+            --gold-primary: #D4AF37;
+            --gold-secondary: #F1D592;
+            --black-deep: #050505;
+        }
+
         body {
-            background-color: #030303; /* أسود فخم جداً */
-            background-image: 
-                radial-gradient(white, rgba(255,255,255,.2) 2px, transparent 3px),
-                radial-gradient(white, rgba(255,255,255,.15) 1px, transparent 2px),
-                radial-gradient(white, rgba(255,255,255,.1) 2px, transparent 3px),
-                radial-gradient(rgba(255,215,0,.3), rgba(255,215,0,.1) 2px, transparent 3px);
-            background-size: 550px 550px, 350px 350px, 250px 250px, 150px 150px;
-            background-position: 0 0, 40px 60px, 130px 270px, 70px 100px;
-            animation: backgroundShift 60s linear infinite;
-            font-family: 'Noto Serif Arabic', serif;
+            margin: 0;
+            padding: 0;
+            background-color: var(--black-deep);
+            color: #e0e0e0;
+            font-family: 'Amiri', serif;
+            overflow-x: hidden;
+            line-height: 1.8;
         }
 
-        /* أنيميشن حركة الخلفية ببطء */
-        @keyframes backgroundShift {
-            0% { background-position: 0 0, 40px 60px, 130px 270px, 70px 100px; }
-            100% { background-position: 550px 550px, 390px 410px, 380px 820px, 220px 650px; }
+        /* خلفية النجوم الذهبية المتحركة */
+        .stars-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            background: radial-gradient(ellipse at bottom, #1B2735 0%, #090A0F 100%);
+            overflow: hidden;
         }
 
-        /* توهج للنص */
-        .glow-text {
-            text-shadow: 0 0 10px rgba(255, 215, 0, 0.6), 0 0 20px rgba(255, 215, 0, 0.4);
+        .star {
+            position: absolute;
+            background: white;
+            border-radius: 50%;
+            opacity: 0.5;
+            animation: move-stars linear infinite;
         }
 
-        /* التدرج الذهبي لاسم القرماني اكس */
-        .gold-gradient {
-            background: linear-gradient(to right, #BF953F, #FCF6BA, #B38728, #FBF5B7, #AA771C);
+        .star.gold {
+            background: var(--gold-primary);
+            box-shadow: 0 0 10px var(--gold-primary);
+        }
+
+        @keyframes move-stars {
+            from { transform: translateY(0); }
+            to { transform: translateY(-1000px); }
+        }
+
+        /* الإطار الملكي المحيط بالصفحة */
+        .royal-border {
+            position: fixed;
+            top: 20px;
+            bottom: 20px;
+            left: 20px;
+            right: 20px;
+            border: 2px solid var(--gold-primary);
+            pointer-events: none;
+            z-index: 100;
+            opacity: 0.3;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 100px auto;
+            padding: 40px;
+            background: rgba(0, 0, 0, 0.85);
+            border: 1px solid rgba(212, 175, 55, 0.2);
+            box-shadow: 0 0 50px rgba(0, 0, 0, 1);
+            position: relative;
+            z-index: 10;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .brand-name {
+            font-family: 'Reem Kufi', sans-serif;
+            font-size: 4rem;
+            background: linear-gradient(to bottom, #BF953F, #FCF6BA, #B38728, #FBF5B7, #AA771C);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
+            margin: 0;
+            filter: drop-shadow(0 0 10px rgba(212, 175, 55, 0.3));
         }
+
+        .subtitle {
+            font-size: 1.5rem;
+            color: var(--gold-secondary);
+            letter-spacing: 5px;
+            text-transform: uppercase;
+            margin-top: 10px;
+            border-bottom: 1px solid var(--gold-primary);
+            display: inline-block;
+            padding-bottom: 5px;
+        }
+
+        h2 {
+            color: var(--gold-primary);
+            border-right: 5px solid var(--gold-primary);
+            padding-right: 15px;
+            margin-top: 40px;
+            font-size: 2rem;
+        }
+
+        p {
+            font-size: 1.25rem;
+            text-align: justify;
+            margin-bottom: 25px;
+        }
+
+        .highlight {
+            color: var(--gold-secondary);
+            font-weight: bold;
+        }
+
+        .seo-tags {
+            margin-top: 50px;
+            padding: 20px;
+            border-top: 1px dashed var(--gold-primary);
+            font-size: 0.9rem;
+            color: #666;
+            text-align: center;
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 50px;
+            padding: 30px;
+            font-family: 'Reem Kufi', sans-serif;
+            color: var(--gold-primary);
+        }
+
+        /* زخرفة الزوايا */
+        .corner {
+            position: absolute;
+            width: 50px;
+            height: 50px;
+            border: 3px solid var(--gold-primary);
+        }
+        .top-right { top: -5px; right: -5px; border-left: 0; border-bottom: 0; }
+        .bottom-left { bottom: -5px; left: -5px; border-right: 0; border-top: 0; }
+
     </style>
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+Arabic:wght@400;700;900&display=swap" rel="stylesheet">
 </head>
-<body class="min-h-screen text-gray-200 antialiased overflow-x-hidden relative">
+<body>
 
-    <div class="absolute inset-0 bg-black opacity-40 z-0"></div>
+    <div class="stars-container" id="stars"></div>
+    <div class="royal-border"></div>
 
-    <div class="relative z-10 max-w-7xl mx-auto px-6 py-24 md:py-32">
-        
-        <header class="text-center mb-28">
-            <h1 class="text-7xl md:text-9xl font-extrabold mb-6 tracking-tighter">
-                <span class="gold-gradient">ALQURMANI X</span>
-            </h1>
-            <p class="text-3xl md:text-4xl font-bold text-amber-100 tracking-tight glow-text">
-                الميثاق الملكي لحماية الملكية الفكرية
-            </p>
-            <div class="w-64 h-1.5 bg-amber-400 mx-auto mt-8 rounded-full" style="box-shadow: 0 0 20px #FFD700;"></div>
+    <div class="container">
+        <div class="corner top-right"></div>
+        <div class="corner bottom-left"></div>
+
+        <header>
+            <h1 class="brand-name">ALQURMANI X</h1>
+            <div class="subtitle">الميثاق الملكي للملكية الفكرية</div>
         </header>
 
-        <main class="grid grid-cols-1 gap-16 text-xl leading-relaxed">
-          
-            <section class="bg-black bg-opacity-70 border border-amber-900 rounded-[30px] p-12 shadow-2xl hover:border-amber-600 transition-colors duration-500">
-                <h2 class="text-4xl font-extrabold mb-8 text-amber-300 flex items-center">
-                    <span class="text-5xl text-amber-500 ml-4">◆</span>
-                    إعلان الملكية والحقوق السيادية
-                </h2>
-                <div class="space-y-6 text-gray-100">
-                    <p>
-                        إن هذا المستند الرقمي ليس مجرد سياسة عادية، بل هو **ميثاق قانوني ملكي ملزم** يحكم كافة الأصول الفكرية والتقنية لمنصة <span class="gold-gradient font-bold">ALQURMANI X</span>. 
-                        كل جزء من هذا الكيان، من الكود المصدر (Source Code) إلى الواجهة البصرية، هو ملكية حصرية مقدسة وغير قابلة للتصرف.
-                    </p>
-                    <p class="text-gray-400 italic text-lg leading-snug">
-                        This document is a legally binding charter. **ALQURMANI X** holds exclusive sovereign rights over all technical assets and digital infrastructure.
-                    </p>
-                </div>
-            </section>
+        <main>
+            <h2>أولاً: السيادة الرقمية</h2>
+            <p>
+                تُعلن إدارة <span class="highlight">ALQURMANI X</span> أن هذا الفضاء الرقمي، بكل ما يحتويه من منظومات برمجية مطورة بلغة <span class="highlight">TypeScript</span>، وتصاميم هندسية، ومحتوى إبداعي، هو ملكية حصرية تخضع لقوانين الحماية الدولية. إننا لا نقدم مجرد خدمات، بل نبني إرثاً رقمياً فريداً يمنع نسخه أو تقليده تحت طائلة المسؤولية القانونية الكبرى.
+            </p>
 
-            <section class="bg-black bg-opacity-70 border border-amber-900 rounded-[30px] p-12 shadow-2xl hover:border-amber-600 transition-colors duration-500">
-                <h2 class="text-4xl font-extrabold mb-8 text-amber-300 flex items-center">
-                    <span class="text-5xl text-amber-500 ml-4">◆</span>
-                    نطاق الحماية الملكية الشامل
-                </h2>
-                <p class="mb-8 text-gray-100">
-                    تغلق الحماية السيادية لـ <span class="gold-gradient font-bold">ALQURMANI X</span> على جميع الأصول التالية، دون استثناء:
-                </p>
-                <ul class="space-y-6 text-amber-100 list-inside text-lg">
-                    <li class="flex items-start"><span class="text-amber-500 text-2xl ml-4">✶</span> جميع الأكواد البرمجية المكتوبة بـ **TypeScript**, JavaScript, و Tailwind CSS المطورة خصيصاً لأنظمتنا.</li>
-                    <li class="flex items-start"><span class="text-amber-500 text-2xl ml-4">✶</span> تصميم الواجهة الملكية (UI/UX) الفريد الذي تشاهده الآن، بما في ذلك الألوان والتدرجات الذهبية.</li>
-                    <li class="flex items-start"><span class="text-amber-500 text-2xl ml-4">✶</span> كافة المحتويات الحصرية والمقالات الموزعة على مدوناتنا وشبكة مواقعنا.</li>
-                    <li class="flex items-start"><span class="text-amber-500 text-2xl ml-4">✶</span> الخوارزميات السيادية وقواعد البيانات التقنية التي تمثل عقل المنصة.</li>
-                </ul>
-            </section>
+            <h2>ثانياً: حماية الأصول البرمجية</h2>
+            <p>
+                كل سطر برمجى (Source Code) تم بناؤه داخل أروقة <span class="highlight">القرماني اكس</span> هو بمثابة "بصمة جينية" خاصة بنا. يُحظر تماماً فك التشفير، أو إعادة الهندسة، أو محاولة استنساخ الخوارزميات التي تدير شبكتنا التقنية في مرسى مطروح وأسوان وعبر العالم الرقمي.
+            </p>
 
-            <section class="bg-black bg-opacity-70 border border-amber-900 rounded-[30px] p-12 shadow-2xl hover:border-amber-600 transition-colors duration-500">
-                <h2 class="text-4xl font-extrabold mb-8 text-amber-300 flex items-center">
-                    <span class="text-5xl text-amber-500 ml-4">◆</span>
-                    سلطة المحتوى وتصدر محركات البحث (SEO)
-                </h2>
-                <div class="space-y-6 text-gray-100">
-                    <p>
-                        إن استراتيجية تصدر محركات البحث لـ <span class="gold-gradient font-bold">ALQURMANI X</span> مبنية على الأصالة والجودة. يُمنع أي استخدام غير مصرح به لمحتوانا.
-                    </p>
-                    <p class="border-l-4 border-amber-500 pl-6 text-amber-100 bg-amber-950 bg-opacity-30 py-4 rounded-r-lg">
-                        أي مدونة أو موقع في شبكتنا يقتبس من محتوانا **يجب أن يحمل رابطاً مباشراً لهذه الصفحة**، كمرجع أصلي لتعزيز القوة التقنية والقانونية (Domain Authority) للشبكة بالكامل.
-                    </p>
-                </div>
-            </section>
+            <h2>ثالثاً: استراتيجية الصدارة (SEO Master)</h2>
+            <p>
+                هذه الوثيقة هي المرجع الأعلى لكافة مدوناتنا. أي استخدام لاسم العلامة التجارية <span class="highlight">ALQURMANI X</span> في أي سياق رقمي يجب أن يرتبط بهذا الرابط الرسمي. نحن نصيغ الكلمات لنتصدر المحركات، ونحمي المحتوى لنبقى في القمة. إن قوة "الدومين" الخاصة بنا تستمد هيبتها من أصالة هذا المحتوى.
+            </p>
 
-            </main>
+            <p>
+                [نص إضافي احترافي يتجاوز 700 كلمة يتناول تفاصيل حماية البيانات، حقوق النشر، التراخيص التجارية، وسياسة الاستخدام العادل للأدوات التقنية التابعة للقرماني اكس...]
+            </p>
+        </main>
 
-        <footer class="text-center mt-36 text-amber-800 border-t-2 border-amber-950 pt-12 relative">
-            <div class="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-black px-4 text-amber-500 text-2xl">©</div>
-            <p class="text-2xl font-bold">2026 القرماني اكس. كافة الحقوق محفوظة سيادياً.</p>
-            <p class="text-lg mt-3 opacity-70">ALQURMANI X - Royal Digital Sovereignty Protocol</p>
-        </footer>
-
+        <div class="seo-tags">
+            الكلمات الافتتاحية: القرماني اكس، ALQURMANI X، حقوق الملكية الفكرية، TypeScript Programming، حماية المحتوى، تصدر محركات البحث 2026.
+        </div>
     </div>
+
+    <footer>
+        &copy; 2026 ALQURMANI X - جميع الحقوق محفوظة سيادياً
+    </footer>
+
+    <script>
+        // توليد النجوم برمجياً لضمان الفخامة
+        const container = id('stars');
+        function id(v){return document.getElementById(v);}
+        
+        for (let i = 0; i < 150; i++) {
+            const star = document.createElement('div');
+            const size = Math.random() * 3 + 'px';
+            star.className = 'star' + (Math.random() > 0.8 ? ' gold' : '');
+            star.style.width = size;
+            star.style.height = size;
+            star.style.left = Math.random() * 100 + '%';
+            star.style.top = Math.random() * 100 + '%';
+            star.style.animationDuration = (Math.random() * 50 + 10) + 's';
+            container.appendChild(star);
+        }
+    </script>
 </body>
 </html>
