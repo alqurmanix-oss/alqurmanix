@@ -424,18 +424,32 @@ document.addEventListener("DOMContentLoaded",async()=>{
   document.getElementById("moverlay").addEventListener("click",e=>{if(e.target.id==="moverlay")closeModal();});
 });
 </script>
-  <!-- QX Core Loader -->
-<script>
+  <script>
 (function(){
-  var s = document.createElement("script");
-  s.src = "https://YOUR-USERNAME.github.io/YOUR-REPO/qx-core.js?v=1.0";
-  s.defer = true;
-  document.body.appendChild(s);
+  // تحديد المسار المركزي للملفات
+  var baseUrl = "https://alqurmanix.github.io/core/"; // تأكد من مطابقة هذا المسار لمكان ملفاتك على جيت هاب
+  var version = "1.0.4"; // غير رقم الإصدار عند كل تحديث لكسر الكاش
 
-  var c = document.createElement("link");
-  c.rel = "stylesheet";
-  c.href = "https://YOUR-USERNAME.github.io/YOUR-REPO/qx-core.css?v=1.0";
-  document.head.appendChild(c);
+  // حقن ملف الـ CSS في الهيدر
+  var link = document.createElement("link");
+  link.rel = "stylesheet";
+  link.href = baseUrl + "qx-core.css?v=" + version;
+  document.head.appendChild(link);
+
+  // حقن ملف الـ JS
+  var script = document.createElement("script");
+  script.src = baseUrl + "qx-core.js?v=" + version;
+  script.defer = true;
+
+  // تأكيد الحقن داخل الـ Body حتى لو الكود موضوع في الهيدر غلط
+  if (document.body) {
+    document.body.appendChild(script);
+  } else {
+    // لو الـ Body لسه محملش، استنى لما يجهز
+    window.addEventListener('DOMContentLoaded', function() {
+      document.body.appendChild(script);
+    });
+  }
 })();
 </script>
 </body>
