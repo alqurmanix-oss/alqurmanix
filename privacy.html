@@ -4,416 +4,456 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>سياسة الخصوصية وحماية البيانات | القرماني ديجيتال</title>
-    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&display=swap" rel="stylesheet">
     <style>
-        /* --- تنسيقات CSS العامة (Global Styles) --- */
+        /* --- المبادئ التصميمية لشبكة القرماني (Royal UX/UI) --- */
         :root {
-            /* لوحة ألوان فخمة مستوحاة من التقنية والديجيتال */
-            --primary-color: #0c1429; /* أزرق داكن جداً للخلفية */
-            --secondary-color: #007bff; /* أزرق مشرق للبروز */
-            --accent-color: #6f42c1; /* بنفسجي احترافي للمسات */
-            --gradient-start: #00d2ff;
-            --gradient-end: #9254de;
-            --text-main: #e0e6ed; /* لون نص فاتح مريح للعين */
-            --text-muted: #8898aa;
-            --bg-content: #111a33; /* لون أفتح قليلاً لمربع المحتوى */
-            --border-color: #1e2a47;
-            --font-family: 'Cairo', sans-serif;
+            --primary-bg: #0c1429;      /* الخلفية الملكية الداكنة */
+            --card-bg: #111a33;         /* خلفية المحتوى */
+            --royal-blue: #007bff;      /* الأزرق التقني */
+            --royal-gold: #c5a059;      /* ذهبي مطفي للفخامة */
+            --purple-tech: #6f42c1;     /* بنفسجي احترافي */
+            --text-silver: #e0e6ed;     /* نص فضي مريح */
+            --text-muted: #8898aa;      /* نص باهت للعناوين الفرعية */
+            --border-line: #1e2a47;     /* حدود العناصر */
+            --gradient-main: linear-gradient(135deg, #00d2ff 0%, #9254de 100%);
+            --font-main: 'Cairo', sans-serif;
         }
 
+        * { box-sizing: border-box; transition: all 0.3s ease; }
+
         body {
-            font-family: var(--font-family);
-            background-color: var(--primary-color);
+            font-family: var(--font-main);
+            background-color: var(--primary-bg);
+            /* خلفية تقنية معقدة (Grid + Radial Gradient) */
             background-image: 
-                radial-gradient(at 10% 10%, rgba(111, 66, 193, 0.15) 0px, transparent 50%),
-                radial-gradient(at 90% 90%, rgba(0, 210, 255, 0.1) 0px, transparent 50%),
-                url('data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"%3E%3Cg fill-rule="evenodd"%3E%3Cg fill="%231a253a" fill-opacity="0.2"%3E%3Cpath opacity=".5" d="M96 95h4v1h-4v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4h-9v4h-1v-4H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15v-9H0v-1h15V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h9V0h1v15h4v1h-4v9h4v1h-4v9h4v1h-4v9h4v1h-4v9h4v1h-4v9h4v1h-4v9h4v1h-4v9h4v1h-4v9h4v1h-4v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v9h-9v-9h-9v-9h-9v-9h-9v9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-9v-9h-100-3H19H6v4h6v12h18v-4h18v4h18v-4h18v4h6v-3h12v-1z"%3E%3C/path%3E%3C/g%3E%3C/g%3E%3C/svg%3E');
+                radial-gradient(at 0% 0%, rgba(111, 66, 193, 0.15) 0px, transparent 50%),
+                radial-gradient(at 100% 100%, rgba(0, 210, 255, 0.1) 0px, transparent 50%),
+                url('data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" width="80" height="80" viewBox="0 0 80 80"%3E%3Cg fill="%231a253a" fill-opacity="0.3"%3E%3Cpath d="M0 0h40v40H0V0zm40 40h40v40H40V40zm0-40h40v40H40V0zM0 40h40v40H0V40z"/%3E%3C/g%3E%3C/svg%3E');
             background-attachment: fixed;
-            color: var(--text-main);
+            color: var(--text-silver);
             margin: 0;
             padding: 0;
             line-height: 1.8;
-            overflow-x: hidden;
+            /* إضافة padding-bottom لكي لا يغطي السهم المحتوى الأخير */
+            padding-bottom: 80px; 
         }
 
-        /* --- حاوية التنسيق الرئيسية (Layout Container) --- */
-        .page-container {
-            max-width: 1200px;
-            margin: 40px auto;
-            padding: 20px;
-            display: grid;
-            grid-template-areas: 
-                "header"
-                "nav"
-                "main";
-            gap: 20px;
-        }
-
-        @media (max-width: 768px) {
-            .page-container { margin: 10px auto; padding: 10px; }
+        .page-wrapper {
+            max-width: 1100px;
+            margin: 50px auto;
+            padding: 0 20px;
         }
 
         /* --- ترويسة الصفحة (Header) --- */
-        .page-header {
-            grid-area: header;
-            background-color: var(--bg-content);
-            padding: 20px;
-            border-radius: 12px;
-            border: 1px solid var(--border-color);
+        header {
+            background: var(--card-bg);
+            border: 1px solid var(--border-line);
+            border-radius: 20px;
+            padding: 25px 40px;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.4);
             position: relative;
             overflow: hidden;
+            margin-bottom: 30px;
         }
 
-        /* لمسة فخامة: شريط تدرج علوي */
-        .page-header::before {
+        header::before {
             content: '';
             position: absolute;
-            top: 0; left: 0; right: 0; height: 3px;
-            background: linear-gradient(to left, var(--gradient-start), var(--gradient-end));
+            top: 0; left: 0; width: 100%; height: 4px;
+            background: var(--gradient-main);
         }
 
-        .header-title {
-            font-size: 24px;
+        .header-info h1 {
+            font-size: 22px;
             font-weight: 800;
-            color: #fff;
             margin: 0;
+            color: #fff;
         }
 
-        /* سهم الرجوع الذكي (Smart Back Arrow) */
-        .back-arrow-container {
-            position: relative;
-        }
-
-        .back-arrow {
-            display: flex;
-            justify-content: center;
-            align-items: center;
+        /* سهم الرجوع الملكي */
+        .btn-back {
             width: 50px;
             height: 50px;
-            background-color: #1a253a;
             border-radius: 50%;
-            border: 2px solid var(--secondary-color);
-            color: var(--secondary-color);
+            background: #1a253a;
+            border: 2px solid var(--royal-blue);
+            color: var(--royal-blue);
+            display: flex;
+            align-items: center;
+            justify-content: center;
             text-decoration: none;
-            font-size: 28px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            box-shadow: 0 0 10px rgba(0,123,255,0.3);
+            font-size: 24px;
+            box-shadow: 0 0 15px rgba(0,123,255,0.2);
         }
 
-        /* dir="rtl" تعني سهم لليمين &#8594; */
-        .back-arrow:hover {
-            background-color: var(--secondary-color);
+        .btn-back:hover {
+            background: var(--royal-blue);
             color: #fff;
-            box-shadow: 0 0 20px rgba(0,123,255,0.6);
-            transform: scale(1.05);
+            transform: scale(1.1) rotate(5deg);
+            box-shadow: 0 0 25px rgba(0,123,255,0.5);
         }
 
-        .back-arrow:active {
-            transform: scale(0.95);
-        }
-
-        /* --- شريط التنقل العلوي (Navigation Bar) --- */
-        .page-nav {
-            grid-area: nav;
-            background-color: var(--bg-content);
-            padding: 15px 25px;
-            border-radius: 12px;
-            border: 1px solid var(--border-color);
+        /* --- شريط التنقل (Navigation) --- */
+        nav {
+            background: var(--card-bg);
+            border-radius: 15px;
+            padding: 15px 30px;
+            margin-bottom: 30px;
+            border: 1px solid var(--border-line);
             display: flex;
             justify-content: space-between;
             align-items: center;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
         }
 
         .nav-link {
+            color: var(--text-silver);
             text-decoration: none;
-            color: #fff;
             font-weight: 700;
-            font-size: 16px;
             display: flex;
             align-items: center;
-            gap: 10px;
-            transition: color 0.3s ease;
+            gap: 8px;
         }
 
-        .nav-link:hover {
-            color: var(--gradient-start);
+        .nav-link:hover { color: var(--royal-blue); }
+
+        .brand-badge {
+            background: rgba(197, 160, 89, 0.1);
+            color: var(--royal-gold);
+            padding: 5px 15px;
+            border-radius: 50px;
+            font-weight: 800;
+            border: 1px solid var(--royal-gold);
+            font-size: 13px;
         }
 
-        /* --- المحتوى القانوني الأساسي (Main Content) --- */
-        .privacy-main {
-            grid-area: main;
-            background-color: var(--bg-content);
-            padding: 60px;
-            border-radius: 16px;
-            border: 1px solid var(--border-color);
-            box-shadow: 0 20px 50px rgba(0,0,0,0.4);
+        /* --- جسم المحتوى القانوني (Content) --- */
+        main {
+            background: var(--card-bg);
+            border-radius: 25px;
+            padding: 80px;
+            border: 1px solid var(--border-line);
+            box-shadow: 0 30px 60px rgba(0,0,0,0.5);
             position: relative;
         }
 
-        @media (max-width: 768px) {
-            .privacy-main { padding: 30px; }
-        }
-
-        /* لمسة فخامة داخلية: تدرج على حافة الـ Main */
-        .privacy-main::after {
+        /* زخرفة جانبية فخمة */
+        main::after {
             content: '';
             position: absolute;
-            top: 60px; right: -5px; bottom: 60px; width: 5px;
-            background: linear-gradient(to top, var(--accent-color), var(--secondary-color));
-            border-radius: 3px;
+            top: 100px; right: 0; bottom: 100px; width: 6px;
+            background: var(--gradient-main);
+            border-radius: 10px 0 0 10px;
         }
 
-        .privacy-title {
-            font-size: 32px;
-            font-weight: 800;
-            color: #fff;
+        .main-title {
+            font-size: 36px;
+            font-weight: 900;
             text-align: center;
-            margin-bottom: 20px;
-            background: linear-gradient(to left, var(--gradient-start), #fff);
+            margin-bottom: 10px;
+            background: linear-gradient(to bottom, #fff, #8898aa);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
 
-        .last-updated {
+        .update-date {
             text-align: center;
-            color: var(--text-muted);
+            color: var(--royal-gold);
+            font-weight: 600;
             font-size: 14px;
-            margin-bottom: 50px;
+            margin-bottom: 60px;
+            display: block;
         }
 
-        /* تنسيقات البنود والفقرات القانونية (Legal Clauses Styles) */
+        /* تنسيق البنود (Clauses) */
+        section { margin-bottom: 50px; }
+
+        .clause-header {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 25px;
+        }
+
+        .clause-number {
+            background: var(--gradient-main);
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 8px;
+            font-weight: 900;
+            color: #fff;
+            flex-shrink: 0;
+        }
+
         .clause-title {
-            font-size: 22px;
-            font-weight: 700;
-            color: var(--secondary-color);
-            margin-top: 40px;
-            margin-bottom: 20px;
-            border-bottom: 1px solid #1e2a47;
+            font-size: 24px;
+            font-weight: 800;
+            color: var(--royal-blue);
+            margin: 0;
+            border-bottom: 1px dashed var(--border-line);
+            width: 100%;
             padding-bottom: 10px;
         }
 
-        .privacy-main p {
-            margin-bottom: 20px;
-            color: var(--text-main);
-            font-size: 16px;
-        }
+        p { font-size: 17px; margin-bottom: 25px; text-align: justify; }
 
-        .privacy-main ul {
-            margin-bottom: 30px;
-            padding-right: 25px;
-            color: var(--text-main);
-            font-size: 16px;
-        }
-
-        .privacy-main ul li {
-            margin-bottom: 12px;
+        ul { list-style: none; padding: 0; margin-bottom: 30px; }
+        ul li {
             position: relative;
+            padding-right: 30px;
+            margin-bottom: 15px;
+            font-size: 16px;
         }
 
-        /* لمسة فخامة: نقطة قائمة احترافية */
-        .privacy-main ul li::before {
-            content: '⬥';
-            color: var(--accent-color);
+        ul li::before {
+            content: '✦';
             position: absolute;
-            right: -25px;
+            right: 0;
+            color: var(--royal-gold);
             font-size: 18px;
         }
 
-        /* الروابط الداخلية المحددة (Internal Links) */
         .internal-link {
-            color: var(--secondary-color);
+            color: var(--royal-blue);
             text-decoration: none;
-            border-bottom: 1px solid transparent;
-            transition: all 0.3s ease;
+            font-weight: 700;
+            border-bottom: 1px solid var(--royal-blue);
         }
 
         .internal-link:hover {
-            color: var(--gradient-start);
-            border-bottom-color: var(--gradient-start);
+            color: var(--royal-gold);
+            border-bottom-color: var(--royal-gold);
+            background: rgba(197,160,89,0.05);
         }
 
-        /* --- تذييل الصفحة الرسمي (Footer) --- */
-        .page-footer {
-            background-color: var(--primary-color);
-            padding: 40px 20px;
+        /* --- التذييل (Footer) --- */
+        footer {
+            margin-top: 50px;
             text-align: center;
-            border-top: 1px solid var(--border-color);
-            margin-top: 40px;
+            padding: 40px;
+            border-top: 1px solid var(--border-line);
         }
 
-        .footer-logo {
+        .footer-brand {
+            font-weight: 900;
             font-size: 20px;
-            font-weight: 700;
             color: #fff;
-            margin-bottom: 10px;
+            letter-spacing: 1px;
         }
 
-        .platform-of {
+        .copyright {
             color: var(--text-muted);
-            font-size: 14px;
-            font-weight: 400;
+            font-size: 13px;
+            margin-top: 10px;
+        }
+
+        /* --- سهم الصعود الملكي المشقلب (Royal Scroll Top) --- */
+        #scrollToTop {
+            position: fixed;
+            bottom: 30px;
+            left: 30px; /* ليتناسب مع الـ dir="rtl" */
+            width: 60px;
+            height: 60px;
+            background: rgba(17, 26, 51, 0.9); /* خلفية داكنة شفافة */
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            font-size: 28px;
+            cursor: pointer;
+            opacity: 0; /* مخفي في البداية */
+            visibility: hidden;
+            z-index: 9999;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+            /* تأثير الحركة للألوان والظهور */
+            animation: royalGlow 5s infinite; 
+            border: 2px solid transparent;
+            transition: all 0.5s cubic-bezier(0.68, -0.55, 0.27, 1.55); /* حركة سلسة */
+        }
+
+        /* تحريك الألوان (4-5 ألوان مختلفة) */
+        @keyframes royalGlow {
+            0% { border-color: var(--royal-blue); box-shadow: 0 0 10px var(--royal-blue); color: var(--royal-blue); }
+            25% { border-color: var(--royal-gold); box-shadow: 0 0 15px var(--royal-gold); color: var(--royal-gold); }
+            50% { border-color: var(--purple-tech); box-shadow: 0 0 10px var(--purple-tech); color: var(--purple-tech); }
+            75% { border-color: #ff0055; box-shadow: 0 0 15px #ff0055; color: #ff0055; } /* لون إضافي فخم */
+            100% { border-color: var(--royal-blue); box-shadow: 0 0 10px var(--royal-blue); color: var(--royal-blue); }
+        }
+
+        /* عند ظهور السهم */
+        #scrollToTop.show {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        /* عند النقر: يتشقلب ويصعد */
+        #scrollToTop.active {
+            transform: translateY(-1000px) rotate(720deg) scale(0); /* تشقلب وصعود وإخفاء */
+            opacity: 0;
+        }
+
+        /* التجاوب مع الجوال */
+        @media (max-width: 768px) {
+            main { padding: 30px; }
+            .main-title { font-size: 26px; }
+            header { padding: 15px 20px; }
+            #scrollToTop { width: 50px; height: 50px; font-size: 24px; bottom: 20px; left: 20px; }
         }
     </style>
 </head>
 <body>
 
-    <div class="page-container">
-
-        <header class="page-header">
-            <div class="back-arrow-container">
-                <a href="javascript:history.back()" class="back-arrow" id="backArrow" title="رجوع للخلف">
-                    &#8594;
-                </a>
+    <div class="page-wrapper">
+        
+        <header>
+            <div class="header-info">
+                <h1>سياسة الخصوصية وحماية البيانات</h1>
             </div>
-            <h1 class="header-title">سياسة الخصوصية وحماية البيانات</h1>
+            <a href="javascript:history.back()" class="btn-back" title="عودة">🔙</a>
         </header>
 
-        <nav class="page-nav">
-            <a href="https://digital.alqurmanix.com" class="nav-link home-link" target="_blank">
-                🏠 الصفحة الرئيسية
+        <nav>
+            <a href="https://digital.alqurmanix.com" class="nav-link">
+                🏠 الرئيسية: القرماني ديجيتال
             </a>
-            <div class="header-logo-small">القرماني ديجيتال</div>
+            <div class="brand-badge">ALQURMANI X SYSTEM</div>
         </nav>
 
-        <main class="privacy-main">
-            <h1 class="privacy-title">سياسة الخصوصية الشاملة لوكالة القرماني ديجيتال</h1>
-            <p class="last-updated">آخر تحديث: 20 مايو 2024</p>
+        <main>
+            <h1 class="main-title">الميثاق الرسمي لخصوصية البيانات الرقمية</h1>
+            <span class="update-date">تاريخ الإصدار الأخير: 21 أبريل 2026</span>
 
-            <h2 class="clause-title">البند الأول: تمهيد وإقرار بالموافقة</h2>
-            <p>مرحباً بكم في منصة وكالة "القرماني ديجيتال" (المشار إليها لاحقاً بـ "الوكالة" أو "نحن"). تُمثل سياسة الخصوصية هذه التزاماً قانونياً صارماً من قبل الوكالة تجاه حماية خصوصية بياناتكم الشخصية ومعلوماتكم الرقمية. تم صياغة هذه السياسة وفقاً لأعلى المعايير القانونية والتشريعية العالمية، بما في ذلك اللائحة العامة لحماية البيانات (GDPR) وقوانين حماية البيانات المحلية ذات الصلة. إن استخدامكم لموقعنا أو الاستفادة من خدماتنا الرقمية المتكاملة يُعد إقراراً صريحاً وغير قابل للنقض بموافقتكم الكاملة والملزمة على كافة البنود والممارسات الموضحة في هذه السياسة.</p>
-            <p>نحن ندرك الأهمية الجوهرية للبيانات في العصر الرقمي، ونعتبر حمايتها مسؤولية أساسية لا تقبل المساومة. لذا، نلتزم بشفافية مطلقة حول كيفية جمع، استخدام، معالجة، وحماية بياناتكم.</p>
+            <section>
+                <div class="clause-header">
+                    <div class="clause-number">٠١</div>
+                    <h2 class="clause-title">تمهيد وإقرار السيادة الرقمية</h2>
+                </div>
+                <p>مرحباً بكم في الصرح الرقمي لـ <strong>"القرماني ديجيتال"</strong>. تُمثل هذه الوثيقة السياسة الرسمية والملزمة قانوناً والمتعلقة بإدارة وحماية البيانات الشخصية. إن ولوجكم لهذا الموقع يُعد موافقة ضمنية وصريحة على كافة المعايير الأمنية والبروتوكولات الموضحة أدناه. نحن نلتزم بتطبيق معايير (GDPR) لضمان بيئة تصفح آمنة ومشفّرة بالكامل.</p>
+            </section>
 
-            <h2 class="clause-title">البند الثاني: البيانات التي نقوم بجمعها (Scope of Data Collection)</h2>
-            <p>لضمان تقديم أعلى مستويات الجودة والاحترافية في خدماتنا الرقمية، تقوم "القرماني ديجيتال" بجمع فئات محددة من البيانات، وهي كالتالي:</p>
-            <ul>
-                <li>**بيانات الهوية الشخصية:** تشمل الاسم الكامل، اسم الشركة (إن وجد)، والمسمى الوظيفي، والتي يتم تزويدنا بها طواعية عند التواصل معنا أو طلب استشارة.</li>
-                <li>**بيانات الاتصال:** تشمل عنوان البريد الإلكتروني (الأكثر أهمية)، رقم الهاتف، وعناوين بروتوكول الإنترنت (IP addresses) الخاصة بأجهزتكم.</li>
-                <li>**البيانات التقنية والمعلومات الرقمية:** نقوم تلقائياً بجمع معلومات فنية عند تفاعلكم مع منصتنا، وتشمل نوع المتصفح، نظام التشغيل، الصفحات التي تمت زيارتها، مدة الزيارة، ومصادر الإحالة (Referral Sources). هذه البيانات أساسية لتحسين تجربة المستخدم وتحليل الأداء.</li>
-                <li>**بيانات الموقع الجغرافي (Geolocation Data):** قد نقوم بجمع معلومات عامة عن موقعكم الجغرافي (على مستوى المدينة أو الدولة) بناءً على عنوان الـ IP الخاص بكم، لتقديم محتوى ملائم وتخصيص خدماتنا.</li>
-                <li>**البيانات المالية:** في حال الدفع مقابل خدماتنا المدفوعة، قد نقوم بجمع معلومات الدفع الضرورية لتنفيذ المعاملات، مثل تفاصيل البطاقة الائتمانية أو معلومات الحساب البنكي، ويتم معالجة هذه البيانات من قبل بوابات دفع طرف ثالث آمنة ومعتمدة.</li>
-            </ul>
+            <section>
+                <div class="clause-header">
+                    <div class="clause-number">٠٢</div>
+                    <h2 class="clause-title">نطاق جمع البيانات وتحليلها</h2>
+                </div>
+                <p>تعمل أنظمة القرماني ديجيتال على جمع البيانات بذكاء لضمان استمرارية الخدمة، وتشمل:</p>
+                <ul>
+                    <li><strong>المعرفات الرقمية:</strong> عناوين الـ IP، نوع المتصفح، ومعرفات الأجهزة الفريدة.</li>
+                    <li><strong>سلوك التصفح:</strong> الوقت المستغرق في الصفحات، الروابط التي تم النقر عليها، ومسارات الإحالة.</li>
+                    <li><strong>بيانات التواصل:</strong> البريد الإلكتروني والأسماء المقدمة طواعية عبر نماذج الاتصال المشفّرة.</li>
+                </ul>
+            </section>
 
-            <h2 class="clause-title">البند الثالث: طرق جمع البيانات (How Data is Collected)</h2>
-            <p>يتم جمع البيانات في "القرماني ديجيتال" من خلال آليتين أساسيتين:</p>
-            <ul>
-                <li>**الجمع المباشر (Direct Collection):** ويتم ذلك عند قيامكم بتزويدنا بالبيانات طواعية، على سبيل المثال عند ملء نموذج "اتصل بنا"، أو التسجيل في نشرتنا البريدية، أو طلب استشارة رقمية، أو عند التواصل المباشر مع فريقنا عبر البريد الإلكتروني.</li>
-                <li>**الجمع التلقائي (Automated Collection):** ويتم ذلك من خلال استخدام تقنيات حديثة مثل ملفات تعريف الارتباط (Cookies)، وإشارات الويب (Web Beacons)، وسجلات الخادم. هذه الأدوات تسمح لنا بفهم كيفية تفاعلكم مع منصتنا الرقمية.</li>
-            </ul>
+            <section>
+                <div class="clause-header">
+                    <div class="clause-number">٠٣</div>
+                    <h2 class="clause-title">بروتوكول ملفات تعريف الارتباط (Cookies)</h2>
+                </div>
+                <p>نستخدم ملفات "Cookies" تقنية متطورة لتحسين سرعة تحميل الموقع وتخصيص تجربة المستخدم. هذه الملفات لا تقوم بجمع معلومات شخصية مخزنة على جهازك، بل تعمل كذاكرة مؤقتة لتعزيز التفاعل بين متصفحك وخوادم "القرماني X".</p>
+            </section>
 
-            <h2 class="clause-title">البند الرابع: أغراض معالجة البيانات واستخدامها (Purposes of Data Processing)</h2>
-            <p>نؤكد في "القرماني ديجيتال" أن استخدام بياناتكم يتم حصرياً للأغراض القانونية والمشروعة التالية:</p>
-            <ul>
-                <li>**تقديم وتحسين خدماتنا:** استخدام البيانات الضرورية لتنفيذ الخدمات الرقمية التي تطلبونها، وتخصيص تجربة المستخدم على منصتنا.</li>
-                <li>**التواصل وبناء العلاقات:** استخدام عناوين البريد الإلكتروني للتواصل معكم، الرد على استفساراتكم، وتقديم التحديثات الضرورية المتعلقة بخدماتنا.</li>
-                <li>**التحليل والتطوير الاستراتيجي:** تحليل البيانات التقنية ومعلومات الاستخدام لفهم سلوك الزوار، وتحسين أداء موقعنا، وتطوير خدمات رقمية جديدة تتناسب مع احتياجاتكم.</li>
-                <li>**التسويق والإعلان (Marketing & Advertising):** قد نستخدم بيانات الاتصال الخاصة بكم لإرسال معلومات ترويجية أو إعلانية، ويحق لكم دائماً إلغاء الاشتراك في هذه المراسلات في أي وقت.</li>
-                <li>**الامتثال القانوني والأمان:** قد نستخدم بياناتكم لضمان الامتثال للقوانين واللوائح المعمول بها، والتحقيق في أي انتهاكات محتملة لـ 
-                    <a href="terms-of-service.html" class="internal-link">شروط الاستخدام</a> الخاصة بنا.
-                </li>
-            </ul>
+            <section>
+                <div class="clause-header">
+                    <div class="clause-number">٠٤</div>
+                    <h2 class="clause-title">مشاركة البيانات مع أطراف ثالثة</h2>
+                </div>
+                <p>تلتزم منصة القرماني ديجيتال بمبدأ <strong>"السرية المطلقة"</strong>. لن يتم بيع أو تأجير بياناتك لأي جهات تسويقية. يتم الإفصاح عن البيانات فقط في الحالات التالية:</p>
+                <ul>
+                    <li>الامتثال لأوامر قضائية رسمية أو قانونية.</li>
+                    <li>حماية البنية التحتية للموقع من هجمات الاختراق أو التخريب.</li>
+                    <li>التعامل مع بوابات الدفع العالمية المعتمدة في حال إجراء معاملات مالية.</li>
+                </ul>
+            </section>
 
-            <h2 class="clause-title">البند الخامس: الأساس القانوني لمعالجة البيانات (Legal Basis for Processing)</h2>
-            <p>وفقاً للائحة العامة لحماية البيانات (GDPR)، نعتمد على الأسس القانونية التالية لمعالجة بياناتكم الشخصية:</p>
-            <ul>
-                <li>**الموافقة (Consent):** نقوم بمعالجة بياناتكم عندما نكون قد حصلنا على موافقتكم الصريحة والواضحة (على سبيل المثال، عند التسجيل في النشرة البريدية).</li>
-                <li>**تنفيذ العقد (Performance of Contract):** نقوم بمعالجة بياناتكم عندما يكون ذلك ضرورياً لتنفيذ عقد تقديم خدمات بيننا وبينكم.</li>
-                <li>**المصالح المشروعة (Legitimate Interests):** نقوم بمعالجة بياناتكم عندما يكون ذلك ضرورياً لتحقيق مصالحنا المشروعة (مثل تحسين أداء موقعنا)، بشرط ألا تتفوق هذه المصالح على حقوقكم وحرياتكم.</li>
-                <li>**الامتثال للالتزامات القانونية:** نقوم بمعالجة بياناتكم عندما نكون ملزمين قانوناً بذلك.</li>
-            </ul>
+            <section>
+                <div class="clause-header">
+                    <div class="clause-number">٠٥</div>
+                    <h2 class="clause-title">حقوق المستخدم والتحكم في البيانات</h2>
+                </div>
+                <p>بصفتك مستخدماً في شبكتنا، تمنحك القوانين الدولية الحق في:</p>
+                <ul>
+                    <li>طلب نسخة كاملة من البيانات التي نحتفظ بها عنك.</li>
+                    <li>المطالبة بالحذف النهائي لكافة بياناتك من خوادمنا (حق النسيان).</li>
+                    <li>تصحيح أي معلومات غير دقيقة مرتبطة بحسابك أو نشاطك.</li>
+                </ul>
+            </section>
 
-            <h2 class="clause-title">البند السادس: ملفات تعريف الارتباط والتقنيات المشابهة (Cookies & Tracking)</h2>
-            <p>نستخدم ملفات تعريف الارتباط (Cookies) والتقنيات المشابهة لتحسين تجربة التصفح على منصتنا. ملفات تعريف الارتباط هي ملفات نصية صغيرة يتم تخزينها على أجهزتكم. نستخدم أنواعاً مختلفة من ملفات تعريف الارتباط:</p>
-            <ul>
-                <li>**ملفات تعريف الارتباط الضرورية:** وهي ملفات أساسية لعمل الموقع بشكل صحيح.</li>
-                <li>**ملفات تعريف الارتباط التحليلية (مثلاً، Google Analytics):** تساعدنا على فهم كيفية تفاعلكم مع الموقع وتحليل أدائه.</li>
-                <li>**ملفات تعريف الارتباط التسويقية:** تساعدنا على تقديم محتوى إعلاني مخصص.</li>
-            </ul>
-            <p>يحق لكم إدارة ملفات تعريف الارتباط من خلال إعدادات المتصفح الخاص بكم، ولكن يرجى ملاحظة أن حظر هذه الملفات قد يؤثر على تجربة استخدامكم لمنصتنا.</p>
-            
-            <h2 class="clause-title">البند السابع: مشاركة البيانات والإفصاح للغير (Data Sharing & Disclosure)</h2>
-            <p>نؤكد التزامنا الصارم بعدم بيع، تأجير، أو مشاركة بياناتكم الشخصية مع أي طرف ثالث لأغراض تجارية بحتة. قد نقوم بمشاركة بياناتكم الشخصية حصرياً في الحالات التالية:</p>
-            <ul>
-                <li>**مزودي الخدمات (Service Providers):** قد نشارك بياناتكم مع مزودي خدمات موثوقين (مثل بوابات الدفع، مزودي خدمات استضافة المواقع، أدوات التحليل) والذين يعملون نيابة عنا ويساعدوننا في تقديم خدماتنا. نحن نضمن أن هؤلاء المزودين يلتزمون بأعلى معايير حماية البيانات.</li>
-                <li>**الامتثال القانوني:** قد نفصح عن بياناتكم الشخصية عندما نكون ملزمين قانوناً بذلك، على سبيل المثال استجابة لطلب من جهات حكومية معتمدة أو في سياق إجراءات قانونية.</li>
-                <li>**نقل الأعمال (Business Transfer):** في حال حدوث أي عملية اندماج، استحواذ، أو بيع لأصول الوكالة، قد يتم نقل بياناتكم الشخصية كجزء من الأصول المنقولة.</li>
-            </ul>
-
-            <h2 class="clause-title">البند الثامن: نقل البيانات دولياً (International Data Transfer)</h2>
-            <p>باعتبارنا وكالة رقمية عالمية، قد يتم نقل بياناتكم الشخصية ومعالجتها خارج بلد إقامتكم، بما في ذلك إلى دول قد لا توفر مستويات حماية بيانات مماثلة لتلك المعمول بها في بلدكم. في مثل هذه الحالات، نتخذ التدابير اللازمة لضمان حماية بياناتكم بشكل كافٍ، مثل استخدام بنود عقدية معيارية معتمدة.</p>
-
-            <h2 class="clause-title">البند التاسع: أمان البيانات وحمايتها (Data Security Measures)</h2>
-            <p>نولي في "القرماني ديجيتال" أهمية قصوى لأمان بياناتكم. نتخذ تدابير فنية، إدارية، وتقنية متقدمة لحماية بياناتكم من الوصول غير المصرح به، الفقدان، التلف، أو سوء الاستخدام. تشمل هذه التدابير استخدام بروتوكولات التشفير (مثل SSL/TLS)، جدران الحماية (Firewalls)، وتقنيات مراقبة الوصول. ومع ذلك، يرجى ملاحظة أنه لا توجد طريقة نقل أو تخزين إلكترونية آمنة بنسبة 100%.</p>
-
-            <h2 class="clause-title">البند العاشر: حقوقكم كأصحاب بيانات (Data Subject Rights)</h2>
-            <p>وفقاً للائحة العامة لحماية البيانات (GDPR) وغيرها من القوانين ذات الصلة، يحق لكم كمستخدمين لمنصتنا الرقمية التمتع بالحقوق التالية:</p>
-            <ul>
-                <li>**الحق في الوصول (Right of Access):** يحق لكم طلب الحصول على نسخة من بياناتكم الشخصية التي نقوم بمعالجتها.</li>
-                <li>**الحق في التصحيح (Right to Rectification):** يحق لكم طلب تصحيح أي بيانات شخصية غير دقيقة أو غير كاملة.</li>
-                <li>**الحق في المحو (Right to Erasure / Right to be Forgotten):** يحق لكم طلب حذف بياناتكم الشخصية في حالات معينة.</li>
-                <li>**الحق في تقييد المعالجة (Right to Restrict Processing):** يحق لكم طلب تقييد معالجة بياناتكم الشخصية في حالات معينة.</li>
-                <li>**الحق في نقل البيانات (Right to Data Portability):** يحق لكم الحصول على بياناتكم الشخصية بتنسيق منظم وقابل للقراءة آلياً.</li>
-                <li>**الحق في الاعتراض (Right to Object):** يحق لكم الاعتراض على معالجة بياناتكم الشخصية في حالات معينة (مثل التسويق المباشر).</li>
-                <li>**الحق في سحب الموافقة:** يحق لكم سحب موافقتكم على معالجة بياناتكم في أي وقت.</li>
-            </ul>
-            <p>لممارسة أي من هذه الحقوق، يرجى التواصل معنا عبر البريد الإلكتروني الموضح في قسم "اتصل بنا".</p>
-            
-            <h2 class="clause-title">البند الحادي عشر: الاحتفاظ بالبيانات (Data Retention)</h2>
-            <p>نحتفظ ببياناتكم الشخصية فقط طالما كان ذلك ضرورياً لتحقيق الأغراض التي جمعت من أجلها، بما في ذلك الامتثال لأي التزامات قانونية، محاسبية، أو تقريرية. تعتمد مدة الاحتفاظ بالبيانات على طبيعة البيانات ونوع العلاقة التي تربطنا بكم.</p>
-
-            <h2 class="clause-title">البند الثاني عشر: سياسة الأطفال والقصّر (Children's Privacy)</h2>
-            <p>لا تستهدف منصتنا الرقمية الأطفال تحت سن الـ 18 عاماً، ولا نقوم عمداً بجمع بيانات شخصية من الأطفال. في حال اكتشافنا لجمع بيانات شخصية من طفل دون موافقة والديه أو ولي أمره، سنتخذ التدابير اللازمة لحذف هذه البيانات فوراً.</p>
-            
-            <h2 class="clause-title">البند الثالث عشر: خدمات ومواقع الطرف الثالث (Third-Party Content)</h2>
-            <p>قد تحتوي منصتنا الرقمية على روابط لمواقع، خدمات، أو محتوى تابع لطرف ثالث (مثل روابط لمنصات التواصل الاجتماعي أو أدوات تحليل أداء خارجي). يرجى ملاحظة أن هذه المواقع والخدمات لديها سياسات خصوصية خاصة بها، ولا نتحمل أي مسؤولية عن محتواها أو ممارسات الخصوصية الخاصة بها. ننصحكم بقراءة سياسات الخصوصية الخاصة بهذه المواقع والخدمات قبل تقديم أي بيانات شخصية.</p>
-
-            <h2 class="clause-title">البند الرابع عشر: التعديلات والتحديثات على سياسة الخصوصية</h2>
-            <p>نحتفظ بالحق في تعديل أو تحديث سياسة الخصوصية هذه في أي وقت. سيتم نشر أي تغييرات على هذه الصفحة، وسيتم الإشارة إلى تاريخ آخر تحديث في أعلى الصفحة. ننصحكم بمراجعة هذه السياسة بشكل دوري للبقاء على اطلاع على كيفية حمايتنا لبياناتكم الشخصية.</p>
-
-            <h2 class="clause-title">البند الخامس عشر: الموافقة على نقل البيانات إلى الولايات المتحدة</h2>
-            <p>يرجى ملاحظة أن بياناتكم الشخصية قد يتم نقلها ومعالجتها في الولايات المتحدة، وهي دولة قد لا توفر مستويات حماية بيانات مماثلة لتلك المعمول بها في بلدكم. باستخدامكم لمنصتنا الرقمية، فإنكم توافقون صراحة على نقل بياناتكم الشخصية ومعالجتها في الولايات المتحدة.</p>
-
-            <h2 class="clause-title">البند السادس عشر: الامتثال لإطار حماية الخصوصية (Privacy Shield Compliance)</h2>
-            <p>نحن نلتزم بمبادئ إطار حماية الخصوصية (Privacy Shield) في حال حدوث أي نقل للبيانات بين الاتحاد الأوروبي والولايات المتحدة. يضمن هذا الالتزام أن بياناتكم الشخصية محمية بشكل كافٍ عند نقلها خارج الاتحاد الأوروبي.</p>
-
-            <h2 class="clause-title">البند السابع عشر: تقديم شكوى إلى سلطة حماية البيانات</h2>
-            <p>في حال كان لديكم أي مخاوف أو شكاوى متعلقة بمعالجة بياناتكم الشخصية، يحق لكم تقديم شكوى إلى سلطة حماية البيانات المختصة في بلدكم.</p>
-
-            <h2 class="clause-title">البند الثامن عشر: بنود نهائية والاتصال بنا</h2>
-            <p>تمثل سياسة الخصوصية هذه التزاماً قانونياً رسمياً من وكالة "القرماني ديجيتال". في حال وجود أي استفسارات أو تعليقات متعلقة بهذه السياسة أو ممارسات الخصوصية لدينا، يرجى عدم التردد في 
-                <a href="contact.html" class="internal-link">مراسلتنا</a> عبر البريد الإلكتروني الرسمي. كما يمكنكم مراجعة 
-                <a href="user-agreement.html" class="internal-link">اتفاقية المستخدم</a> الكاملة الخاصة بنا.
-            </p>
-
-            <p style="text-align: center; font-weight: bold; margin-top: 50px; color: #fff;">القرماني ديجيتال - نلتزم بخصوصيتكم ونضمن أمانكم الرقمي.</p>
+            <section>
+                <div class="clause-header">
+                    <div class="clause-number">٠٦</div>
+                    <h2 class="clause-title">روابط الأقسام والسياسات الملحقة</h2>
+                </div>
+                <p>للحصول على رؤية شاملة حول كيفية عمل أنظمتنا، يرجى مراجعة الوثائق المجاورة المستضافة على نطاقنا الرسمي:</p>
+                <p>
+                    | <a href="terms.html" class="internal-link">شروط الخدمة</a> 
+                    | <a href="disclaimer.html" class="internal-link">إخلاء المسؤولية</a> 
+                    | <a href="contact.html" class="internal-link">فريق الامتثال القانوني</a> |
+                </p>
+            </section>
 
         </main>
 
-        <footer class="page-footer">
-            <div class="footer-logo">القرماني ديجيتال</div>
-            <div class="platform-of">إحدى منصات alqurmani x</div>
+        <footer>
+            <div class="footer-brand">ALQURMANI DIGITAL NETWORK</div>
+            <div class="copyright">
+                إحدى المنصات التابعة لـ <strong>شبكة القرماني X</strong> الفائقة<br>
+                جميع الحقوق محفوظة © 2026
+            </div>
         </footer>
 
     </div>
 
+    <div id="scrollToTop" title="صعود للأعلى">🔝</div>
+
     <script>
-        // دالة تقوم بإعادة المستخدم خطوة واحدة للخلف في تاريخ المتصفح
-        // مما يعيده تماماً من مكان ما جا (من بلوجر أو يوتيوب إلخ)
-        document.addEventListener('DOMContentLoaded', function() {
-            var backArrow = document.getElementById('backArrow');
-            if (backArrow) {
-                //href="javascript:history.back()" تفعل ذلك تلقائياً
-                // لكننا نضيف حدث للنقرة لضمان الدقة
-                backArrow.addEventListener('click', function(e) {
-                    // إذا أردت تخصيص الرجوع مستقبلاً (مثل العودة لصفحة محددة) يمكنك فعل ذلك هنا
-                });
+        // 1. التعامل مع زر الرجوع الذكي
+        document.getElementById('backArrow')?.addEventListener('click', function(e) {
+            if (window.history.length <= 1) {
+                e.preventDefault();
+                window.location.href = 'https://digital.alqurmanix.com';
             }
         });
+
+        // 2. سهم الصعود الملكي المشقلب (Logics)
+        const sToTopBtn = document.getElementById('scrollToTop');
+
+        // دالة لمراقبة التمرير وإظهار/إخفاء السهم
+        window.addEventListener('scroll', () => {
+            // يظهر السهم بعد التمرير لمسافة 300px لأسفل
+            if (window.pageYOffset > 300) {
+                sToTopBtn.classList.add('show');
+            } else {
+                sToTopBtn.classList.remove('show');
+                // إزالة التأثيرات الحركية عند الإخفاء لإعادة ضبطها
+                sToTopBtn.classList.remove('active');
+            }
+        });
+
+        // دالة عند النقر على السهم
+        sToTopBtn.addEventListener('click', () => {
+            // إضافة كلاس 'active' لتشغيل حركة التشقلب والصعود في الـ CSS
+            sToTopBtn.classList.add('active');
+
+            // الصعود للأعلى بنعومة (JavaScript Scroll)
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth' // صعود سلس
+            });
+
+            // إزالة الكلاس بعد انتهاء الحركة لكي يظهر السهم مجدداً عند التمرير
+            // (زمن الحركة هو 0.5s في الـ CSS، ننتظر 0.6s)
+            setTimeout(() => {
+                sToTopBtn.classList.remove('active');
+            }, 600);
+        });
     </script>
+
 </body>
-  </html>
+</html>
