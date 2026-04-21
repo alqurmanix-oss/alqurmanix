@@ -1,375 +1,206 @@
-<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&amp;display=swap" rel="stylesheet"></link>
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>سياسة الخصوصية | قرماني ديجيتال</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;900&display=swap" rel="stylesheet">
 
 <style>
-
-.qurmani-privacy{
-
-direction:rtl;
-font-family:'Cairo',sans-serif;
-max-width:1000px;
-margin:auto;
-line-height:2;
-padding:35px;
-color:#222;
-
+body{
+    margin:0;
+    font-family:'Cairo',sans-serif;
+    background:linear-gradient(135deg,#0f172a,#1e293b,#0b1220);
+    color:#fff;
+    overflow-x:hidden;
 }
 
-/* progress */
-
-.qurmani-progress{
-position:fixed;
-top:0;
-left:0;
-height:5px;
-width:0%;
-background:linear-gradient(90deg,#caa63a,#f7e38c);
-z-index:9999;
+/* ===== Header ===== */
+.header{
+    padding:30px;
+    text-align:center;
+    background:rgba(255,255,255,0.05);
+    backdrop-filter:blur(10px);
+    border-bottom:1px solid rgba(255,255,255,0.1);
 }
 
-/* title */
-
-.qurmani-title{
-text-align:center;
-font-size:42px;
-font-weight:900;
-margin-bottom:10px;
-
-background:linear-gradient(45deg,#caa63a,#f5e08a,#caa63a);
--webkit-background-clip:text;
--webkit-text-fill-color:transparent;
-
+.header h1{
+    font-size:28px;
+    margin:0;
+    background:linear-gradient(90deg,#facc15,#22d3ee,#a78bfa,#f472b6);
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
+    animation: glow 6s infinite linear;
 }
 
-.qurmani-reading{
-text-align:center;
-color:#777;
-margin-bottom:25px;
+@keyframes glow{
+    0%{filter:hue-rotate(0deg)}
+    100%{filter:hue-rotate(360deg)}
 }
 
-/* toc */
-
-.qurmani-toc{
-
-background:#fafafa;
-padding:20px;
-border-radius:10px;
-margin-bottom:30px;
-
+/* ===== Container ===== */
+.container{
+    max-width:1000px;
+    margin:40px auto;
+    padding:20px;
 }
 
-.qurmani-toc a{
-
-display:block;
-padding:6px 0;
-color:#333;
-text-decoration:none;
-
+/* Glass card */
+.card{
+    background:rgba(255,255,255,0.06);
+    border:1px solid rgba(255,255,255,0.1);
+    border-radius:20px;
+    padding:25px;
+    box-shadow:0 10px 40px rgba(0,0,0,0.4);
 }
 
-.qurmani-toc a:hover{
-
-color:#caa63a;
-
+/* Titles */
+h2{
+    color:#22d3ee;
+    margin-top:25px;
 }
 
-/* sections */
-
-.qurmani-privacy h2{
-
-margin-top:40px;
-font-size:26px;
-font-weight:800;
-
+p{
+    line-height:1.9;
+    color:#e5e7eb;
 }
 
-.qurmani-privacy p{
-
-margin-top:12px;
-font-size:17px;
-
+/* Buttons */
+.floating-btn{
+    position:fixed;
+    width:55px;
+    height:55px;
+    border-radius:50%;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    cursor:pointer;
+    font-size:20px;
+    color:#fff;
+    box-shadow:0 0 15px rgba(0,0,0,0.4);
+    transition:0.3s;
 }
 
-/* stamp */
-
-.qurmani-stamp{
-
-position:fixed;
-left:40px;
-top:100px;
-font-size:80px;
-color:#caa63a;
-opacity:.15;
-animation:spin 25s linear infinite;
-
+/* back button */
+.back-btn{
+    bottom:90px;
+    left:20px;
+    background:linear-gradient(45deg,#f43f5e,#f59e0b);
 }
 
-@keyframes spin{
-
-0%{transform:rotate(0)}
-100%{transform:rotate(360deg)}
-
+/* top button */
+.top-btn{
+    bottom:20px;
+    left:20px;
+    background:linear-gradient(45deg,#22d3ee,#a78bfa,#f472b6,#facc15);
+    animation: pulse 3s infinite;
 }
 
-/* FAQ */
-
-.qurmani-faq{
-
-margin-top:60px;
-
+@keyframes pulse{
+    0%{transform:scale(1)}
+    50%{transform:scale(1.1)}
+    100%{transform:scale(1)}
 }
 
-.qurmani-accordion{
-
-border-bottom:1px solid #eee;
-
+.floating-btn:hover{
+    transform:scale(1.2) rotate(10deg);
 }
 
-.qurmani-accordion button{
-
-width:100%;
-text-align:right;
-padding:18px;
-background:none;
-border:none;
-font-size:18px;
-font-weight:700;
-cursor:pointer;
-
+/* Home link */
+.home{
+    display:inline-block;
+    margin-top:20px;
+    padding:10px 18px;
+    background:linear-gradient(90deg,#22c55e,#06b6d4);
+    border-radius:10px;
+    text-decoration:none;
+    color:#fff;
+    font-weight:bold;
+    transition:0.3s;
 }
 
-.qurmani-panel{
-
-max-height:0;
-overflow:hidden;
-transition:max-height .4s ease;
-padding:0 18px;
-
+.home:hover{
+    transform:scale(1.05);
 }
 
-/* signature */
-
-.qurmani-signature{
-
-margin-top:60px;
-text-align:center;
-border-top:1px solid #ddd;
-padding-top:30px;
-
+/* footer */
+footer{
+    text-align:center;
+    padding:20px;
+    margin-top:40px;
+    opacity:0.7;
+    font-size:14px;
 }
-
-.qurmani-signature strong{
-
-font-size:20px;
-
-}
-
 </style>
+</head>
 
+<body>
 
-<div class="qurmani-progress" id="progress"></div>
-
-<div class="qurmani-stamp">⚖</div>
-
-<div class="qurmani-privacy">
-
-<h1 class="qurmani-title">سياسة الخصوصية – موقع القرماني ديجيتال</h1>
-
-<div class="qurmani-reading">
-مدة القراءة التقريبية: <span id="readingTime"></span> دقيقة
+<div class="header">
+    <h1>⚖️ سياسة الخصوصية - قرماني ديجيتال</h1>
 </div>
 
+<div class="container">
+    <div class="card">
 
-<div class="qurmani-toc">
+        <h2>📌 مقدمة</h2>
+        <p>
+        نحن في قرماني ديجيتال نحترم خصوصية زوارنا بشكل كامل، ونلتزم بحماية أي بيانات يتم جمعها أثناء استخدامك للموقع.
+        باستخدامك للموقع فإنك توافق على هذه السياسة.
+        </p>
 
-<strong>محتويات الصفحة</strong>
+        <h2>📊 البيانات التي يتم جمعها</h2>
+        <p>
+        قد نقوم بجمع بيانات غير شخصية مثل نوع المتصفح، الجهاز، وقت الزيارة، والصفحات التي يتم تصفحها لتحسين تجربة المستخدم.
+        </p>
 
-<a href="#intro">مقدمة</a>
-<a href="#data">المعلومات التي نجمعها</a>
-<a href="#usage">كيفية استخدام البيانات</a>
-<a href="#cookies">ملفات الكوكيز</a>
-<a href="#ads">الإعلانات</a>
-<a href="#security">أمن المعلومات</a>
-<a href="#external">الروابط الخارجية</a>
-<a href="#updates">تحديث السياسة</a>
+        <h2>🍪 ملفات تعريف الارتباط</h2>
+        <p>
+        يستخدم الموقع ملفات تعريف الارتباط (Cookies) لتحسين الأداء وتحليل الاستخدام وتخصيص المحتوى.
+        </p>
 
+        <h2>🔐 حماية البيانات</h2>
+        <p>
+        نستخدم إجراءات أمنية متقدمة لحماية البيانات من الوصول غير المصرح به أو التعديل أو الإتلاف.
+        </p>
+
+        <h2>📢 الإعلانات</h2>
+        <p>
+        قد نستخدم خدمات إعلانية خارجية، والتي قد تجمع بيانات عبر تقنيات مثل الكوكيز لعرض إعلانات مناسبة.
+        </p>
+
+        <h2>🔄 تحديث السياسة</h2>
+        <p>
+        يحق لنا تعديل سياسة الخصوصية في أي وقت، وسيتم نشر التحديثات هنا.
+        </p>
+
+        <h2>📩 التواصل</h2>
+        <p>
+        لأي استفسارات يمكنك التواصل عبر الموقع الرسمي لقرماني ديجيتال.
+        </p>
+
+        <!-- Home Button -->
+        <a class="home" href="https://digital.alqurmanix.com/?m=1#">
+            🏠 الصفحة الرئيسية
+        </a>
+
+    </div>
+
+    <footer>
+        © قرماني ديجيتال - جميع الحقوق محفوظة
+    </footer>
 </div>
 
-
-<h2 id="intro">مقدمة</h2>
-
-<p>
-في موقع القرماني ديجيتال نؤمن بأن خصوصية المستخدمين تمثل جزءاً أساسياً من الثقة الرقمية التي نسعى لبنائها مع زوار الموقع. لذلك قمنا بإعداد سياسة الخصوصية هذه لتوضيح كيفية جمع البيانات واستخدامها وحمايتها عند استخدام خدمات الموقع.
-</p>
-
-<p>
-تم تصميم هذه السياسة وفق أفضل الممارسات العالمية في مجال حماية البيانات ووفق المبادئ الأساسية للشفافية والمسؤولية الرقمية.
-</p>
-
-<p>
-استخدامك للموقع يعني موافقتك على هذه السياسة وعلى الطريقة التي يتم بها التعامل مع البيانات.
-</p>
-
-
-<h2 id="data">المعلومات التي نجمعها</h2>
-
-<p>
-قد يقوم الموقع بجمع بعض المعلومات التقنية عند زيارة المستخدم للموقع مثل عنوان IP ونوع الجهاز ونوع المتصفح ونظام التشغيل المستخدم. تساعدنا هذه المعلومات في تحليل أداء الموقع وتحسين تجربة المستخدم.
-</p>
-
-<p>
-كما يمكن جمع معلومات تتعلق بطريقة استخدام الموقع مثل الصفحات التي تمت زيارتها ومدة البقاء في الموقع والروابط التي يتم الضغط عليها.
-</p>
-
-<p>
-يتم جمع هذه البيانات بطريقة آلية عبر أدوات تحليل الويب المستخدمة في معظم المواقع العالمية.
-</p>
-
-
-<h2 id="usage">كيفية استخدام البيانات</h2>
-
-<p>
-تستخدم البيانات التي يتم جمعها لأغراض متعددة مثل تحسين جودة المحتوى وتحليل سلوك المستخدمين وتطوير الخدمات الرقمية المقدمة عبر الموقع.
-</p>
-
-<p>
-كما تساعدنا هذه البيانات في فهم اهتمامات الزوار بشكل أفضل مما يتيح لنا تقديم محتوى أكثر ملاءمة واحترافية.
-</p>
-
-
-<h2 id="cookies">ملفات تعريف الارتباط</h2>
-
-<p>
-يستخدم الموقع ملفات تعريف الارتباط لتحسين تجربة التصفح وتذكر بعض تفضيلات المستخدمين أثناء زيارتهم للموقع.
-</p>
-
-<p>
-يمكن للمستخدم تعطيل ملفات الكوكيز من خلال إعدادات المتصفح الخاص به في أي وقت.
-</p>
-
-
-<h2 id="ads">الإعلانات</h2>
-
-<p>
-قد يستخدم الموقع خدمات إعلانية تابعة لجهات خارجية لعرض الإعلانات المناسبة للمستخدمين بناءً على اهتماماتهم.
-</p>
-
-<p>
-تستخدم هذه الشركات تقنيات مختلفة مثل ملفات تعريف الارتباط أو معرفات الأجهزة.
-</p>
-
-
-<h2 id="security">أمن المعلومات</h2>
-
-<p>
-نحن نستخدم مجموعة من الإجراءات التقنية والتنظيمية لحماية البيانات من الوصول غير المصرح به أو الاستخدام غير القانوني.
-</p>
-
-<p>
-ومع ذلك يجب الإشارة إلى أن الإنترنت ليس بيئة آمنة بنسبة 100%.
-</p>
-
-
-<h2 id="external">الروابط الخارجية</h2>
-
-<p>
-قد يحتوي الموقع على روابط لمواقع خارجية لا تخضع لسيطرة موقع القرماني ديجيتال. لذلك ننصح المستخدمين بمراجعة سياسات الخصوصية الخاصة بهذه المواقع.
-</p>
-
-
-<h2 id="updates">تحديث سياسة الخصوصية</h2>
-
-<p>
-قد يتم تحديث هذه السياسة من وقت لآخر بما يتوافق مع التغيرات القانونية أو التقنية. سيتم نشر أي تحديثات على هذه الصفحة.
-</p>
-
-
-<div class="qurmani-faq">
-
-<h2>الأسئلة الشائعة</h2>
-
-<div class="qurmani-accordion">
-<button>هل يجمع الموقع بيانات شخصية؟</button>
-<div class="qurmani-panel"><p>يتم جمع بيانات تقنية فقط لتحسين تجربة المستخدم.</p></div>
+<!-- Back Button -->
+<div class="floating-btn back-btn" onclick="history.back()" title="رجوع">
+🔙
 </div>
 
-<div class="qurmani-accordion">
-<button>هل يتم استخدام الكوكيز؟</button>
-<div class="qurmani-panel"><p>نعم لتحسين تجربة التصفح.</p></div>
+<!-- Top Button -->
+<div class="floating-btn top-btn" onclick="window.scrollTo({top:0,behavior:'smooth'})" title="أعلى الصفحة">
+⬆️
 </div>
 
-<div class="qurmani-accordion">
-<button>هل يتم بيع البيانات؟</button>
-<div class="qurmani-panel"><p>لا يتم بيع بيانات المستخدمين.</p></div>
-</div>
-
-<div class="qurmani-accordion">
-<button>هل يمكن تعطيل الكوكيز؟</button>
-<div class="qurmani-panel"><p>نعم من إعدادات المتصفح.</p></div>
-</div>
-
-<div class="qurmani-accordion">
-<button>هل البيانات آمنة؟</button>
-<div class="qurmani-panel"><p>نستخدم إجراءات حماية متقدمة.</p></div>
-</div>
-
-<div class="qurmani-accordion">
-<button>هل يتم تحديث السياسة؟</button>
-<div class="qurmani-panel"><p>نعم عند الحاجة.</p></div>
-</div>
-
-<div class="qurmani-accordion">
-<button>كيف يمكن التواصل؟</button>
-<div class="qurmani-panel"><p>عبر صفحة تواصل معنا.</p></div>
-</div>
-
-</div>
-
-
-<div class="qurmani-signature">
-
-<strong>القرماني ديجيتال</strong>
-
-<p>سياسة خصوصية رقمية رسمية</p>
-
-</div>
-
-</div>
-
-
-
-<script>
-
-/* reading time */
-
-var text=document.querySelector(".qurmani-privacy").innerText
-var words=text.split(/\s+/).length
-var time=Math.ceil(words/200)
-document.getElementById("readingTime").innerText=time
-
-
-/* progress */
-
-window.addEventListener("scroll",function(){
-
-let scrollTop=document.documentElement.scrollTop
-let height=document.documentElement.scrollHeight-document.documentElement.clientHeight
-let progress=(scrollTop/height)*100
-document.getElementById("progress").style.width=progress+"%"
-
-})
-
-/* accordion */
-
-document.querySelectorAll(".qurmani-accordion button").forEach(btn=>{
-
-btn.addEventListener("click",()=>{
-
-const panel=btn.nextElementSibling
-
-panel.style.maxHeight=panel.style.maxHeight?null:panel.scrollHeight+"px"
-
-})
-
-})
-
-</script>
+</body>
+</html>
