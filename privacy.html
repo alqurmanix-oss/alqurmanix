@@ -1,291 +1,375 @@
-<!DOCTYPE html>
-<html lang="ar" dir="rtl">
-<head>
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "Organization",
-      "name": "Alqurmani X",
-      "url": "https://alqurmanix.com",
-      "founder": {
-        "@type": "Person",
-        "name": "Mohamed Abdullah",
-        "alternateName": "Abu Abdullah Alqurmani",
-        "address": {
-          "@type": "PostalAddress",
-          "addressLocality": "Aswan",
-          "addressCountry": "Egypt"
-        }
-      },
-      "sameAs": [
-        "https://github.com/yourprofile",
-        "https://x.com/yourprofile"
-      ]
-    }
-    </script>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>وثيقة سياسة الخصوصية وحماية البيانات | القرماني ديجيتال</title>
-    <meta name="description" content="سياسة الخصوصية الرسمية لمنصة القرماني ديجيتال. نلتزم بحماية بيانات المستخدمين وخصوصيتهم وفقاً للمعايير القانونية الدولية (GDPR).">
-    <link rel="canonical" href="https://alqurmanix.com/privacy.html" />
-    
-    <meta property="og:locale" content="ar_AR" />
-    <meta property="og:type" content="website" />
-    <meta property="og:title" content="وثيقة سياسة الخصوصية وحماية البيانات | القرماني ديجيتال" />
-    <meta property="og:description" content="سياسة الخصوصية الرسمية لمنصة القرماني ديجيتال. نلتزم بحماية بيانات المستخدمين وخصوصيتهم." />
-    <meta property="og:url" content="https://alqurmanix.com/privacy.html" />
-    <meta property="og:site_name" content="القرماني ديجيتال" />
-    <meta name="twitter:card" content="summary_large_image" />
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&amp;display=swap" rel="stylesheet"></link>
 
-    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+<style>
 
-    <style>
-        :root {
-            --primary-bg: #0c1429;
-            --card-bg: rgba(17, 26, 51, 0.95);
-            --royal-blue: #007bff;
-            --royal-gold: #c5a059;
-            --purple-tech: #6f42c1;
-            --text-silver: #e0e6ed;
-            --text-muted: #8898aa;
-            --border-line: #1e2a47;
-            --gradient-main: linear-gradient(135deg, #00d2ff 0%, #9254de 100%);
-            --font-main: 'Cairo', sans-serif;
-        }
+.qurmani-privacy{
 
-        * { box-sizing: border-box; transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94); }
+direction:rtl;
+font-family:'Cairo',sans-serif;
+max-width:1000px;
+margin:auto;
+line-height:2;
+padding:35px;
+color:#222;
 
-        body {
-            font-family: var(--font-main);
-            background-color: var(--primary-bg);
-            color: var(--text-silver);
-            margin: 0; padding: 0; line-height: 1.8;
-            overflow-x: hidden; position: relative;
-            padding-bottom: 80px; 
-        }
+}
 
-        #particles-js { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1; }
+/* progress */
 
-        .page-wrapper { max-width: 1200px; margin: 30px auto; padding: 0 15px; position: relative; }
+.qurmani-progress{
+position:fixed;
+top:0;
+left:0;
+height:5px;
+width:0%;
+background:linear-gradient(90deg,#caa63a,#f7e38c);
+z-index:9999;
+}
 
-        header {
-            background: var(--card-bg);
-            border: 1px solid var(--border-line);
-            border-radius: 20px; padding: 20px 30px;
-            display: flex; justify-content: space-between; align-items: center;
-            box-shadow: 0 25px 60px rgba(0,0,0,0.6);
-            position: relative; overflow: hidden;
-            margin-bottom: 25px; backdrop-filter: blur(15px);
-        }
+/* title */
 
-        header::before { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 6px; background: var(--gradient-main); }
+.qurmani-title{
+text-align:center;
+font-size:42px;
+font-weight:900;
+margin-bottom:10px;
 
-        .header-info h1 { font-size: 20px; font-weight: 900; margin: 0; color: #fff; letter-spacing: 0.5px; }
+background:linear-gradient(45deg,#caa63a,#f5e08a,#caa63a);
+-webkit-background-clip:text;
+-webkit-text-fill-color:transparent;
 
-        .btn-back {
-            width: 50px; height: 50px; border-radius: 50%;
-            background: #1a253a; color: #fff;
-            display: flex; align-items: center; justify-content: center;
-            text-decoration: none; font-size: 25px;
-            border: 2px solid var(--royal-gold);
-            box-shadow: 0 0 15px rgba(0,0,0,0.5);
-        }
+}
 
-        nav {
-            background: var(--card-bg); border-radius: 15px; padding: 15px 25px;
-            margin-bottom: 25px; border: 1px solid var(--border-line);
-            display: flex; justify-content: space-between; align-items: center;
-            box-shadow: 0 15px 30px rgba(0,0,0,0.4);
-        }
+.qurmani-reading{
+text-align:center;
+color:#777;
+margin-bottom:25px;
+}
 
-        .nav-link { color: var(--text-silver); text-decoration: none; font-weight: 800; font-size: 14px; }
+/* toc */
 
-        .brand-badge {
-            background: rgba(197, 160, 89, 0.1); color: var(--royal-gold);
-            padding: 5px 15px; border-radius: 50px;
-            font-weight: 900; border: 2px solid var(--royal-gold); font-size: 12px;
-        }
+.qurmani-toc{
 
-        main {
-            background: var(--card-bg); border-radius: 25px; padding: 40px 20px;
-            border: 1px solid var(--border-line); box-shadow: 0 60px 120px rgba(0,0,0,0.8);
-            position: relative; backdrop-filter: blur(20px);
-        }
+background:#fafafa;
+padding:20px;
+border-radius:10px;
+margin-bottom:30px;
 
-        .main-title {
-            font-size: 32px; font-weight: 900; text-align: center; margin-bottom: 10px;
-            background: linear-gradient(to bottom, #fff, #8898aa);
-            -webkit-background-clip: text; -webkit-text-fill-color: transparent;
-        }
+}
 
-        .update-date { text-align: center; color: var(--royal-gold); font-weight: 800; font-size: 15px; margin-bottom: 50px; display: block; }
+.qurmani-toc a{
 
-        section { margin-bottom: 60px; }
+display:block;
+padding:6px 0;
+color:#333;
+text-decoration:none;
 
-        .clause-header { display: flex; align-items: center; gap: 15px; margin-bottom: 25px; }
+}
 
-        .clause-number {
-            background: var(--gradient-main); width: 50px; height: 50px;
-            display: flex; align-items: center; justify-content: center;
-            border-radius: 12px; font-weight: 900; color: #fff; font-size: 22px; flex-shrink: 0;
-        }
+.qurmani-toc a:hover{
 
-        .clause-title { font-size: 22px; font-weight: 800; color: var(--royal-blue); margin: 0; border-bottom: 2px dashed var(--border-line); width: 100%; padding-bottom: 10px; }
+color:#caa63a;
 
-        p { font-size: 16px; margin-bottom: 25px; text-align: justify; color: var(--text-silver); }
+}
 
-        ul { list-style: none; padding: 0; margin-bottom: 40px; }
-        ul li { position: relative; padding-right: 35px; margin-bottom: 18px; font-size: 15px; }
-        ul li::before { content: '✦'; position: absolute; right: 0; color: var(--royal-gold); font-size: 18px; }
+/* sections */
 
-        .internal-link {
-            color: #fff; text-decoration: none; font-weight: 800; border-bottom: 2px solid var(--royal-blue); padding: 2px 5px;
-            background: linear-gradient(90deg, #ff0055, var(--royal-gold), #ff00ff, var(--purple-tech), var(--royal-blue));
-            background-size: 400%; -webkit-background-clip: text; background-clip: text;
-            animation: rainbowFlow 10s linear infinite;
-        }
+.qurmani-privacy h2{
 
-        @keyframes rainbowFlow { 0% { background-position: 0% 50%; } 100% { background-position: 100% 50%; } }
+margin-top:40px;
+font-size:26px;
+font-weight:800;
 
-        .contact-box {
-            background: linear-gradient(135deg, rgba(12, 20, 41, 0.8), rgba(28, 43, 80, 0.8));
-            border: 2px solid var(--royal-gold); border-radius: 20px; padding: 40px 20px;
-            text-align: center; margin-top: 60px; box-shadow: 0 30px 70px rgba(0,0,0,0.7);
-        }
+}
 
-        .contact-box h3 { font-size: 24px; font-weight: 900; color: #fff; margin-bottom: 15px; background: linear-gradient(to bottom, #fff, var(--royal-gold)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+.qurmani-privacy p{
 
-        .btn-contact {
-            display: inline-flex; align-items: center; gap: 10px; padding: 15px 30px; border-radius: 50px;
-            background: var(--gradient-main); color: #fff; text-decoration: none; font-weight: 900; font-size: 18px;
-        }
+margin-top:12px;
+font-size:17px;
 
-        footer { margin-top: 80px; text-align: center; padding: 50px 20px; border-top: 1px solid var(--border-line); }
-        .footer-brand { font-weight: 900; font-size: 22px; color: #fff; }
-        .copyright { color: var(--text-muted); font-size: 14px; margin-top: 10px; }
+}
 
-        #scrollToTop {
-            position: fixed; bottom: 30px; left: 30px; width: 60px; height: 60px;
-            background: var(--card-bg); border-radius: 50%; display: flex; align-items: center; justify-content: center;
-            color: #fff; font-size: 30px; cursor: pointer; opacity: 0; visibility: hidden; z-index: 9999;
-            border: 3px solid var(--royal-gold); box-shadow: 0 0 20px rgba(197,160,89,0.4);
-        }
-        #scrollToTop.show { opacity: 1; visibility: visible; }
+/* stamp */
 
-        @media (min-width: 769px) {
-            .header-info h1 { font-size: 28px; }
-            .main-title { font-size: 50px; }
-            main { padding: 80px 100px; }
-            .clause-title { font-size: 32px; }
-        }
-    </style>
-</head>
-<body>
+.qurmani-stamp{
 
-    <div id="particles-js"></div>
+position:fixed;
+left:40px;
+top:100px;
+font-size:80px;
+color:#caa63a;
+opacity:.15;
+animation:spin 25s linear infinite;
 
-    <div class="page-wrapper">
-        
-        <header>
-            <div class="header-info">
-                <h1>وثيقة سياسة الخصوصية</h1>
-            </div>
-            <a href="javascript:history.back()" class="btn-back">←</a>
-        </header>
+}
 
-        <nav>
-            <a href="https://digital.alqurmanix.com" class="nav-link">🏠 القرماني ديجيتال</a>
-            <div class="brand-badge">ALQURMANI X SYSTEM</div>
-        </nav>
+@keyframes spin{
 
-        <main>
-            <h1 class="main-title">الميثاق الرسمي لحماية البيانات</h1>
-            <span class="update-date">آخر تحديث: <span id="currentDate"></span></span>
+0%{transform:rotate(0)}
+100%{transform:rotate(360deg)}
 
-            <section>
-                <div class="clause-header">
-                    <div class="clause-number">٠١</div>
-                    <h2 class="clause-title">تمهيد وإقرار الامتثال</h2>
-                </div>
-                <p>مرحباً بكم في المنصة الرقمية لـ **"القرماني ديجيتال"**. تُمثل هذه الوثيقة الميثاق القانوني والملزم لإدارة وحماية البيانات الشخصية وفقاً للمعايير الدولية (GDPR). إن استخدامكم لهذه المنصة يُعد إقراراً بالموافقة على كافة البنود الأمنية الموضحة هنا.</p>
-            </section>
+}
 
-            <section>
-                <div class="clause-header">
-                    <div class="clause-number">٠٢</div>
-                    <h2 class="clause-title">فئات البيانات المجمعة</h2>
-                </div>
-                <ul>
-                    <li><strong>المعرفات التقنية:</strong> تشمل عنوان الـ IP المشفّر ونظام التشغيل ونوع المتصفح.</li>
-                    <li><strong>بيانات السلوك الرقمي:</strong> تتبع مسارات التصفح لتحسين جودة تجربة المستخدم.</li>
-                    <li><strong>بيانات الهوية:</strong> الاسم والبريد الإلكتروني عند طلب استشارة أو تواصل رسمي.</li>
-                </ul>
-            </section>
+/* FAQ */
 
-            <section>
-                <div class="clause-header">
-                    <div class="clause-number">٠٣</div>
-                    <h2 class="clause-title">أمان البيانات والسيادة الرقمية</h2>
-                </div>
-                <p>نستخدم بروتوكولات تشفير فائقة (SSL/TLS) لضمان عدم وصول أي طرف ثالث لبياناتكم. كما نمنحكم الحق الكامل في:</p>
-                <ul>
-                    <li>طلب حذف البيانات نهائياً (حق النسيان).</li>
-                    <li>تصحيح المعلومات الشخصية أو طلب نسخة منها.</li>
-                    <li>الاعتراض على أي عمليات معالجة آلية.</li>
-                </ul>
-            </section>
+.qurmani-faq{
 
-            <section>
-                <div class="clause-header">
-                    <div class="clause-number">٠٤</div>
-                    <h2 class="clause-title">الفهرس القانوني</h2>
-                </div>
-                <p style="text-align: center; font-weight: bold;">
-                    | <a href="terms.html" class="internal-link">شروط الخدمة</a> 
-                    | <a href="disclaimer.html" class="internal-link">إخلاء المسؤولية</a> 
-                    | <a href="contact.html" class="internal-link">الامتثال القانوني</a> |
-                </p>
-            </section>
+margin-top:60px;
 
-            <div class="contact-box">
-                <h3>للاستفسارات القانونية</h3>
-                <p>فريقنا التقني والقانوني متاح للرد على أي تساؤل يخص خصوصيتكم.</p>
-                <a href="contact.html" class="btn-contact">📧 التواصل المباشر</a>
-            </div>
-        </main>
+}
 
-        <footer>
-            <div class="footer-brand">ALQURMANI DIGITAL NETWORK</div>
-            <div class="copyright">إحدى منصات alqurmani x network<br>جميع الحقوق محفوظة © 2026</div>
-        </footer>
+.qurmani-accordion{
 
-    </div>
+border-bottom:1px solid #eee;
 
-    <div id="scrollToTop">↑</div>
+}
 
-    <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
-    <script>
-        function updateDate() {
-            const now = new Date();
-            const months = ["يناير", "فبراير", "مارس", "أبريل", "مايو", "يونيو", "يوليو", "أغسطس", "سبتمبر", "أكتوبر", "نوفمبر", "ديسمبر"];
-            document.getElementById('currentDate').textContent = months[now.getMonth()] + " " + now.getFullYear();
-        }
-        updateDate();
+.qurmani-accordion button{
 
-        const upBtn = document.getElementById('scrollToTop');
-        window.onscroll = () => { window.pageYOffset > 400 ? upBtn.classList.add('show') : upBtn.classList.remove('show'); };
-        upBtn.onclick = () => { window.scrollTo({ top: 0, behavior: 'smooth' }); };
+width:100%;
+text-align:right;
+padding:18px;
+background:none;
+border:none;
+font-size:18px;
+font-weight:700;
+cursor:pointer;
 
-        particlesJS('particles-js', {
-            particles: {
-                number: { value: 100, density: { enable: true, value_area: 800 } },
-                color: { value: "#c5a059" },
-                opacity: { value: 0.3, random: true },
-                size: { value: 2, random: true },
-                line_linked: { enable: true, distance: 150, color: "#c5a059", opacity: 0.1, width: 1 },
-                move: { enable: true, speed: 2, direction: "none", random: true, out_mode: "out" }
-            }
-        });
-    </script>
-</body>
-</html>
+}
+
+.qurmani-panel{
+
+max-height:0;
+overflow:hidden;
+transition:max-height .4s ease;
+padding:0 18px;
+
+}
+
+/* signature */
+
+.qurmani-signature{
+
+margin-top:60px;
+text-align:center;
+border-top:1px solid #ddd;
+padding-top:30px;
+
+}
+
+.qurmani-signature strong{
+
+font-size:20px;
+
+}
+
+</style>
+
+
+<div class="qurmani-progress" id="progress"></div>
+
+<div class="qurmani-stamp">⚖</div>
+
+<div class="qurmani-privacy">
+
+<h1 class="qurmani-title">سياسة الخصوصية – موقع القرماني ديجيتال</h1>
+
+<div class="qurmani-reading">
+مدة القراءة التقريبية: <span id="readingTime"></span> دقيقة
+</div>
+
+
+<div class="qurmani-toc">
+
+<strong>محتويات الصفحة</strong>
+
+<a href="#intro">مقدمة</a>
+<a href="#data">المعلومات التي نجمعها</a>
+<a href="#usage">كيفية استخدام البيانات</a>
+<a href="#cookies">ملفات الكوكيز</a>
+<a href="#ads">الإعلانات</a>
+<a href="#security">أمن المعلومات</a>
+<a href="#external">الروابط الخارجية</a>
+<a href="#updates">تحديث السياسة</a>
+
+</div>
+
+
+<h2 id="intro">مقدمة</h2>
+
+<p>
+في موقع القرماني ديجيتال نؤمن بأن خصوصية المستخدمين تمثل جزءاً أساسياً من الثقة الرقمية التي نسعى لبنائها مع زوار الموقع. لذلك قمنا بإعداد سياسة الخصوصية هذه لتوضيح كيفية جمع البيانات واستخدامها وحمايتها عند استخدام خدمات الموقع.
+</p>
+
+<p>
+تم تصميم هذه السياسة وفق أفضل الممارسات العالمية في مجال حماية البيانات ووفق المبادئ الأساسية للشفافية والمسؤولية الرقمية.
+</p>
+
+<p>
+استخدامك للموقع يعني موافقتك على هذه السياسة وعلى الطريقة التي يتم بها التعامل مع البيانات.
+</p>
+
+
+<h2 id="data">المعلومات التي نجمعها</h2>
+
+<p>
+قد يقوم الموقع بجمع بعض المعلومات التقنية عند زيارة المستخدم للموقع مثل عنوان IP ونوع الجهاز ونوع المتصفح ونظام التشغيل المستخدم. تساعدنا هذه المعلومات في تحليل أداء الموقع وتحسين تجربة المستخدم.
+</p>
+
+<p>
+كما يمكن جمع معلومات تتعلق بطريقة استخدام الموقع مثل الصفحات التي تمت زيارتها ومدة البقاء في الموقع والروابط التي يتم الضغط عليها.
+</p>
+
+<p>
+يتم جمع هذه البيانات بطريقة آلية عبر أدوات تحليل الويب المستخدمة في معظم المواقع العالمية.
+</p>
+
+
+<h2 id="usage">كيفية استخدام البيانات</h2>
+
+<p>
+تستخدم البيانات التي يتم جمعها لأغراض متعددة مثل تحسين جودة المحتوى وتحليل سلوك المستخدمين وتطوير الخدمات الرقمية المقدمة عبر الموقع.
+</p>
+
+<p>
+كما تساعدنا هذه البيانات في فهم اهتمامات الزوار بشكل أفضل مما يتيح لنا تقديم محتوى أكثر ملاءمة واحترافية.
+</p>
+
+
+<h2 id="cookies">ملفات تعريف الارتباط</h2>
+
+<p>
+يستخدم الموقع ملفات تعريف الارتباط لتحسين تجربة التصفح وتذكر بعض تفضيلات المستخدمين أثناء زيارتهم للموقع.
+</p>
+
+<p>
+يمكن للمستخدم تعطيل ملفات الكوكيز من خلال إعدادات المتصفح الخاص به في أي وقت.
+</p>
+
+
+<h2 id="ads">الإعلانات</h2>
+
+<p>
+قد يستخدم الموقع خدمات إعلانية تابعة لجهات خارجية لعرض الإعلانات المناسبة للمستخدمين بناءً على اهتماماتهم.
+</p>
+
+<p>
+تستخدم هذه الشركات تقنيات مختلفة مثل ملفات تعريف الارتباط أو معرفات الأجهزة.
+</p>
+
+
+<h2 id="security">أمن المعلومات</h2>
+
+<p>
+نحن نستخدم مجموعة من الإجراءات التقنية والتنظيمية لحماية البيانات من الوصول غير المصرح به أو الاستخدام غير القانوني.
+</p>
+
+<p>
+ومع ذلك يجب الإشارة إلى أن الإنترنت ليس بيئة آمنة بنسبة 100%.
+</p>
+
+
+<h2 id="external">الروابط الخارجية</h2>
+
+<p>
+قد يحتوي الموقع على روابط لمواقع خارجية لا تخضع لسيطرة موقع القرماني ديجيتال. لذلك ننصح المستخدمين بمراجعة سياسات الخصوصية الخاصة بهذه المواقع.
+</p>
+
+
+<h2 id="updates">تحديث سياسة الخصوصية</h2>
+
+<p>
+قد يتم تحديث هذه السياسة من وقت لآخر بما يتوافق مع التغيرات القانونية أو التقنية. سيتم نشر أي تحديثات على هذه الصفحة.
+</p>
+
+
+<div class="qurmani-faq">
+
+<h2>الأسئلة الشائعة</h2>
+
+<div class="qurmani-accordion">
+<button>هل يجمع الموقع بيانات شخصية؟</button>
+<div class="qurmani-panel"><p>يتم جمع بيانات تقنية فقط لتحسين تجربة المستخدم.</p></div>
+</div>
+
+<div class="qurmani-accordion">
+<button>هل يتم استخدام الكوكيز؟</button>
+<div class="qurmani-panel"><p>نعم لتحسين تجربة التصفح.</p></div>
+</div>
+
+<div class="qurmani-accordion">
+<button>هل يتم بيع البيانات؟</button>
+<div class="qurmani-panel"><p>لا يتم بيع بيانات المستخدمين.</p></div>
+</div>
+
+<div class="qurmani-accordion">
+<button>هل يمكن تعطيل الكوكيز؟</button>
+<div class="qurmani-panel"><p>نعم من إعدادات المتصفح.</p></div>
+</div>
+
+<div class="qurmani-accordion">
+<button>هل البيانات آمنة؟</button>
+<div class="qurmani-panel"><p>نستخدم إجراءات حماية متقدمة.</p></div>
+</div>
+
+<div class="qurmani-accordion">
+<button>هل يتم تحديث السياسة؟</button>
+<div class="qurmani-panel"><p>نعم عند الحاجة.</p></div>
+</div>
+
+<div class="qurmani-accordion">
+<button>كيف يمكن التواصل؟</button>
+<div class="qurmani-panel"><p>عبر صفحة تواصل معنا.</p></div>
+</div>
+
+</div>
+
+
+<div class="qurmani-signature">
+
+<strong>القرماني ديجيتال</strong>
+
+<p>سياسة خصوصية رقمية رسمية</p>
+
+</div>
+
+</div>
+
+
+
+<script>
+
+/* reading time */
+
+var text=document.querySelector(".qurmani-privacy").innerText
+var words=text.split(/\s+/).length
+var time=Math.ceil(words/200)
+document.getElementById("readingTime").innerText=time
+
+
+/* progress */
+
+window.addEventListener("scroll",function(){
+
+let scrollTop=document.documentElement.scrollTop
+let height=document.documentElement.scrollHeight-document.documentElement.clientHeight
+let progress=(scrollTop/height)*100
+document.getElementById("progress").style.width=progress+"%"
+
+})
+
+/* accordion */
+
+document.querySelectorAll(".qurmani-accordion button").forEach(btn=>{
+
+btn.addEventListener("click",()=>{
+
+const panel=btn.nextElementSibling
+
+panel.style.maxHeight=panel.style.maxHeight?null:panel.scrollHeight+"px"
+
+})
+
+})
+
+</script>
