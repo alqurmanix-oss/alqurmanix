@@ -384,5 +384,174 @@ footer{
 fetch("https://www.google.com/ping?sitemap=https://www.alqurmanix.com/sitemap.xml");
 fetch("https://www.bing.com/ping?sitemap=https://www.alqurmanix.com/sitemap.xml");
 </script>
+    <script>
+(function(){
+
+  // ==============================
+  // الحالة العامة
+  // ==============================
+  let voice = null;
+  let listening = false;
+  let recognition = null;
+
+  // ==============================
+  // تحميل الصوت
+  // ==============================
+  function loadVoices(){
+    const voices = speechSynthesis.getVoices();
+    if(!voices.length) return;
+
+    voice =
+      voices.find(v => v.lang.includes("ar")) ||
+      voices[0];
+  }
+
+  speechSynthesis.onvoiceschanged = loadVoices;
+  loadVoices();
+
+  // ==============================
+  // التحدث
+  // ==============================
+  function speak(text){
+
+    if(!text) return;
+
+    const utter = new SpeechSynthesisUtterance(text);
+
+    utter.voice = voice;
+    utter.lang = "ar-EG";
+    utter.rate = 1;
+
+    speechSynthesis.cancel();
+    speechSynthesis.speak(utter);
+  }
+
+  // ==============================
+  // التعرف على الصوت
+  // ==============================
+  function startListening(){
+
+    const SpeechRecognition =
+      window.SpeechRecognition || window.webkitSpeechRecognition;
+
+    if(!SpeechRecognition){
+      alert("المتصفح لا يدعم الأوامر الصوتية");
+      return;
+    }
+
+    recognition = new SpeechRecognition();
+
+    recognition.lang = "ar-EG";
+    recognition.continuous = false;
+    recognition.interimResults = false;
+
+    recognition.onstart = () => {
+      listening = true;
+      speak("أنا سامعك");
+    };
+
+    recognition.onend = () => {
+      listening = false;
+    };
+
+    recognition.onresult = (event) => {
+      const text = event.results[0][0].transcript;
+      handleCommand(text);
+    };
+
+    recognition.start();
+  }
+
+  // ==============================
+  // محرك الأوامر
+  // ==============================
+  function handleCommand(text){
+
+    text = text.trim();
+
+    console.log("Command:", text);
+
+    // فتح القائمة
+    if(/القائمة|المنيو/.test(text)){
+      document.querySelector(".menu")?.classList.toggle("open");
+      speak("تم فتح القائمة");
+      return;
+    }
+
+    // بحث
+    if(text.startsWith("ابحث عن")){
+      const query = text.replace("ابحث عن", "").trim();
+
+      speak("جاري البحث عن " + query);
+
+      window.location.href = "/search?q=" + encodeURIComponent(query);
+      return;
+    }
+
+    // الانتقال لصفحة
+    if(/الرئيسية/.test(text)){
+      speak("جارى الذهاب للصفحة الرئيسية");
+      window.location.href = "/";
+      return;
+    }
+
+    // سكروول
+    if(/انزل/.test(text)){
+      window.scrollBy(0, 500);
+      speak("تمام");
+      return;
+    }
+
+    if(/اطلع/.test(text)){
+      window.scrollBy(0, -500);
+      speak("تمام");
+      return;
+    }
+
+    // إيقاف
+    if(/اسكت|توقف/.test(text)){
+      speechSynthesis.cancel();
+      return;
+    }
+
+    // fallback
+    speak("مش فاهم، حاول تاني");
+  }
+
+  // ==============================
+  // زر تشغيل المساعد
+  // ==============================
+  function createAssistantButton(){
+
+    const btn = document.createElement("div");
+
+    btn.innerHTML = "🎤";
+    btn.style = `
+      position:fixed;
+      bottom:20px;
+      right:20px;
+      width:60px;
+      height:60px;
+      background:#D4AF37;
+      color:#000;
+      font-size:28px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      border-radius:50%;
+      cursor:pointer;
+      z-index:9999;
+      box-shadow:0 0 20px rgba(0,0,0,0.3);
+    `;
+
+    btn.onclick = startListening;
+
+    document.body.appendChild(btn);
+  }
+
+  window.addEventListener("load", createAssistantButton);
+
+})();
+</script>
 </body>
 </html>
