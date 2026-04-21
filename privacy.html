@@ -2,52 +2,43 @@
 <html lang="ar" dir="rtl">
 <head>
     <script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "Organization",
-  "name": "Alqurmani X",
-  "url": "https://yourdomain.com",
-  "founder": {
-    "@type": "Person",
-    "name": "Mohamed Abdullah",
-    "alternateName": "Abu Abdullah Alqurmani",
-    "address": {
-      "@type": "PostalAddress",
-      "addressLocality": "Aswan",
-      "addressCountry": "Egypt"
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "Alqurmani X",
+      "url": "https://alqurmanix.com",
+      "founder": {
+        "@type": "Person",
+        "name": "Mohamed Abdullah",
+        "alternateName": "Abu Abdullah Alqurmani",
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Aswan",
+          "addressCountry": "Egypt"
+        }
+      },
+      "sameAs": [
+        "https://github.com/yourprofile",
+        "https://x.com/yourprofile"
+      ]
     }
-  },
-  "sameAs": [
-    "https://github.com/yourprofile",
-    "https://x.com/yourprofile"
-  ]
-}
-</script>
+    </script>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>وثيقة سياسة الخصوصية وحماية البيانات | القرماني ديجيتال</title>
     <meta name="description" content="سياسة الخصوصية الرسمية لمنصة القرماني ديجيتال. نلتزم بحماية بيانات المستخدمين وخصوصيتهم وفقاً للمعايير القانونية الدولية (GDPR).">
     <link rel="canonical" href="https://alqurmanix.com/privacy.html" />
+    
     <meta property="og:locale" content="ar_AR" />
     <meta property="og:type" content="website" />
     <meta property="og:title" content="وثيقة سياسة الخصوصية وحماية البيانات | القرماني ديجيتال" />
-    <meta property="og:description" content="سياسة الخصوصية الرسمية لمنصة القرماني ديجيتال. نلتزم بحماية بيانات المستخدمين وخصوصيتهم وفقاً للمعايير القانونية الدولية." />
+    <meta property="og:description" content="سياسة الخصوصية الرسمية لمنصة القرماني ديجيتال. نلتزم بحماية بيانات المستخدمين وخصوصيتهم." />
     <meta property="og:url" content="https://alqurmanix.com/privacy.html" />
     <meta property="og:site_name" content="القرماني ديجيتال" />
     <meta name="twitter:card" content="summary_large_image" />
+
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&display=swap" rel="stylesheet">
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "WebPage",
-      "name": "وثيقة سياسة الخصوصية وحماية البيانات",
-      "description": "سياسة الخصوصية الرسمية لمنصة القرماني ديجيتال",
-      "publisher": {
-        "@type": "Organization",
-        "name": "القرماني ديجيتال"
-      }
-    }
-    </script>
+
     <style>
         :root {
             --primary-bg: #0c1429;
@@ -73,271 +64,121 @@
             padding-bottom: 80px; 
         }
 
-        #particles-js {
-            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-            z-index: -1;
-        }
+        #particles-js { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1; }
 
-        .page-wrapper {
-            max-width: 1200px; margin: 50px auto;
-            padding: 0 20px; position: relative;
-        }
+        .page-wrapper { max-width: 1200px; margin: 30px auto; padding: 0 15px; position: relative; }
 
         header {
             background: var(--card-bg);
             border: 1px solid var(--border-line);
-            border-radius: 20px;
-            padding: 30px 40px;
+            border-radius: 20px; padding: 20px 30px;
             display: flex; justify-content: space-between; align-items: center;
             box-shadow: 0 25px 60px rgba(0,0,0,0.6);
             position: relative; overflow: hidden;
-            margin-bottom: 30px; backdrop-filter: blur(15px);
+            margin-bottom: 25px; backdrop-filter: blur(15px);
         }
 
-        header::before {
-            content: ''; position: absolute;
-            top: 0; left: 0; width: 100%; height: 6px;
-            background: var(--gradient-main);
-        }
+        header::before { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 6px; background: var(--gradient-main); }
 
-        .header-info h1 {
-            font-size: 28px; font-weight: 900;
-            margin: 0; color: #fff; letter-spacing: 1px;
-        }
+        .header-info h1 { font-size: 20px; font-weight: 900; margin: 0; color: #fff; letter-spacing: 0.5px; }
 
         .btn-back {
-            width: 60px; height: 60px;
-            border-radius: 50%;
-            background: #1a253a;
-            color: #fff;
+            width: 50px; height: 50px; border-radius: 50%;
+            background: #1a253a; color: #fff;
             display: flex; align-items: center; justify-content: center;
-            text-decoration: none; font-size: 30px;
-            box-shadow: 0 0 25px rgba(0,0,0,0.5);
-            transition: all 0.4s ease;
-            position: relative; overflow: hidden;
-            border: 3px solid transparent;
-            animation: rainbowBorder 8s linear infinite;
-        }
-
-        .btn-back:active {
-            transform: scale(1.1) rotate(720deg);
+            text-decoration: none; font-size: 25px;
+            border: 2px solid var(--royal-gold);
+            box-shadow: 0 0 15px rgba(0,0,0,0.5);
         }
 
         nav {
-            background: var(--card-bg);
-            border-radius: 15px; padding: 18px 35px;
-            margin-bottom: 30px; border: 1px solid var(--border-line);
+            background: var(--card-bg); border-radius: 15px; padding: 15px 25px;
+            margin-bottom: 25px; border: 1px solid var(--border-line);
             display: flex; justify-content: space-between; align-items: center;
             box-shadow: 0 15px 30px rgba(0,0,0,0.4);
-            backdrop-filter: blur(10px);
         }
 
-        .nav-link {
-            color: var(--text-silver); text-decoration: none;
-            font-weight: 800; font-size: 18px;
-            display: flex; align-items: center; gap: 10px;
-        }
-
-        .nav-link:hover { color: var(--royal-blue); }
+        .nav-link { color: var(--text-silver); text-decoration: none; font-weight: 800; font-size: 14px; }
 
         .brand-badge {
-            background: rgba(197, 160, 89, 0.1);
-            color: var(--royal-gold);
-            padding: 8px 25px; border-radius: 50px;
-            font-weight: 900; border: 2px solid var(--royal-gold);
-            font-size: 15px; letter-spacing: 1px;
+            background: rgba(197, 160, 89, 0.1); color: var(--royal-gold);
+            padding: 5px 15px; border-radius: 50px;
+            font-weight: 900; border: 2px solid var(--royal-gold); font-size: 12px;
         }
 
         main {
-            background: var(--card-bg);
-            border-radius: 25px; padding: 100px;
-            border: 1px solid var(--border-line);
-            box-shadow: 0 60px 120px rgba(0,0,0,0.8);
+            background: var(--card-bg); border-radius: 25px; padding: 40px 20px;
+            border: 1px solid var(--border-line); box-shadow: 0 60px 120px rgba(0,0,0,0.8);
             position: relative; backdrop-filter: blur(20px);
         }
 
-        main::after {
-            content: ''; position: absolute;
-            top: 150px; right: 0; bottom: 150px; width: 8px;
-            background: var(--gradient-main);
-            border-radius: 10px 0 0 10px;
-        }
-
         .main-title {
-            font-size: 54px; font-weight: 900;
-            text-align: center; margin-bottom: 15px;
+            font-size: 32px; font-weight: 900; text-align: center; margin-bottom: 10px;
             background: linear-gradient(to bottom, #fff, #8898aa);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent;
         }
 
-        .update-date {
-            text-align: center; color: var(--royal-gold);
-            font-weight: 800; font-size: 18px;
-            margin-bottom: 100px; display: block;
-        }
+        .update-date { text-align: center; color: var(--royal-gold); font-weight: 800; font-size: 15px; margin-bottom: 50px; display: block; }
 
-        section { margin-bottom: 80px; }
+        section { margin-bottom: 60px; }
 
-        .clause-header {
-            display: flex; align-items: center;
-            gap: 25px; margin-bottom: 40px;
-        }
+        .clause-header { display: flex; align-items: center; gap: 15px; margin-bottom: 25px; }
 
         .clause-number {
-            background: var(--gradient-main);
-            width: 65px; height: 65px;
+            background: var(--gradient-main); width: 50px; height: 50px;
             display: flex; align-items: center; justify-content: center;
-            border-radius: 15px; font-weight: 900;
-            color: #fff; flex-shrink: 0;
-            font-size: 26px;
+            border-radius: 12px; font-weight: 900; color: #fff; font-size: 22px; flex-shrink: 0;
         }
 
-        .clause-title {
-            font-size: 36px; font-weight: 800;
-            color: var(--royal-blue); margin: 0;
-            border-bottom: 3px dashed var(--border-line);
-            width: 100%; padding-bottom: 20px;
-        }
+        .clause-title { font-size: 22px; font-weight: 800; color: var(--royal-blue); margin: 0; border-bottom: 2px dashed var(--border-line); width: 100%; padding-bottom: 10px; }
 
-        p { font-size: 19px; margin-bottom: 35px; text-align: justify; color: var(--text-silver); }
+        p { font-size: 16px; margin-bottom: 25px; text-align: justify; color: var(--text-silver); }
 
-        ul { list-style: none; padding: 0; margin-bottom: 50px; }
-        ul li {
-            position: relative; padding-right: 40px;
-            margin-bottom: 25px; font-size: 18px;
-        }
-
-        ul li::before {
-            content: '✦'; position: absolute;
-            right: 0; color: var(--royal-gold);
-            font-size: 22px;
-        }
+        ul { list-style: none; padding: 0; margin-bottom: 40px; }
+        ul li { position: relative; padding-right: 35px; margin-bottom: 18px; font-size: 15px; }
+        ul li::before { content: '✦'; position: absolute; right: 0; color: var(--royal-gold); font-size: 18px; }
 
         .internal-link {
-            color: #fff;
-            text-decoration: none;
-            font-weight: 800;
-            border-bottom: 2px solid var(--royal-blue);
-            padding: 2px 5px;
+            color: #fff; text-decoration: none; font-weight: 800; border-bottom: 2px solid var(--royal-blue); padding: 2px 5px;
             background: linear-gradient(90deg, #ff0055, var(--royal-gold), #ff00ff, var(--purple-tech), var(--royal-blue));
-            background-size: 400%;
-            -webkit-background-clip: text;
-            background-clip: text;
+            background-size: 400%; -webkit-background-clip: text; background-clip: text;
             animation: rainbowFlow 10s linear infinite;
         }
 
-        @keyframes rainbowFlow {
-            0% { background-position: 0% 50%; }
-            100% { background-position: 100% 50%; }
-        }
+        @keyframes rainbowFlow { 0% { background-position: 0% 50%; } 100% { background-position: 100% 50%; } }
 
-        .internal-link:hover {
-            color: #fff;
-            -webkit-text-fill-color: initial;
-            background: rgba(197, 160, 89, 0.1);
-            border-bottom-color: var(--royal-gold);
-        }
-
+        /* تم إزالة البرواز (border) من الصندوق بناءً على طلبك */
         .contact-box {
             background: linear-gradient(135deg, rgba(12, 20, 41, 0.8), rgba(28, 43, 80, 0.8));
-            border: 2px solid var(--border-line);
-            border-radius: 20px;
-            padding: 70px;
-            text-align: center;
-            margin-top: 120px;
-            box-shadow: 0 30px 70px rgba(0,0,0,0.7);
-            position: relative;
-            overflow: hidden;
-            animation: royalBorderGlow 5s infinite;
+            border: none; border-radius: 20px; padding: 40px 20px;
+            text-align: center; margin-top: 60px; box-shadow: 0 30px 70px rgba(0,0,0,0.7);
         }
 
-        @keyframes royalBorderGlow {
-            0% { border-color: var(--border-line); box-shadow: 0 0 25px rgba(0,0,0,0.6); }
-            50% { border-color: var(--royal-gold); box-shadow: 0 0 45px rgba(197, 160, 89, 0.2); }
-            100% { border-color: var(--border-line); box-shadow: 0 0 25px rgba(0,0,0,0.6); }
-        }
-
-        .contact-box h3 {
-            font-size: 36px; font-weight: 900;
-            color: #fff; margin-bottom: 25px;
-            background: linear-gradient(to bottom, #fff, var(--royal-gold));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-
-        .contact-box p { text-align: center; font-size: 19px; margin-bottom: 35px; color: var(--text-silver); }
+        .contact-box h3 { font-size: 24px; font-weight: 900; color: #fff; margin-bottom: 15px; background: linear-gradient(to bottom, #fff, var(--royal-gold)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
 
         .btn-contact {
-            display: inline-flex; align-items: center; gap: 10px;
-            padding: 18px 45px; border-radius: 50px;
-            background: var(--gradient-main);
-            color: #fff; text-decoration: none;
-            font-weight: 900; font-size: 20px;
-            box-shadow: 0 12px 30px rgba(0, 123, 255, 0.4);
-            border: 2px solid transparent;
+            display: inline-flex; align-items: center; gap: 10px; padding: 15px 30px; border-radius: 50px;
+            background: var(--gradient-main); color: #fff; text-decoration: none; font-weight: 900; font-size: 18px;
         }
 
-        .btn-contact:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 20px 45px rgba(0, 123, 255, 0.6);
-            border-color: #fff;
-        }
+        footer { margin-top: 80px; text-align: center; padding: 50px 20px; border-top: 1px solid var(--border-line); }
+        .footer-brand { font-weight: 900; font-size: 22px; color: #fff; }
+        .copyright { color: var(--text-muted); font-size: 14px; margin-top: 10px; }
 
-        footer {
-            margin-top: 100px; text-align: center;
-            padding: 70px; border-top: 1px solid var(--border-line);
-        }
-
-        .footer-brand {
-            font-weight: 900; font-size: 26px;
-            color: #fff; letter-spacing: 2px;
-        }
-
-        .copyright {
-            color: var(--text-muted); font-size: 16px;
-            margin-top: 15px; font-weight: 600;
-        }
-
+        /* تم نقل السهم إلى جهة اليمين (right: 30px) */
         #scrollToTop {
-            position: fixed; bottom: 45px;
-            left: 45px; width: 70px; height: 70px;
-            background: rgba(17, 26, 51, 0.95);
-            border-radius: 50%;
-            display: flex; align-items: center; justify-content: center;
-            color: #fff; font-size: 36px;
-            cursor: pointer; opacity: 0;
-            visibility: hidden; z-index: 9999;
-            box-shadow: 0 25px 50px rgba(0,0,0,0.8);
-            border: 3px solid transparent;
-            transition: all 0.6s cubic-bezier(0.68, -0.55, 0.27, 1.55);
-            animation: rainbowBorder 8s linear infinite;
+            position: fixed; bottom: 30px; right: 30px; width: 60px; height: 60px;
+            background: var(--card-bg); border-radius: 50%; display: flex; align-items: center; justify-content: center;
+            color: #fff; font-size: 30px; cursor: pointer; opacity: 0; visibility: hidden; z-index: 9999;
+            border: 3px solid var(--royal-gold); box-shadow: 0 0 20px rgba(197,160,89,0.4);
         }
+        #scrollToTop.show { opacity: 1; visibility: visible; }
 
-        @keyframes rainbowBorder {
-            0% { border-color: #ff0055; color: #ff0055; box-shadow: 0 0 20px rgba(255,0,85,0.5); }
-            20% { border-color: var(--royal-gold); color: var(--royal-gold); box-shadow: 0 0 20px rgba(197,160,89,0.5); }
-            40% { border-color: var(--purple-tech); color: var(--purple-tech); box-shadow: 0 0 20px rgba(111,66,193,0.5); }
-            60% { border-color: var(--royal-blue); color: var(--royal-blue); box-shadow: 0 0 20px rgba(0,123,255,0.5); }
-            80% { border-color: #00ff88; color: #00ff88; box-shadow: 0 0 20px rgba(0,255,136,0.5); }
-            100% { border-color: #ff0055; color: #ff0055; box-shadow: 0 0 20px rgba(255,0,85,0.5); }
-        }
-
-        #scrollToTop.show {
-            opacity: 1; visibility: visible;
-        }
-
-        #scrollToTop.active {
-            transform: translateY(-2000px) rotate(1440deg) scale(0);
-            opacity: 0;
-        }
-
-        @media (max-width: 768px) {
-            main { padding: 60px 25px; }
-            .main-title { font-size: 36px; }
-            header { padding: 25px; }
-            .clause-title { font-size: 28px; }
-            #scrollToTop { width: 60px; height: 60px; font-size: 30px; bottom: 30px; left: 30px; }
+        @media (min-width: 769px) {
+            .header-info h1 { font-size: 28px; }
+            .main-title { font-size: 50px; }
+            main { padding: 80px 100px; }
+            .clause-title { font-size: 32px; }
         }
     </style>
 </head>
@@ -349,479 +190,104 @@
         
         <header>
             <div class="header-info">
-                <h1>وثيقة سياسة الخصوصية وحماية البيانات</h1>
+                <h1>وثيقة سياسة الخصوصية</h1>
             </div>
-            <a href="javascript:history.back()" class="btn-back" title="عودة">←</a>
+            <a href="javascript:history.back()" class="btn-back">←</a>
         </header>
 
         <nav>
-            <a href="https://digital.alqurmanix.com" class="nav-link home-link">
-                🏠 القرماني ديجيتال: المنصة الرقمية
-            </a>
+            <a href="https://digital.alqurmanix.com" class="nav-link">🏠 القرماني ديجيتال</a>
             <div class="brand-badge">ALQURMANI X SYSTEM</div>
         </nav>
 
         <main>
-            <h1 class="main-title">وثيقة سياسة الخصوصية وحماية البيانات الشاملة</h1>
-            <span class="update-date">تاريخ آخر مراجعة وتحديث: <span id="currentDate"></span></span>
+            <h1 class="main-title">الميثاق الرسمي لحماية البيانات</h1>
+            <span class="update-date">آخر تحديث: <span id="currentDate"></span></span>
 
             <section>
                 <div class="clause-header">
                     <div class="clause-number">٠١</div>
-                    <h2 class="clause-title">تمهيد وإقرار الامتثال القانوني والفني</h2>
+                    <h2 class="clause-title">تمهيد وإقرار الامتثال</h2>
                 </div>
-                <p>مرحباً بكم في المنصة الرقمية لمنصة **"القرماني ديجيتال"** (المشار إليها لاحقاً بـ "المنصة"، "نحن"، أو "القرماني X"). تُمثل هذه الوثيقة الميثاق القانوني والملزم لإدارة وحماية البيانات الشخصية. تم صياغة هذه السياسة وفقاً لأعلى معايير الدقة الفنية والامتثال القانوني العالمي، بما في ذلك اللائحة العامة لحماية البيانات (GDPR) التابعة للاتحاد الأوروبي، وقوانين حماية البيانات المحلية ذات الصلة. إن ولوجكم لهذا الموقع، أو تفاعلكم مع محتواه، أو طلبكم لخدماتنا الرقمية يُعد إقراراً صريحاً ونافذاً بموافقتكم الكاملة وغير القابلة للطعن على كافة المعايير الأمنية، والبروتوكولات الفنية، والممارسات الموضحة في هذا الميثاق. نحن نعتبر حماية بياناتكم مسؤولية جوهرية لا تقبل المساومة، ونضمن توفير بيئة مشفرة بالكامل.</p>
-                <p>إن "القرماني ديجيتال"، كجزء لا يتجزأ من **alqurmani x network**، تلتزم بشفافية مطلقة حول كيفية جمع البيانات، استخدامها، معالجتها، وحمايتها، وتعتبر هذا الميثاق حجر الزاوية في بناء الثقة مع عملائنا ومستخدمينا.</p>
-                <p>تم صياغة هذا الميثاق باللغة العربية كأصل قانوني، وفي حال وجود أي تعارض بين النص العربي وأي ترجمة أخرى، يُعتد بالنص العربي كمرجع نهائي ووحيد لتفسير الأحكام البنود المعروضة.</p>
+                <p>مرحباً بكم في المنصة الرقمية لـ **"القرماني ديجيتال"**. تُمثل هذه الوثيقة الميثاق القانوني والملزم لإدارة وحماية البيانات الشخصية وفقاً للمعايير الدولية (GDPR). إن استخدامكم لهذه المنصة يُعد إقراراً بالموافقة على كافة البنود الأمنية الموضحة هنا.</p>
             </section>
 
             <section>
                 <div class="clause-header">
                     <div class="clause-number">٠٢</div>
-                    <h2 class="clause-title">نطاق وفئات البيانات التي نقوم بجمعها بدقة</h2>
+                    <h2 class="clause-title">فئات البيانات المجمعة</h2>
                 </div>
-                <p>لضمان تقديم أعلى درجات الجودة والاحترافية في خدماتنا الرقمية، تعمل أنظمة "القرماني ديجيتال" على جمع فئات محددة من البيانات الشخصية والتقنية بذكاء، وهي كالتالي:</p>
                 <ul>
-                    <li>**المعرفات الرقمية والمعلومات التقنية المتقدمة:** تشمل عناوين الـ IP المشفّرة، معرفات الأجهزة الفريدة (UDIDs)، نظام التشغيل المستخدم، نوع المتصفح وتفضيلاته، لغة الجهاز، ومزود خدمة الإنترنت (ISP).</li>
-                    <li><strong>بيانات التفاعل والسلوك الرقمي:</strong> الوقت المستغرق في الصفحات، الروابط التي تم النقر عليها، مسارات الإحالة (Referral Sources)، وخرائط الحرارة (Heatmaps) التي توضح تصفحكم للمحتوى.</li>
-                    <li><strong>بيانات الهوية والاتصال (عند تزويدنا بها):</strong> وتشمل الاسم الكامل، وعنوان البريد الإلكتروني (الأكثر أهمية)، ورقم الهاتف الموثق، ومعلومات الشركة عند التواصل معنا أو طلب استشارة.</li>
-                    <li>**بيانات الموقع الجغرافي (Geolocation Data):** نقوم بجمع معلومات عامة عن موقعكم الجغرافي بناءً على عنوان الـ IP لتقديم محتوى ملائم إقليمياً ولتحليل الأداء.</li>
-                    <li><strong>بيانات الدفع (في حال المعاملات):</strong> يتم معالجة تفاصيل بطاقات الائتمان عبر بوابات دفع طرف ثالث آمنة تماماً، ولا نحتفظ بها في خوادمنا.</li>
+                    <li><strong>المعرفات التقنية:</strong> تشمل عنوان الـ IP المشفّر ونظام التشغيل ونوع المتصفح.</li>
+                    <li><strong>بيانات السلوك الرقمي:</strong> تتبع مسارات التصفح لتحسين جودة تجربة المستخدم.</li>
+                    <li><strong>بيانات الهوية:</strong> الاسم والبريد الإلكتروني عند طلب استشارة أو تواصل رسمي.</li>
                 </ul>
-                <p>نحن لا نقوم بجمع أي "بيانات حساسة" (Sensative Data) مثل العرق، الدين، أو المعلومات الصحية، إلا في حال تم تزويدنا بها طواعية وبموافقة صريحة، وضمن سياق تقديم خدمة محددة.</p>
             </section>
 
             <section>
                 <div class="clause-header">
                     <div class="clause-number">٠٣</div>
-                    <h2 class="clause-title">آليات جمع البيانات المباشرة والتلقائية الفائقة</h2>
+                    <h2 class="clause-title">أمان البيانات والسيادة الرقمية</h2>
                 </div>
-                <p>يتم جمع البيانات عبر منصة "القرماني ديجيتال" من خلال آليتين أساسيتين لضمان دقة المعالجة:</p>
+                <p>نستخدم بروتوكولات تشفير فائقة (SSL/TLS) لضمان عدم وصول أي طرف ثالث لبياناتكم. كما نمنحكم الحق الكامل في:</p>
                 <ul>
-                    <li><strong>الجمع المباشر (Direct Collection):</strong> يتم ذلك عندما تقومون بتزويدنا بالبيانات طواعية عند ملء نماذج "اتصل بنا"، أو طلب استشارة رقمية، أو عند التواصل المباشر عبر البريد الإلكتروني.</li>
-                    <li><strong>الجمع التلقائي الفني (Automated Tracking):</strong> ويتم عبر استخدام تقنيات ملفات تعريف الارتباط، سجلات الخادم، وعلامات البكسل (Pixel Tags) التي تعمل بمجرد تصفحكم للمنصة.</li>
+                    <li>طلب حذف البيانات نهائياً (حق النسيان).</li>
+                    <li>تصحيح المعلومات الشخصية أو طلب نسخة منها.</li>
+                    <li>الاعتراض على أي عمليات معالجة آلية.</li>
                 </ul>
             </section>
-            
+
             <section>
                 <div class="clause-header">
                     <div class="clause-number">٠٤</div>
-                    <h2 class="clause-title">بروتوكول ملفات تعريف الارتباط والتقنيات الفائقة</h2>
+                    <h2 class="clause-title">الفهرس القانوني</h2>
                 </div>
-                <p>نستخدم في "القرماني ديجيتال" تقنيات متطورة جداً لملفات تعريف الارتباط (Cookies)، وإشارات الويب (Web Beacons)، والبكسلات (Pixels). هذه الملفات لا تقوم بجمع معلومات شخصية مخزنة على جهازك، بل تعمل كذاكرة مؤقتة لتعزيز التفاعل بين متصفحك وخوادم **alqurmani x system**. نستخدمها لـ:</p>
-                <ul>
-                    <li>**ملفات الضرورة القصوى:** لضمان عمل الموقع بشكل صحيح وآمن.</li>
-                    <li>**ملفات التحليل والأداء:** لفهم كيفية استخدامكم للموقع وتحسين أدائه.</li>
-                    <li>**ملفات التخصيص والتقديم:** لتذكر تفضيلاتكم وتقديم محتوى ملائم.</li>
-                </ul>
-                <p>يحق لكم إدارة تفضيلات ملفات تعريف الارتباط من خلال إعدادات المتصفح، ولكن يرجى ملاحظة أن حظرها قد يؤثر على تجربة استخدامكم لمنصتنا الرقمية.</p>
-            </section>
-            
-            <section>
-                <div class="clause-header">
-                    <div class="clause-number">٠٥</div>
-                    <h2 class="clause-title">أغراض استخدام البيانات ومعالجتها الاستراتيجية</h2>
-                </div>
-                <p>نؤكد التزامنا الصارم بأن استخدام ومعالجة بياناتكم يتم حصرياً للأغراض القانونية والمشروعة التالية:</p>
-                <ul>
-                    <li>**تقديم وتحسين خدماتنا الرقمية:** استخدام البيانات لتنفيذ الخدمات التي تطلبونها بدقة فائقة.</li>
-                    <li>**التواصل وبناء العلاقات:** استخدام بيانات الاتصال للرد على استفساراتكم وتقديم التحديثات الضرورية المتعلقة بخدماتنا.</li>
-                    <li>**التحليل والتطوير الاستراتيجي:** تحليل البيانات لفهم سلوك الزوار وتحسين أداء المنصة وتطوير خدمات جديدة تتناسب مع احتياجاتكم.</li>
-                    <li>**التسويق والإعلان المخصص:** تقديم محتوى إعلاني ترويجي ذي صلة، ويحق لكم دائماً إلغاء الاشتراك في هذه المراسلات في أي وقت.</li>
-                    <li>**الامتثال القانوني والأمان:** لضمان الامتثال للقوانين واللوائح المعمول بها والتحقيق في أي انتهاكات محتملة لـ 
-                        <a href="terms.html" class="internal-link">شروط الخدمة</a> الخاصة بنا.
-                    </li>
-                </ul>
-            </section>
-
-            <section>
-                <div class="clause-header">
-                    <div class="clause-number">٠٦</div>
-                    <h2 class="clause-title">الأساس القانوني لمعالجة البيانات (Legal Basis)</h2>
-                </div>
-                <p>وفقاً للائحة العامة لحماية البيانات (GDPR)، نعتمد على الأسس القانونية التالية لمعالجة بياناتكم الشخصية:</p>
-                <ul>
-                    <li>**الموافقة الصريحة (Consent):** نقوم بمعالجة بياناتكم عندما نكون قد حصلنا على موافقتكم الصريحة والواضحة (على سبيل المثال، عند التسجيل في النشرة البريدية).</li>
-                    <li>**تنفيذ العقد (Performance of Contract):** نقوم بمعالجة بياناتكم عندما يكون ذلك ضرورياً لتنفيذ عقد تقديم خدمات بيننا وبينكم.</li>
-                    <li>**المصالح المشروعة (Legitimate Interests):** نقوم بمعالجة بياناتكم عندما يكون ذلك ضرورياً لتحقيق مصالحنا المشروعة (مثل تحسين أداء موقعنا)، بشرط ألا تتفوق هذه المصالح على حقوقكم وحرياتكم الأساسية.</li>
-                    <li>**الامتثال للالتزامات القانونية:** نقوم بمعالجة بياناتكم عندما نكون ملزمين قانوناً بذلك.</li>
-                </ul>
-            </section>
-            
-            <section>
-                <div class="clause-header">
-                    <div class="clause-number">٠٧</div>
-                    <h2 class="clause-title">نقل البيانات دولياً (Cross-Border Transfers)</h2>
-                </div>
-                <p>باعتبارنا منصة رقمية فائقة، قد يتم نقل بياناتكم الشخصية ومعالجتها خارج بلد إقامتكم، بما في ذلك إلى دول قد لا توفر مستويات حماية بيانات مماثلة لتلك المعمول بها في بلدكم. في مثل هذه الحالات، نتخذ التدابير اللازمة لضمان حماية بياناتكم بشكل كافٍ، مثل استخدام بنود عقدية معيارية معتمدة.</p>
-            </section>
-            
-            <section>
-                <div class="clause-header">
-                    <div class="clause-number">٠٨</div>
-                    <h2 class="clause-title">أمان البيانات والتدابير الفنية المتقدمة</h2>
-                </div>
-                <p>نحن نتخذ تدابير فنية وإدارية وتقنية متقدمة لحماية بياناتكم من الوصول غير المصرح به، الفقدان، التلف، أو سوء الاستخدام. تشمل هذه التدابير استخدام بروتوكولات التشفير (SSL/TLS)، جدران الحماية (Firewalls)، وتقنيات مراقبة الوصول الصارمة. ومع ذلك، يرجى ملاحظة أنه لا توجد طريقة نقل أو تخزين إلكترونية آمنة بنسبة 100%.</p>
-            </section>
-            
-            <section>
-                <div class="clause-header">
-                    <div class="clause-number">٠٩</div>
-                    <h2 class="clause-title">سياسة الأطفال والقصّر وحماية خصوصيتهم</h2>
-                </div>
-                <p>لا تستهدف منصتنا الرقمية الأطفال تحت سن الـ 18 عاماً، ولا نقوم عمداً بجمع بيانات شخصية من الأطفال. في حال اكتشافنا لجمع بيانات شخصية من طفل دون موافقة والديه أو ولي أمره، سنتخذ التدابير اللازمة لحذف هذه البيانات فوراً.</p>
-            </section>
-            
-            <section>
-                <div class="clause-header">
-                    <div class="clause-number">١٠</div>
-                    <h2 class="clause-title">مبدأ السرية المطلقة والشركاء المعتمدين</h2>
-                </div>
-                <p>تلتزم منصة القرماني ديجيتال بمبدأ **"السرية المطلقة"** و **"حظر السبام"**. لن يتم بيع، تأجير، أو مشاركة بياناتكم لأي جهات تسويقية خارجية. يتم الإفصاح عن البيانات حصرياً في الحالات التالية:</p>
-                <ul>
-                    <li>الامتثال لأوامر قضائية رسمية أو قانونية معتمدة.</li>
-                    <li>حماية البنية التحتية للموقع من هجمات الاختراق أو التخريب الرقمي.</li>
-                    <li>التعامل مع بوابات الدفع العالمية المعتمدة في حال إجراء معاملات مالية.</li>
-                    <li>مزودي الخدمات الفنية (مثل خدمات الاستضافة والتحليل) الذين يعملون نيابة عنا وبموجب اتفاقيات خصوصية صارمة.</li>
-                </ul>
-            </section>
-
-            <section>
-                <div class="clause-header">
-                    <div class="clause-number">١١</div>
-                    <h2 class="clause-title">حقوق المستخدم والتحكم السيادي في البيانات</h2>
-                </div>
-                <p>بصفتك مستخدماً في شبكتنا، تمنحك القوانين الدولية وحقوق الملكية الفنية الحق الكامل في السيادة على بياناتك، بما في ذلك:</p>
-                <ul>
-                    <li>طلب نسخة كاملة من البيانات التي نحتفظ بها عنك.</li>
-                    <li>المطالبة بالحذف النهائي لكافة بياناتك من خوادمنا (حق النسيان).</li>
-                    <li>تصحيح أي معلومات غير دقيقة مرتبطة بحسابك أو نشاطك.</li>
-                    <li>الاعتراض على معالجة بياناتك لأغراض معينة (مثل التسويق).</li>
-                    <li>طلب نقل بياناتك الشخصية إلى جهة أخرى (Data Portability).</li>
-                </ul>
-                <p>لممارسة أي من هذه الحقوق، يرجى التواصل معنا عبر البريد الإلكتروني الموضح في قسم "الامتثال القانوني".</p>
-            </section>
-            
-            <section>
-                <div class="clause-header">
-                    <div class="clause-number">١٢</div>
-                    <h2 class="clause-title">التعديلات والتحديثات الآلية على الميثاق</h2>
-                </div>
-                <p>نحتفظ بالحق في تعديل أو تحديث هذا الميثاق الملكي في أي وقت. سيتم نشر أي تغييرات على هذه الصفحة، وسيتم الإشارة إلى تاريخ آخر تحديث آلي في أعلى الصفحة. ننصحكم بمراجعة هذه السياسة بشكل دوري للبقاء على اطلاع على كيفية حمايتنا لبياناتكم الشخصية.</p>
-            </section>
-            
-            <section>
-                <div class="clause-header">
-                    <div class="clause-number">١٣</div>
-                    <h2 class="clause-title">المواقع والخدمات التابعة لطرف ثالث</h2>
-                </div>
-                <p>قد تحتوي منصتنا الرقمية على روابط لمواقع، خدمات، أو محتوى تابع لطرف ثالث (مثل روابط لمنصات التواصل الاجتماعي أو أدوات تحليل أداء خارجي). يرجى ملاحظة أن هذه المواقع والخدمات لديها سياسات خصوصية خاصة بها، ولا نتحمل أي مسؤولية عن محتواها أو ممارسات الخصوصية الخاصة بها. ننصحكم بقراءة سياسات الخصوصية الخاصة بهذه المواقع والخدمات قبل تقديم أي بيانات شخصية.</p>
-            </section>
-            
-            <section>
-                <div class="clause-header">
-                    <div class="clause-number">١٤</div>
-                    <h2 class="clause-title">نقل الأعمال والاستحواذ الرقمي</h2>
-                </div>
-                <p>في حال حدوث أي عملية اندماج، استحواذ، أو بيع لأصول المنصة، قد يتم نقل بياناتكم الشخصية كجزء من الأصول المنقولة.</p>
-            </section>
-            
-            <section>
-                <div class="clause-header">
-                    <div class="clause-number">١٥</div>
-                    <h2 class="clause-title">الامتثال لإطار حماية الخصوصية (Privacy Shield)</h2>
-                </div>
-                <p>نحن نلتزم بمبادئ إطار حماية الخصوصية (Privacy Shield) في حال حدوث أي نقل للبيانات بين الاتحاد الأوروبي والولايات المتحدة. يضمن هذا الالتزام أن بياناتكم الشخصية محمية بشكل كافٍ عند نقلها خارج الاتحاد الأوروبي.</p>
-            </section>
-            
-            <section>
-                <div class="clause-header">
-                    <div class="clause-number">١٦</div>
-                    <h2 class="clause-title">تقديم شكوى إلى سلطة حماية البيانات المختصة</h2>
-                </div>
-                <p>في حال كان لديكم أي مخاوف أو شكاوى متعلقة بمعالجة بياناتكم الشخصية، يحق لكم تقديم شكوى إلى سلطة حماية البيانات المختصة في بلدكم.</p>
-            </section>
-            
-            <section>
-                <div class="clause-header">
-                    <div class="clause-number">١٧</div>
-                    <h2 class="clause-title">البيانات غير الشخصية والمجمعة (Aggregated Data)</h2>
-                </div>
-                <p>يحق للقرماني ديجيتال جمع واستخدام ومعالجة البيانات غير الشخصية والمجمعة لأغراض إحصائية، بحثية، وتحليلية. هذه البيانات لا تكشف عن هويتكم ولا تعتبر بيانات شخصية.</p>
-            </section>
-
-            <section>
-                <div class="clause-header">
-                    <div class="clause-number">١٨</div>
-                    <h2 class="clause-title">روابط السياسات الملحقة والفهرس القانوني</h2>
-                </div>
-                <p>للحصول على رؤية شاملة حول كيفية عمل أنظمتنا، يرجى مراجعة الوثائق المجاورة المستضافة على نطاقنا الرسمي:</p>
-                <p style="text-align: center; font-weight: bold; font-size: 1.1em;">
+                <p style="text-align: center; font-weight: bold;">
                     | <a href="terms.html" class="internal-link">شروط الخدمة</a> 
                     | <a href="disclaimer.html" class="internal-link">إخلاء المسؤولية</a> 
-                    | <a href="contact.html" class="internal-link">فريق الامتثال القانوني</a> |
+                    | <a href="compliance.html" class="internal-link">الامتثال القانوني</a> |
                 </p>
-                <p>نؤكد في النهاية أن "القرماني ديجيتال" ستظل دائماً الحصن المنيع لبياناتكم الرقمية.</p>
-                <p style="text-align: center; font-weight: bold; margin-top: 50px; color: #fff;">القرماني ديجيتال - نلتزم بخصوصيتكم ونضمن أمانكم الرقمي.</p>
             </section>
 
             <div class="contact-box">
-                <h3>هل لديك أي استفسار قانوني؟</h3>
-                <p>فريق الامتثال القانوني جاهز للرد على تساؤلاتكم حول حماية البيانات وخصوصيتكم.</p>
-                <a href="contact.html" class="btn-contact">
-                    📧 راسلنا الآن - التواصل المباشر
-                </a>
+                <h3>للاستفسارات القانونية</h3>
+                <p>فريقنا التقني والقانوني متاح للرد على أي تساؤل يخص خصوصيتكم.</p>
+                <a href="support.html" class="btn-contact">📧 التواصل المباشر</a>
             </div>
-
         </main>
 
         <footer>
             <div class="footer-brand">ALQURMANI DIGITAL NETWORK</div>
-            <div class="copyright">
-                إحدى المنصات التابعة لـ <strong>alqurmani x network</strong><br>
-                جميع الحقوق محفوظة © 2026
-            </div>
+            <div class="copyright">إحدى منصات alqurmani x network<br>جميع الحقوق محفوظة © 2026</div>
         </footer>
 
     </div>
 
-    <div id="scrollToTop" title="صعود للأعلى">↑</div>
+    <div id="scrollToTop">↑</div>
 
     <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
     <script>
-        document.querySelector('.btn-back')?.addEventListener('click', function(e) {
-            if (window.history.length <= 1) {
-                e.preventDefault();
-                window.location.href = 'https://digital.alqurmanix.com';
-            }
-        });
-
         function updateDate() {
-            const dateSpan = document.getElementById('currentDate');
             const now = new Date();
-            const months = [
-                "يناير", "فبراير", "مارس", "أبريل", "مايو", "يونيو",
-                "يوليو", "أغسطس", "سبتمبر", "أكتوبر", "نوفمبر", "ديسمبر"
-            ];
-            const currentMonthName = months[now.getMonth()];
-            const currentYear = now.getFullYear();
-            dateSpan.textContent = currentMonthName + " " + currentYear;
+            const months = ["يناير", "فبراير", "مارس", "أبريل", "مايو", "يونيو", "يوليو", "أغسطس", "سبتمبر", "أكتوبر", "نوفمبر", "ديسمبر"];
+            document.getElementById('currentDate').textContent = months[now.getMonth()] + " " + now.getFullYear();
         }
         updateDate();
 
-        const sToTopBtn = document.getElementById('scrollToTop');
-
-        window.addEventListener('scroll', () => {
-            if (window.pageYOffset > 400) {
-                sToTopBtn.classList.add('show');
-            } else {
-                sToTopBtn.classList.remove('show');
-                sToTopBtn.classList.remove('active');
-            }
-        });
-
-        sToTopBtn.addEventListener('click', () => {
-            sToTopBtn.classList.add('active');
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-            setTimeout(() => { sToTopBtn.classList.remove('active'); }, 700);
-        });
+        const upBtn = document.getElementById('scrollToTop');
+        window.onscroll = () => { window.pageYOffset > 400 ? upBtn.classList.add('show') : upBtn.classList.remove('show'); };
+        upBtn.onclick = () => { window.scrollTo({ top: 0, behavior: 'smooth' }); };
 
         particlesJS('particles-js', {
             particles: {
-                number: { value: 160, density: { enable: true, value_area: 800 } },
+                number: { value: 100, density: { enable: true, value_area: 800 } },
                 color: { value: "#c5a059" },
-                shape: { type: "circle" },
-                opacity: { value: 0.25, random: true, anim: { enable: true, speed: 1.2, opacity_min: 0.1, sync: false } },
-                size: { value: 3, random: true, anim: { enable: true, speed: 2, size_min: 0.1, sync: false } },
-                line_linked: { enable: false },
-                move: { enable: true, speed: 1.8, direction: "none", random: true, straight: false, out_mode: "out", bounce: false }
-            },
-            interactivity: {
-                detect_on: "canvas",
-                events: {
-                    onhover: { enable: true, mode: "grab" },
-                    onclick: { enable: false },
-                    resize: true
-                },
-                modes: {
-                    grab: { distance: 150, line_linked: { opacity: 0.4 } }
-                }
-            },
-            retina_detect: true
+                opacity: { value: 0.3, random: true },
+                size: { value: 2, random: true },
+                line_linked: { enable: true, distance: 150, color: "#c5a059", opacity: 0.1, width: 1 },
+                move: { enable: true, speed: 2, direction: "none", random: true, out_mode: "out" }
+            }
         });
     </script>
-    <div id="qx-royal-dua">
-    <div id="qx-dua-trigger" onclick="openRoyalDua()">
-        <span class="qx-sparkle">✨</span>
-    </div>
-
-    <div id="qx-dua-overlay">
-        <div class="qx-royal-card">
-            <div class="qx-close-x" onclick="closeRoyalDua()">&times;</div>
-            
-            <div class="qx-decoration">
-                <div class="qx-gold-line"></div>
-                <div class="qx-crown">👑</div>
-                <div class="qx-gold-line"></div>
-            </div>
-
-            <div class="qx-content">
-                <p class="qx-main-dua">
-                    "اللهم اجعل هذا العمل شاهداً لي لا عليّ، واجعله خالصاً لوجهك الكريم، وفي ميزان حسناتي وحسنات والديّ، وارزقني فيه الإخلاص والقبول، وبارك لي فيه، وانفع به عبادك يا رب العالمين."
-                </p>
-                <div class="qx-divider"></div>
-                <p class="qx-founder-title">مؤسس alqurmani  x  </p>
-                <h2 class="qx-founder-name">محمد بسيوني</h2>
-            </div>
-            
-            <div class="qx-footer-brand">
-                <span>ALQURMANI DIGITAL EMPIRE</span>
-            </div>
-        </div>
-    </div>
-</div>
-
-<style>
-    /* التنسيق الملكي */
-    :root {
-        --qx-gold: linear-gradient(135deg, #bf953f, #fcf6ba, #b38728, #fbf5b7, #aa771c);
-        --qx-black: #050505;
-        --qx-glass: rgba(10, 10, 10, 0.95);
-    }
-
-    #qx-dua-trigger {
-        position: fixed;
-        bottom: 20px;
-        left: 20px;
-        width: 45px;
-        height: 45px;
-        background: var(--qx-gold);
-        border-radius: 50%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        font-size: 28px;
-        cursor: pointer;
-        z-index: 99999;
-        box-shadow: 0 0 30px rgba(191, 149, 63, 0.5);
-        animation: qx-royal-pulse 2s infinite;
-        border: 2px solid rgba(255, 255, 255, 0.2);
-    }
-
-    #qx-dua-overlay {
-        display: none;
-        position: fixed;
-        inset: 0;
-        background: rgba(0, 0, 0, 0.9);
-        z-index: 100000;
-        backdrop-filter: blur(12px);
-        align-items: center;
-        justify-content: center;
-        padding: 20px;
-    }
-
-    .qx-royal-card {
-        background: var(--qx-black);
-        border: 1px solid #bf953f;
-        padding: 50px 30px;
-        border-radius: 0; /* لمسة كلاسيكية حادة */
-        max-width: 550px;
-        width: 100%;
-        text-align: center;
-        position: relative;
-        box-shadow: 0 0 100px rgba(191, 149, 63, 0.2);
-    }
-
-    .qx-close-x {
-        position: absolute;
-        top: 15px;
-        right: 20px;
-        color: #bf953f;
-        font-size: 35px;
-        cursor: pointer;
-        transition: 0.3s;
-        line-height: 1;
-    }
-
-    .qx-close-x:hover { transform: rotate(90deg); color: #fff; }
-
-    .qx-decoration {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        gap: 15px;
-        margin-bottom: 30px;
-    }
-
-    .qx-gold-line { width: 60px; height: 1px; background: var(--qx-gold); }
-    .qx-crown { font-size: 24px; }
-
-    .qx-main-dua {
-        color: #e0e0e0;
-        font-size: 20px;
-        line-height: 1.8;
-        font-family: 'serif', 'Times New Roman';
-        font-style: italic;
-        margin-bottom: 30px;
-    }
-
-    .qx-divider {
-        width: 40px;
-        height: 4px;
-        background: var(--qx-gold);
-        margin: 0 auto 25px;
-    }
-
-    .qx-founder-title {
-        color: #bf953f;
-        text-transform: uppercase;
-        letter-spacing: 3px;
-        font-size: 12px;
-        margin-bottom: 5px;
-    }
-
-    .qx-founder-name {
-        color: #fff;
-        font-size: 32px;
-        font-weight: 300;
-        letter-spacing: 1px;
-        margin: 0;
-    }
-
-    .qx-footer-brand {
-        margin-top: 40px;
-        font-size: 10px;
-        color: #444;
-        letter-spacing: 5px;
-    }
-
-    @keyframes qx-royal-pulse {
-        0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(191, 149, 63, 0.7); }
-        70% { transform: scale(1.05); box-shadow: 0 0 0 20px rgba(191, 149, 63, 0); }
-        100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(191, 149, 63, 0); }
-    }
-</style>
-
-<script>
-    function openRoyalDua() {
-        document.getElementById('qx-dua-overlay').style.display = 'flex';
-        document.body.style.overflow = 'hidden'; // منع السكرول عند الفتح
-    }
-
-    function closeRoyalDua() {
-        document.getElementById('qx-dua-overlay').style.display = 'none';
-        document.body.style.overflow = 'auto'; // إعادة السكرول
-    }
-
-    // إغلاق عند الضغط خارج الكارت
-    window.onclick = function(event) {
-        let overlay = document.getElementById('qx-dua-overlay');
-        if (event.target == overlay) {
-            closeRoyalDua();
-        }
-    }
-</script>
-   <script src="https://pl29202020.profitablecpmratenetwork.com/d9/60/c3/d960c3f64ef5ab2d626b205e230a7cb3.js"></script>
- 
 </body>
 </html>
