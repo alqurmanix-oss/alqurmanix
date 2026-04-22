@@ -9,8 +9,8 @@
 
     <style>
         :root {
-            --primary: #bf953f; /* Gold Gradient Base */
-            --secondary: #00ffd5; /* Cyan */
+            --primary: #bf953f; 
+            --secondary: #00ffd5; 
             --violet: #a855f7;
             --bg: #03050a;
             --text-color: #d1d5db;
@@ -21,108 +21,112 @@
             color: var(--text-color);
             font-family: 'Cairo', sans-serif;
             margin: 0;
-            line-height: 1.9;
-            user-select: none; /* حماية المحتوى القانوني من النسخ */
+            line-height: 2;
+            user-select: none; 
+            overflow-x: hidden;
         }
 
         /* خلفية نيون خافتة وفخمة */
         .bg-overlay {
             position: fixed; inset: 0;
-            background: radial-gradient(circle at 10% 10%, rgba(191, 149, 63, 0.07), transparent 40%),
-                        radial-gradient(circle at 90% 90%, rgba(0, 255, 213, 0.05), transparent 40%);
+            background: radial-gradient(circle at 15% 15%, rgba(191, 149, 63, 0.08), transparent 45%),
+                        radial-gradient(circle at 85% 85%, rgba(0, 255, 213, 0.06), transparent 45%);
             z-index: -1;
         }
 
         header {
             text-align: center;
-            padding: 80px 20px 40px;
+            padding: 100px 20px 60px;
         }
 
         .main-title {
-            font-size: clamp(28px, 5vw, 42px);
+            font-size: clamp(32px, 6vw, 50px);
             font-weight: 900;
             color: #fff;
-            text-shadow: 0 0 20px rgba(191, 149, 63, 0.3);
-            margin-bottom: 5px;
+            text-shadow: 0 0 30px rgba(191, 149, 63, 0.4);
+            margin-bottom: 10px;
         }
 
         .sub-title {
-            letter-spacing: 4px;
+            letter-spacing: 6px;
             color: var(--primary);
             font-weight: bold;
             font-size: 14px;
+            text-transform: uppercase;
         }
 
         .container {
             max-width: 1100px;
             margin: auto;
-            padding: 20px;
+            padding: 0 30px 100px;
         }
 
-        .policy-box {
-            background: rgba(255, 255, 255, 0.02);
-            border: 1px solid rgba(191, 149, 63, 0.15);
-            border-radius: 24px;
-            padding: 50px;
-            backdrop-filter: blur(20px);
-            box-shadow: 0 30px 60px rgba(0,0,0,0.6);
-        }
-
+        /* تنسيق المواد القانونية */
         h2 {
             color: var(--primary);
-            border-right: 5px solid var(--primary);
-            padding-right: 15px;
-            margin-top: 50px;
-            font-size: 26px;
-            font-weight: 700;
+            border-right: 6px solid var(--primary);
+            padding-right: 20px;
+            margin-top: 70px;
+            font-size: 28px;
+            font-weight: 900;
+            background: linear-gradient(90deg, rgba(191, 149, 63, 0.1), transparent);
+            display: inline-block;
+            width: 100%;
         }
 
         .content-section {
-            font-size: 19px;
+            font-size: 20px;
             text-align: justify;
             color: #bdc3c7;
+            margin-top: 20px;
         }
 
-        /* الأزرار الذكية العائمة */
+        /* الأزرار الذكية العائمة (تغيير ألوان تلقائي) */
         .smart-btn {
             position: fixed;
-            width: 60px; height: 60px;
+            width: 65px; height: 65px;
             border-radius: 50%;
             display: flex; align-items: center; justify-content: center;
-            cursor: pointer; font-size: 24px; z-index: 9999;
-            transition: 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            cursor: pointer; font-size: 26px; z-index: 9999;
+            transition: 0.5s ease;
             border: none;
-            animation: dynamicColors 10s infinite;
+            color: #fff;
+            animation: dynamicColors 12s infinite;
         }
 
         @keyframes dynamicColors {
-            0% { background: var(--primary); box-shadow: 0 0 20px var(--primary); }
-            33% { background: var(--secondary); box-shadow: 0 0 20px var(--secondary); }
-            66% { background: var(--violet); box-shadow: 0 0 20px var(--violet); }
-            100% { background: var(--primary); box-shadow: 0 0 20px var(--primary); }
+            0% { background: var(--primary); box-shadow: 0 0 25px var(--primary); }
+            33% { background: var(--secondary); box-shadow: 0 0 25px var(--secondary); }
+            66% { background: var(--violet); box-shadow: 0 0 25px var(--violet); }
+            100% { background: var(--primary); box-shadow: 0 0 25px var(--primary); }
         }
 
-        .btn-up { bottom: 100px; left: 30px; }
-        .btn-back { bottom: 30px; left: 30px; }
+        .btn-up { bottom: 110px; left: 35px; }
+        .btn-back { bottom: 35px; left: 35px; }
 
-        /* شريط السياسات السفلي */
+        /* شريط السياسات السفلي (مستطيل شيك ومفتوح) */
         .legal-navbar {
-            margin-top: 60px;
-            background: linear-gradient(90deg, rgba(191, 149, 63, 0.1), transparent);
+            margin-top: 100px;
+            background: rgba(255, 255, 255, 0.03);
             border: 1px solid rgba(191, 149, 63, 0.3);
-            padding: 25px;
-            border-radius: 15px;
+            padding: 30px;
+            border-radius: 20px;
             text-align: center;
-            display: flex; flex-wrap: wrap; justify-content: center; gap: 30px;
+            display: flex; flex-wrap: wrap; justify-content: center; gap: 40px;
+            backdrop-filter: blur(10px);
         }
 
         .legal-link {
-            text-decoration: none; color: #fff; font-weight: 700; font-size: 17px;
-            display: flex; align-items: center; gap: 8px; transition: 0.3s;
+            text-decoration: none; color: #fff; font-weight: 900; font-size: 18px;
+            display: flex; align-items: center; gap: 10px; transition: 0.3s;
         }
-        .legal-link:hover { color: var(--secondary); transform: scale(1.05); }
+        .legal-link:hover { color: var(--secondary); transform: scale(1.1); }
 
-        .brand-highlight { color: var(--primary); font-weight: 900; }
+        .brand-highlight { 
+            color: var(--primary); 
+            font-weight: 900; 
+            letter-spacing: 1px;
+        }
 
     </style>
 </head>
@@ -136,35 +140,35 @@
 </header>
 
 <div class="container">
-    <div class="policy-box">
-        <div class="content-section">
-            
-            <h2>المادة الأولى: الإطار القانوني العام</h2>
-            <p>تخضع كافة المساهمات والتعليقات الواردة عبر منصات <b>Alqurmani X</b> للقوانين واللوائح التنظيمية المعمول بها دولياً ومحلياً. إن استخدامك لخدماتنا ومشاركتك في القسم التفاعلي يُعد موافقة صريحة ونهائية على الالتزام بكافة البنود الواردة في هذه الوثيقة، دون أدنى تحفظ قانوني.</p>
+    <div class="content-section">
+        
+        <h2>المادة الأولى: الإطار القانوني العام</h2>
+        <p>تخضع كافة المساهمات والتعليقات الواردة عبر منصات <b>Alqurmani X</b> للقوانين واللوائح التنظيمية المعمول بها دولياً ومحلياً. إن استخدامك لخدماتنا ومشاركتك في القسم التفاعلي يُعد موافقة صريحة ونهائية على الالتزام بكافة البنود الواردة في هذه الوثيقة، دون أدنى تحفظ قانوني.</p>
 
-            <h2>المادة الثانية: معايير قبول المساهمات</h2>
-            <p>يشترط في المساهمة أو التعليق أن يكون ذا محتوى رصين، يخدم الأهداف التقنية والاستثمارية للمنصة. يُحظر تماماً نشر أي محتوى يتضمن عبارات نابية، أو دعوات تحريضية، أو أي شكل من أشكال التمييز. كما يُمنع استغلال مساحات التعليق لأغراض دعائية غير مصرح بها أو نشر روابط خارجية تهدف إلى التلاعب بالزيارات (Spam).</p>
+        <h2>المادة الثانية: معايير قبول المساهمات</h2>
+        <p>يشترط في المساهمة أو التعليق أن يكون ذا محتوى رصين، يخدم الأهداف التقنية والاستثمارية للمنصة. يُحظر تماماً نشر أي محتوى يتضمن عبارات نابية، أو دعوات تحريضية، أو أي شكل من أشكال التمييز. كما يُمنع استغلال مساحات التعليق لأغراض دعائية غير مصرح بها أو نشر روابط خارجية تهدف إلى التلاعب بالزيارات (Spam).</p>
 
-            <h2>المادة الثالثة: الحماية الفكرية والحقوق الرقمية</h2>
-            <p>بموجب هذه السياسة، يمنح المستخدم منصة Alqurmani X حقاً غير حصري، وعالمي، ومستديماً لاستخدام وتعديل ونشر المساهمات الواردة عبر قنواتها التفاعلية بما يخدم تطوير النظام الرقمي للمؤسسة. مع احتفاظ المساهم بحقه الأدبي، تظل الإدارة القانونية لـ Alqurmani X هي الجهة الوحيدة المخولة بتحديد صلاحية بقاء المحتوى أو حذفه وفقاً لتقديراتها الأمنية والمهنية.</p>
+        <h2>المادة الثالثة: الحماية الفكرية والحقوق الرقمية</h2>
+        <p>بموجب هذه السياسة، يمنح المستخدم منصة Alqurmani X حقاً غير حصري، وعالمي، ومستديماً لاستخدام وتعديل ونشر المساهمات الواردة عبر قنواتها التفاعلية بما يخدم تطوير النظام الرقمي للمؤسسة. مع احتفاظ المساهم بحقه الأدبي، تظل الإدارة القانونية لـ Alqurmani X هي الجهة الوحيدة المخولة بتحديد صلاحية بقاء المحتوى أو حذفه وفقاً لتقديراتها الأمنية والمهنية.</p>
 
-            <h2>المادة الرابعة: الرقابة والفلترة الرقمية</h2>
-            <p>يعمل نظامنا وفق بروتوكولات فلترة متطورة تعتمد على الذكاء الاصطناعي والمراجعة البشرية الدقيقة. يتم رصد عنوان الـ IP الخاص بكل مساهم، وفي حال رصد أي محاولة لاختراق النظام أو وضع أكواد برمجية خبيثة (Malicious Scripts) داخل التعليقات، يتم حظر الوصول نهائياً واتخاذ الإجراءات القانونية اللازمة لحماية سلامة المنصة ومستخدميها.</p>
+        <h2>المادة الرابعة: الرقابة والفلترة الرقمية</h2>
+        <p>يعمل نظامنا وفق بروتوكولات فلترة متطورة تعتمد على الذكاء الاصطناعي والمراجعة البشرية الدقيقة. يتم رصد عنوان الـ IP الخاص بكل مساهم، وفي حال رصد أي محاولة لاختراق النظام أو وضع أكواد برمجية خبيثة داخل التعليقات، يتم حظر الوصول نهائياً واتخاذ الإجراءات القانونية اللازمة لحماية سلامة المنصة ومستخدميها.</p>
 
-            <h2>المادة الخامسة: المسؤولية المدنية والجنائية</h2>
-            <p>يتحقق للمستخدم علم اليقين أن Alqurmani X لا تتحمل أدنى مسؤولية عن الآراء الشخصية للمساهمين. ومع ذلك، نلتزم بالتعاون الكامل مع السلطات المختصة في حال طلب بيانات تتعلق بمخالفات قانونية جسيمة تمت عبر منصاتنا. المسؤولية القانونية تقع بالكامل على عاتق صاحب التعليق أمام القضاء والمؤسسات الرقابية.</p>
+        <h2>المادة الخامسة: المسؤولية المدنية والجنائية</h2>
+        <p>يتحقق للمستخدم علم اليقين أن Alqurmani X لا تتحمل أدنى مسؤولية عن الآراء الشخصية للمساهمين. ومع ذلك، نلتزم بالتعاون الكامل مع السلطات المختصة في حال طلب بيانات تتعلق بمخالفات قانونية جسيمة تمت عبر منصاتنا. المسؤولية القانونية تقع بالكامل على عاتق صاحب التعليق أمام القضاء والمؤسسات الرقابية.</p>
 
-            <h2>المادة السادسة: تعديل وتحديث السياسات</h2>
-            <p>تمتلك إدارة Alqurmani X الحق المطلق في تعديل بنود هذه السياسة في أي وقت تراه مناسباً لضمان أمن المعلومات وجودة التفاعل الرقمي. تُعد التعديلات نافذة فور نشرها على هذه الصفحة، ويقع على عاتق المستخدم مراجعة هذه الصفحة دورياً للاطلاع على التحديثات القانونية الجديدة.</p>
+        <h2>المادة السادسة: تعديل وتحديث السياسات</h2>
+        <p>تمتلك إدارة Alqurmani X الحق المطلق في تعديل بنود هذه السياسة في أي وقت تراه مناسباً لضمان أمن المعلومات وجودة التفاعل الرقمي. تُعد التعديلات نافذة فور نشرها على هذه الصفحة، ويقع على عاتق المستخدم مراجعة هذه الصفحة دورياً للاطلاع على التحديثات القانونية الجديدة.</p>
 
-            <p style="margin-top: 40px; font-style: italic; border-top: 1px solid rgba(191,149,63,0.2); padding-top: 20px;">هذه الوثيقة رسمية ومعتمدة، وتُطبق على كافة الأصول الرقمية والمواقع التابعة لعلامة Alqurmani X التجارية.</p>
-        </div>
+        <p style="margin-top: 80px; font-style: italic; border-top: 1px solid rgba(191,149,63,0.2); padding-top: 30px; font-size: 16px; text-align: center;">
+            هذه الوثيقة رسمية ومعتمدة، وتُطبق على كافة الأصول الرقمية والمواقع التابعة لعلامة Alqurmani X التجارية.
+        </p>
+    </div>
 
-        <div class="legal-navbar">
-            <a href="index.html" class="legal-link">🏠 الصفحة الرئيسية</a>
-            <a href="platforms.html" class="legal-link">🌐 منصاتنا</a>
-            <a href="legal-terms.html" class="legal-link">⚖️ سياسات وقوانين <span class="brand-highlight">Alqurmani X</span></a>
-        </div>
+    <div class="legal-navbar">
+        <a href="index.html" class="legal-link">🏠 الصفحة الرئيسية</a>
+        <a href="platforms.html" class="legal-link">🌐 منصاتنا</a>
+        <a href="legal-terms.html" class="legal-link">⚖️ سياسات وقوانين <span class="brand-highlight">Alqurmani X</span></a>
     </div>
 </div>
 
@@ -175,10 +179,10 @@
     /* حماية أمنية للمحتوى القانوني */
     document.oncontextmenu = () => false;
     document.onkeydown = (e) => { 
-        if(e.ctrlKey || e.keyCode === 123 || (e.ctrlKey && e.shiftKey && e.keyCode === 73)) return false; 
+        if(e.ctrlKey || e.keyCode === 123) return false; 
     };
 
-    /* وظيفة الرجوع الذكي الاستباقي */
+    /* وظيفة الرجوع الذكي */
     function goBack() {
         if(document.referrer && document.referrer.includes(window.location.hostname)) {
             window.location = document.referrer;
@@ -186,8 +190,6 @@
             window.location.href = "index.html"; 
         }
     }
-
-    console.log("%c Alqurmani X | Legal Department ", "color: #bf953f; font-weight: bold; font-size: 16px;");
 </script>
 
 </body>
