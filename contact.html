@@ -3,221 +3,311 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <title>تواصل معنا - القرماني X</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;900&display=swap" rel="stylesheet">
 
 <style>
+:root{
+  --gold:#ffd700;
+  --cyan:#00ffd5;
+  --violet:#a855f7;
+  --green:#00ff88;
+  --bg:#050816;
+  --card:rgba(255,255,255,0.05);
+  --input:#111827;
+}
+
+/* أساسيات */
+*{box-sizing:border-box}
 body{
-margin:0;
-font-family:'Cairo',sans-serif;
-background:#050816;
-color:#fff;
-overflow:hidden;
+  margin:0;
+  font-family:'Cairo',sans-serif;
+  background:var(--bg);
+  color:#fff;
+  overflow-x:hidden;
+  user-select:none;
+}
+
+/* خلفية نيون */
+.bg{
+  position:fixed; inset:0;
+  background:
+    radial-gradient(circle at 20% 20%, rgba(0,255,200,0.08), transparent 40%),
+    radial-gradient(circle at 80% 80%, rgba(255,215,0,0.06), transparent 40%);
+  z-index:-2;
 }
 
 /* نجوم ذهبية */
 .star{
-position:absolute;
-width:6px;
-height:6px;
-background:gold;
-border-radius:50%;
-box-shadow:0 0 10px gold;
-animation:float 6s infinite linear;
+  position:fixed;
+  width:6px;height:6px;border-radius:50%;
+  background:gold; box-shadow:0 0 10px gold;
+  animation:float linear infinite;
+  z-index:-1;
 }
-
 @keyframes float{
-0%{transform:translateY(100vh);opacity:0}
-20%{opacity:1}
-100%{transform:translateY(-10vh);opacity:0}
+  0%{transform:translateY(110vh);opacity:0}
+  20%{opacity:1}
+  100%{transform:translateY(-10vh);opacity:0}
 }
 
-header{
-text-align:center;
-padding:15px;
+/* الهيدر */
+header{ text-align:center; padding:18px 10px 8px }
+.logo{
+  font-size:28px; font-weight:900;
+  background:linear-gradient(90deg,var(--gold),var(--cyan),var(--violet),var(--green));
+  -webkit-background-clip:text; -webkit-text-fill-color:transparent;
 }
-
-h1{
-font-size:26px;
-background:linear-gradient(90deg,#ffd700,#00ffd5,#a855f7);
--webkit-background-clip:text;
--webkit-text-fill-color:transparent;
-}
-
 .online{
-display:flex;
-justify-content:center;
-align-items:center;
-gap:8px;
+  display:flex;justify-content:center;align-items:center;gap:8px;margin-top:6px
 }
-
 .dot{
-width:10px;
-height:10px;
-border-radius:50%;
-background:#00ff88;
-box-shadow:0 0 10px #00ff88;
-animation:blink 1s infinite;
+  width:10px;height:10px;border-radius:50%;
+  background:var(--green); box-shadow:0 0 12px var(--green);
+  animation:blink 1s infinite;
 }
+@keyframes blink{50%{opacity:.3}}
+.intro{opacity:.9;margin-top:6px}
 
-@keyframes blink{50%{opacity:0.3}}
-
-.container{
-max-width:900px;
-margin:auto;
-padding:20px;
-}
-
+/* الحاوية */
+.container{max-width:900px;margin:auto;padding:16px}
 .box{
-background:rgba(255,255,255,0.05);
-padding:20px;
-border-radius:15px;
-backdrop-filter:blur(10px);
+  background:var(--card);
+  border:1px solid rgba(255,255,255,.1);
+  backdrop-filter:blur(12px);
+  border-radius:16px;
+  padding:16px;
 }
 
+/* الحقول */
 input,textarea{
-width:100%;
-padding:12px;
-margin:8px 0;
-border:none;
-border-radius:10px;
-background:#111827;
-color:#fff;
+  width:100%; padding:12px; margin:8px 0;
+  border:none; outline:none; border-radius:10px;
+  background:var(--input); color:#fff;
 }
-
 button{
-width:100%;
-padding:12px;
-border:none;
-border-radius:10px;
-cursor:pointer;
-font-weight:bold;
-background:linear-gradient(90deg,#ffd700,#00ffd5,#a855f7);
+  width:100%; padding:12px; margin-top:6px;
+  border:none; border-radius:10px; cursor:pointer; font-weight:700;
+  background:linear-gradient(90deg,var(--gold),var(--cyan),var(--violet));
 }
 
+/* أخطاء */
+.error{color:#ff4d4d;text-align:center;margin-top:6px}
+
+/* دعم فني */
+.support{
+  margin-top:10px; padding:10px; text-align:center; border-radius:12px;
+  animation:colors 5s infinite linear; font-weight:700;
+}
+@keyframes colors{
+  0%{background:#00ffd5}
+  25%{background:#a855f7}
+  50%{background:#ffd700}
+  75%{background:#00ff88}
+  100%{background:#00ffd5}
+}
+
+/* أزرار عائمة */
+.btn{
+  position:fixed; width:56px;height:56px;border-radius:50%;
+  display:flex;justify-content:center;align-items:center;
+  font-size:18px; cursor:pointer; z-index:10;
+}
+.back{bottom:90px; left:20px; background:linear-gradient(45deg,#ffcc00,#ff6600,#ff00ff)}
+.top{bottom:20px; left:20px; background:linear-gradient(45deg,var(--cyan),var(--violet),var(--gold))}
+
+/* روابط */
+.links a{
+  display:block;text-align:center;margin-top:10px;padding:10px;border-radius:10px;
+  text-decoration:none;font-weight:700
+}
+.home{
+  background:linear-gradient(90deg,var(--cyan),var(--gold),var(--violet));
+  color:#000;
+}
+.support-link{
+  background:#111827;border:1px solid var(--cyan);color:var(--cyan)
+}
+
+/* خريطة */
+.map{
+  margin-top:12px;border-radius:12px;overflow:hidden;border:1px solid var(--cyan)
+}
+
+/* Popup فخم */
+.overlay{
+  position:fixed; inset:0; background:rgba(0,0,0,.45);
+  backdrop-filter:blur(4px); display:none; z-index:9998;
+}
 .popup{
-position:fixed;
-top:50%;
-left:50%;
-transform:translate(-50%,-50%) scale(0);
-background:#0f172a;
-padding:20px;
-border-radius:15px;
-border:1px solid #00ffd5;
-transition:0.3s;
+  position:fixed; top:50%; left:50%;
+  transform:translate(-50%,-50%) scale(.85);
+  background:rgba(15,23,42,.95);
+  padding:22px; border-radius:18px;
+  border:1px solid var(--cyan);
+  box-shadow:0 0 28px rgba(0,255,213,.35);
+  text-align:center; opacity:0; transition:.25s;
+  z-index:9999; max-width:90%;
 }
-
-.popup.show{
-transform:translate(-50%,-50%) scale(1);
-}
+.popup.show{opacity:1; transform:translate(-50%,-50%) scale(1)}
 </style>
 </head>
 
 <body>
 
-<header>
-<h1>📩 تواصل معنا - Alqurmani X</h1>
+<div class="bg"></div>
 
-<div class="online">
-<span class="dot"></span>
-<span>متصل الآن</span>
-</div>
+<header>
+  <div class="logo">⚜️ Alqurmani X Contact</div>
+  <div class="online"><span class="dot"></span><span>متصل الآن</span></div>
+  <div class="intro">نظام تواصل رسمي — استجابة سريعة وآمنة</div>
 </header>
 
 <div class="container">
-<div class="box">
+  <div class="box">
 
-<input id="name" placeholder="الاسم *">
-<input id="email" placeholder="البريد الإلكتروني *">
-<input id="subject" placeholder="الموضوع *">
+    <!-- الحقول -->
+    <input id="name" placeholder="الاسم *">
+    <input id="email" placeholder="البريد الإلكتروني *">
+    <input id="subject" placeholder="الموضوع *">
+    <input id="whatsapp" placeholder="واتساب (اختياري)">
+    <input id="specialty" placeholder="الاختصاص (اختياري)">
+    <textarea id="message" placeholder="اكتب رسالتك..."></textarea>
 
-<textarea id="message" placeholder="رسالتك"></textarea>
+    <button id="sendBtn" onclick="send()">إرسال</button>
+    <div class="error" id="error"></div>
 
-<button onclick="send()">إرسال</button>
+    <!-- دعم فني -->
+    <div class="support">🟡 الدعم الفني متاح الآن</div>
 
+    <!-- خريطة أسوان -->
+    <div class="map">
+      <iframe src="https://www.google.com/maps?q=Aswan,Egypt&output=embed"
+              width="100%" height="220" style="border:0;"></iframe>
+    </div>
+
+    <!-- روابط -->
+    <div class="links">
+      <!-- عدّل الرابط التالي لصفحتك الرئيسية على GitHub -->
+      <a class="home" href="https://YOUR-GITHUB-USERNAME.github.io/YOUR-REPO/index.html" target="_blank">🏠 الصفحة الرئيسية</a>
+      <!-- ملف الدعم الفني -->
+      <a class="support-link" href="support.html" target="_blank">🛠️ الدعم الفني</a>
+    </div>
+
+  </div>
 </div>
-</div>
 
-<div class="popup" id="popup">🚀 تم الإرسال بنجاح</div>
+<!-- أزرار -->
+<div class="btn back" onclick="goBack()">🔙</div>
+<div class="btn top" onclick="window.scrollTo({top:0,behavior:'smooth'})">⬆️</div>
+
+<!-- Popup -->
+<div class="overlay" id="overlay"></div>
+<div class="popup" id="popup">🚀 تم إرسال الرسالة بنجاح</div>
 
 <script>
-
 /* نجوم */
-for(let i=0;i<25;i++){
-let s=document.createElement("div");
-s.className="star";
-s.style.left=Math.random()*100+"vw";
-s.style.animationDuration=(3+Math.random()*5)+"s";
-document.body.appendChild(s);
+for(let i=0;i<28;i++){
+  const s=document.createElement("div");
+  s.className="star";
+  s.style.left=Math.random()*100+"vw";
+  s.style.animationDuration=(4+Math.random()*5)+"s";
+  document.body.appendChild(s);
 }
 
-/* صوت ترحيب مرة واحدة */
-if(!sessionStorage.getItem("w")){
-let m=new SpeechSynthesisUtterance("مرحباً بك في نظام القرماني إكس");
-m.lang="ar";
-speechSynthesis.speak(m);
-sessionStorage.setItem("w","1");
+/* ترحيب صوتي مرة واحدة */
+if(!sessionStorage.getItem("welcome")){
+  try{
+    const m=new SpeechSynthesisUtterance("مرحباً بك في نظام القرماني إكس");
+    m.lang="ar";
+    speechSynthesis.speak(m);
+  }catch(e){}
+  sessionStorage.setItem("welcome","1");
+}
+
+/* حماية واجهة أساسية */
+document.oncontextmenu=()=>false;
+document.onkeydown=(e)=>{ if(e.ctrlKey||e.keyCode===123){ e.preventDefault(); return false; } };
+
+/* رجوع */
+function goBack(){
+  if(document.referrer) location.href=document.referrer;
+  else history.back();
+}
+
+/* Popup helpers */
+function showPopup(){
+  const p=document.getElementById('popup');
+  const o=document.getElementById('overlay');
+  o.style.display='block';
+  p.classList.add('show');
+  setTimeout(()=>{ p.classList.remove('show'); o.style.display='none'; },2600);
 }
 
 /* إرسال */
 async function send(){
+  const btn=document.getElementById('sendBtn');
+  const err=document.getElementById('error');
+  err.innerText="";
 
-const btn=document.querySelector("button");
-btn.disabled=true;
-btn.innerText="جاري الإرسال...";
+  const nameVal=document.getElementById('name').value.trim();
+  const emailVal=document.getElementById('email').value.trim();
+  const subjectVal=document.getElementById('subject').value.trim();
 
-try{
+  if(!nameVal || !emailVal || !subjectVal){
+    err.innerText="الاسم + البريد + الموضوع مطلوبين";
+    return;
+  }
 
-if(!name.value||!email.value||!subject.value){
-alert("املأ البيانات الأساسية");
-btn.disabled=false;
-btn.innerText="إرسال";
-return;
+  btn.disabled=true; btn.innerText="جاري الإرسال...";
+
+  try{
+    const ref=document.referrer;
+    const geo=await fetch("https://ipapi.co/json/").then(r=>r.json()).catch(()=>({}));
+
+    const data={
+      name:nameVal,
+      email:emailVal,
+      subject:subjectVal,
+      whatsapp:document.getElementById('whatsapp').value,
+      specialty:document.getElementById('specialty').value,
+      message:document.getElementById('message').value,
+      source_url: ref || "Direct",
+      ip: geo.ip || "Unknown",
+      location: (geo.country_name||"") + " - " + (geo.city||""),
+      time: new Date().toLocaleString('ar-EG')
+    };
+
+    /* ضع هنا رابط الـ Webhook الخاص بك */
+    await fetch("https://eo33ut6m60kqbgp.m.pipedream.net",{
+      method:"POST",
+      headers:{"Content-Type":"application/json"},
+      body:JSON.stringify(data)
+    });
+
+    /* صوت نجاح */
+    try{
+      const ok=new SpeechSynthesisUtterance("تم إرسال الرسالة بنجاح");
+      ok.lang="ar"; speechSynthesis.speak(ok);
+    }catch(e){}
+
+    showPopup();
+
+    /* تنظيف */
+    document.getElementById('name').value="";
+    document.getElementById('email').value="";
+    document.getElementById('subject').value="";
+    document.getElementById('whatsapp').value="";
+    document.getElementById('specialty').value="";
+    document.getElementById('message').value="";
+
+  }catch(e){
+    err.innerText="حدث خطأ في الإرسال";
+  }
+
+  btn.disabled=false; btn.innerText="إرسال";
 }
-
-const geo=await fetch("https://ipapi.co/json/").then(r=>r.json());
-
-const data={
-name:name.value,
-email:email.value,
-subject:subject.value,
-message:message.value,
-ip:geo.ip,
-location:geo.country_name+" - "+geo.city,
-time:new Date().toLocaleString()
-};
-
-await fetch("https://eo33ut6m60kqbgp.m.pipedream.net",{
-method:"POST",
-headers:{"Content-Type":"application/json"},
-body:JSON.stringify(data)
-});
-
-/* صوت نجاح */
-let ok=new SpeechSynthesisUtterance("تم إرسال الرسالة بنجاح");
-ok.lang="ar";
-speechSynthesis.speak(ok);
-
-/* popup */
-popup.classList.add("show");
-setTimeout(()=>popup.classList.remove("show"),2500);
-
-/* تنظيف */
-name.value="";
-email.value="";
-subject.value="";
-message.value="";
-
-}catch(e){
-alert("خطأ في الإرسال");
-}
-
-btn.disabled=false;
-btn.innerText="إرسال";
-}
-
 </script>
 
 </body>
