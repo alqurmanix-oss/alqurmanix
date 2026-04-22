@@ -3,7 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>تواصل معنا | Alqurmani X</title>
+
+<title>تواصل معنا - القرماني X</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;900&display=swap" rel="stylesheet">
 
@@ -13,29 +14,34 @@ margin:0;
 font-family:'Cairo',sans-serif;
 background:#050816;
 color:#fff;
-user-select:none;
-overflow-x:hidden;
+overflow:hidden;
 }
 
-.bg{
-position:fixed;
-width:100%;
-height:100%;
-background:
-radial-gradient(circle at 20% 20%, rgba(0,255,200,0.08), transparent 40%),
-radial-gradient(circle at 80% 80%, rgba(255,215,0,0.06), transparent 40%);
-z-index:-1;
+/* نجوم ذهبية */
+.star{
+position:absolute;
+width:6px;
+height:6px;
+background:gold;
+border-radius:50%;
+box-shadow:0 0 10px gold;
+animation:float 6s infinite linear;
+}
+
+@keyframes float{
+0%{transform:translateY(100vh);opacity:0}
+20%{opacity:1}
+100%{transform:translateY(-10vh);opacity:0}
 }
 
 header{
 text-align:center;
-padding:20px;
+padding:15px;
 }
 
-.logo{
-font-size:28px;
-font-weight:900;
-background:linear-gradient(90deg,#ffd700,#00ffd5,#a855f7,#00ff88);
+h1{
+font-size:26px;
+background:linear-gradient(90deg,#ffd700,#00ffd5,#a855f7);
 -webkit-background-clip:text;
 -webkit-text-fill-color:transparent;
 }
@@ -45,7 +51,6 @@ display:flex;
 justify-content:center;
 align-items:center;
 gap:8px;
-margin-top:5px;
 }
 
 .dot{
@@ -57,13 +62,7 @@ box-shadow:0 0 10px #00ff88;
 animation:blink 1s infinite;
 }
 
-@keyframes blink{50%{opacity:0.3;}}
-
-.intro{
-text-align:center;
-margin-top:10px;
-opacity:0.9;
-}
+@keyframes blink{50%{opacity:0.3}}
 
 .container{
 max-width:900px;
@@ -74,18 +73,16 @@ padding:20px;
 .box{
 background:rgba(255,255,255,0.05);
 padding:20px;
-border-radius:16px;
-backdrop-filter:blur(12px);
-border:1px solid rgba(255,255,255,0.1);
+border-radius:15px;
+backdrop-filter:blur(10px);
 }
 
 input,textarea{
 width:100%;
 padding:12px;
 margin:8px 0;
-border-radius:10px;
 border:none;
-outline:none;
+border-radius:10px;
 background:#111827;
 color:#fff;
 }
@@ -95,49 +92,9 @@ width:100%;
 padding:12px;
 border:none;
 border-radius:10px;
+cursor:pointer;
 font-weight:bold;
-cursor:pointer;
 background:linear-gradient(90deg,#ffd700,#00ffd5,#a855f7);
-}
-
-.support{
-margin-top:15px;
-padding:12px;
-text-align:center;
-border-radius:12px;
-animation:colors 5s infinite linear;
-}
-
-@keyframes colors{
-0%{background:#00ffd5;}
-25%{background:#a855f7;}
-50%{background:#ffd700;}
-75%{background:#00ff88;}
-100%{background:#00ffd5;}
-}
-
-.btn{
-position:fixed;
-width:55px;
-height:55px;
-border-radius:50%;
-display:flex;
-justify-content:center;
-align-items:center;
-cursor:pointer;
-font-size:18px;
-}
-
-.back{
-bottom:90px;
-left:20px;
-background:linear-gradient(45deg,#ffcc00,#ff6600);
-}
-
-.top{
-bottom:20px;
-left:20px;
-background:linear-gradient(45deg,#00ffd5,#a855f7,#ffd700);
 }
 
 .popup{
@@ -149,32 +106,24 @@ background:#0f172a;
 padding:20px;
 border-radius:15px;
 border:1px solid #00ffd5;
-text-align:center;
 transition:0.3s;
-z-index:9999;
-box-shadow:0 0 20px rgba(0,255,213,0.4);
 }
 
 .popup.show{
 transform:translate(-50%,-50%) scale(1);
-}
-
-.error{
-color:#ff4d4d;
-text-align:center;
-margin-top:10px;
 }
 </style>
 </head>
 
 <body>
 
-<div class="bg"></div>
-
 <header>
-<div class="logo">⚜️ Alqurmani X Contact</div>
-<div class="online"><span class="dot"></span><span>متصل الآن</span></div>
-<div class="intro">نظام تواصل رسمي فوري</div>
+<h1>📩 تواصل معنا - Alqurmani X</h1>
+
+<div class="online">
+<span class="dot"></span>
+<span>متصل الآن</span>
+</div>
 </header>
 
 <div class="container">
@@ -184,73 +133,49 @@ margin-top:10px;
 <input id="email" placeholder="البريد الإلكتروني *">
 <input id="subject" placeholder="الموضوع *">
 
-<input id="whatsapp" placeholder="واتساب (اختياري)">
-<input id="specialty" placeholder="اختصاص (اختياري)">
-<textarea id="message" placeholder="الرسالة"></textarea>
+<textarea id="message" placeholder="رسالتك"></textarea>
 
 <button onclick="send()">إرسال</button>
 
-<div class="error" id="error"></div>
-
-<div class="support">🟡 الدعم الفني متصل الآن</div>
-
-<!-- الخريطة -->
-<div style="margin-top:15px;border-radius:12px;overflow:hidden;border:1px solid #00ffd5;">
-<iframe src="https://www.google.com/maps?q=Aswan,Egypt&output=embed"
-width="100%" height="220" style="border:0;"></iframe>
-</div>
-
-<!-- روابط -->
-<a href="https://YOUR-GITHUB.github.io/index.html" target="_blank"
-style="display:block;text-align:center;margin-top:10px;padding:10px;background:linear-gradient(90deg,#00ffd5,#ffd700,#a855f7);color:#000;font-weight:bold;text-decoration:none;border-radius:10px;">
-🏠 الصفحة الرئيسية
-</a>
-
-<a href="support.html" target="_blank"
-style="display:block;text-align:center;margin-top:10px;padding:10px;background:#111827;color:#00ffd5;border:1px solid #00ffd5;border-radius:10px;text-decoration:none;">
-🛠️ الدعم الفني
-</a>
-
 </div>
 </div>
 
-<div class="btn back" onclick="goBack()">🔙</div>
-<div class="btn top" onclick="scrollToTop()">⬆️</div>
-
-<div class="popup" id="popup">🚀 تم إرسال الرسالة بنجاح</div>
+<div class="popup" id="popup">🚀 تم الإرسال بنجاح</div>
 
 <script>
 
-/* ترحيب صوتي */
-if(!sessionStorage.getItem("welcome")){
-let msg=new SpeechSynthesisUtterance("مرحباً بك في نظام Alqurmani X");
-msg.lang="ar";
-speechSynthesis.speak(msg);
-sessionStorage.setItem("welcome","1");
+/* نجوم */
+for(let i=0;i<25;i++){
+let s=document.createElement("div");
+s.className="star";
+s.style.left=Math.random()*100+"vw";
+s.style.animationDuration=(3+Math.random()*5)+"s";
+document.body.appendChild(s);
 }
 
-/* حماية بسيطة */
-document.oncontextmenu=()=>false;
-document.onkeydown=(e)=>{if(e.ctrlKey||e.keyCode==123)return false;};
+/* صوت ترحيب مرة واحدة */
+if(!sessionStorage.getItem("w")){
+let m=new SpeechSynthesisUtterance("مرحباً بك في نظام القرماني إكس");
+m.lang="ar";
+speechSynthesis.speak(m);
+sessionStorage.setItem("w","1");
+}
 
 /* إرسال */
 async function send(){
 
-const err=document.getElementById("error");
-err.innerText="";
-
-if(!name.value.trim()||!email.value.trim()||!subject.value.trim()){
-err.innerText="الاسم + البريد + الموضوع مطلوبين";
-return;
-}
-
 const btn=document.querySelector("button");
-btn.innerText="جاري الإرسال...";
 btn.disabled=true;
+btn.innerText="جاري الإرسال...";
 
 try{
 
-let ref=document.referrer;
+if(!name.value||!email.value||!subject.value){
+alert("املأ البيانات الأساسية");
+btn.disabled=false;
+btn.innerText="إرسال";
+return;
+}
 
 const geo=await fetch("https://ipapi.co/json/").then(r=>r.json());
 
@@ -258,13 +183,10 @@ const data={
 name:name.value,
 email:email.value,
 subject:subject.value,
-whatsapp:whatsapp.value,
-specialty:specialty.value,
 message:message.value,
-source_url:ref||"Direct",
 ip:geo.ip,
-location:`${geo.country_name} - ${geo.city}`,
-time:new Date().toLocaleString('ar-EG')
+location:geo.country_name+" - "+geo.city,
+time:new Date().toLocaleString()
 };
 
 await fetch("https://eo33ut6m60kqbgp.m.pipedream.net",{
@@ -273,37 +195,27 @@ headers:{"Content-Type":"application/json"},
 body:JSON.stringify(data)
 });
 
-/* صوت */
-try{
+/* صوت نجاح */
 let ok=new SpeechSynthesisUtterance("تم إرسال الرسالة بنجاح");
 ok.lang="ar";
 speechSynthesis.speak(ok);
-}catch(e){}
 
 /* popup */
 popup.classList.add("show");
 setTimeout(()=>popup.classList.remove("show"),2500);
 
 /* تنظيف */
-name.value=email.value=subject.value=whatsapp.value=specialty.value=message.value="";
+name.value="";
+email.value="";
+subject.value="";
+message.value="";
 
 }catch(e){
-err.innerText="حدث خطأ";
+alert("خطأ في الإرسال");
 }
 
-btn.innerText="إرسال";
 btn.disabled=false;
-}
-
-/* رجوع */
-function goBack(){
-if(document.referrer)location=document.referrer;
-else history.back();
-}
-
-/* أعلى */
-function scrollToTop(){
-window.scrollTo({top:0,behavior:"smooth"});
+btn.innerText="إرسال";
 }
 
 </script>
