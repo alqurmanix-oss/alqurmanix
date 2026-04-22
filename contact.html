@@ -219,7 +219,7 @@ for(let i=0;i<28;i++){
 /* ترحيب صوتي مرة واحدة */
 if(!sessionStorage.getItem("welcome")){
   try{
-    const m=new SpeechSynthesisUtterance("مرحباً بك في الحساب الرسمي القرماني إكس");
+    const m=new SpeechSynthesisUtterance("مرحباً بك في نظام القرماني إكس");
     m.lang="ar";
     speechSynthesis.speak(m);
   }catch(e){}
@@ -288,7 +288,7 @@ async function send(){
 
     /* صوت نجاح */
     try{
-      const ok=new SpeechSynthesisUtterance(" شكرا على ثقتكم بالقرماني اكس تم إرسال الرسالة بنجاح");
+      const ok=new SpeechSynthesisUtterance("تم إرسال الرسالة بنجاح");
       ok.lang="ar"; speechSynthesis.speak(ok);
     }catch(e){}
 
