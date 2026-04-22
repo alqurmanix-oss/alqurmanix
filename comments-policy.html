@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>سياسة التعليقات والمساهمات | Alqurmani X</title>
+<title>سياسة التعليقات والمساهمات - Alqurmani X</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;900&display=swap" rel="stylesheet">
 
@@ -18,7 +18,7 @@ line-height:1.9;
 overflow-x:hidden;
 }
 
-/* خلفية نيون */
+/* خلفية */
 .bg{
 position:fixed;
 inset:0;
@@ -28,7 +28,7 @@ radial-gradient(circle at 80% 80%, rgba(255,215,0,0.06), transparent 40%);
 z-index:-2;
 }
 
-/* رأس الصفحة */
+/* هيدر */
 header{
 text-align:center;
 padding:20px;
@@ -43,7 +43,7 @@ background:linear-gradient(90deg,#ffd700,#00ffd5,#a855f7,#00ff88);
 
 /* محتوى */
 .container{
-max-width:900px;
+max-width:950px;
 margin:auto;
 padding:20px;
 }
@@ -56,65 +56,72 @@ border-radius:16px;
 backdrop-filter:blur(10px);
 }
 
-/* سهم رجوع */
-.btn{
-position:fixed;
-width:55px;
-height:55px;
-border-radius:50%;
-display:flex;
-justify-content:center;
-align-items:center;
-cursor:pointer;
-font-size:18px;
-z-index:999;
-transition:.3s;
+/* روابط */
+a{
+color:#00ffd5;
+text-decoration:none;
+font-weight:700;
+}
+a:hover{
+color:#ffd700;
 }
 
-.back{
-bottom:90px;
-left:20px;
-background:linear-gradient(45deg,#ffcc00,#ff6600,#ff00ff,#00ffd5);
-animation:colorMove 3s infinite;
-}
-
-.top{
-bottom:20px;
-left:20px;
-background:linear-gradient(45deg,#00ffd5,#a855f7,#ffd700,#00ff88);
-animation:colorMove 3s infinite;
-}
-
-@keyframes colorMove{
-0%{filter:hue-rotate(0deg)}
-100%{filter:hue-rotate(360deg)}
-}
-
-.btn:active{
-transform:scale(0.85);
-}
-
-/* صندوق السياسات */
-.footer-box{
-margin-top:30px;
-padding:18px;
-border-radius:14px;
+/* مستطيلات */
+.card{
+margin-top:15px;
+padding:15px;
+border-radius:12px;
 background:linear-gradient(135deg,#111827,#0f172a);
 border:1px solid #00ffd5;
-box-shadow:0 0 20px rgba(0,255,213,0.2);
+box-shadow:0 0 15px rgba(0,255,213,0.15);
 }
 
-.footer-title{
-font-weight:900;
-text-align:center;
-margin-bottom:10px;
+.card h3{
+margin:0 0 8px 0;
 color:#00ffd5;
 }
 
-/* تحسين SEO وهمي */
-.meta{
-font-size:14px;
-opacity:.8;
+/* مستطيل قوانين */
+.rules{
+margin-top:25px;
+padding:18px;
+border-radius:14px;
+background:linear-gradient(135deg,#1f2937,#0b1220);
+border:1px solid #ffd700;
+box-shadow:0 0 18px rgba(255,215,0,0.2);
+}
+
+.rules-title{
+text-align:center;
+font-weight:900;
+color:#ffd700;
+margin-bottom:10px;
+}
+
+/* تأثيرات */
+.badge{
+display:inline-block;
+padding:5px 10px;
+margin:4px;
+border-radius:20px;
+background:linear-gradient(90deg,#00ffd5,#ffd700,#a855f7);
+color:#000;
+font-weight:800;
+}
+
+/* footer صغير */
+.small-boxes{
+display:flex;
+flex-direction:column;
+gap:10px;
+margin-top:20px;
+}
+
+.small{
+padding:10px;
+border-radius:10px;
+background:#111827;
+border:1px solid rgba(255,255,255,0.15);
 }
 </style>
 </head>
@@ -124,7 +131,7 @@ opacity:.8;
 <div class="bg"></div>
 
 <header>
-<h1>📜 سياسة التعليقات والمساهمات - Alqurmani X</h1>
+<h1>💬 سياسة التعليقات والمساهمات - Alqurmani X</h1>
 </header>
 
 <div class="container">
@@ -132,71 +139,64 @@ opacity:.8;
 <div class="box">
 
 <p>
-مرحبًا بك في نظام <b>Alqurmani X</b> العالمي لإدارة التعليقات والمساهمات.
-تنطبق هذه السياسة على جميع المواقع والمنصات التابعة لنظام Alqurmani X سواء كانت مواقع رسمية أو فرعية أو مستقبلية.
+مرحبًا بك في نظام <b>Alqurmani X</b> العالمي لإدارة التعليقات والمساهمات.  
+هذه السياسة تنطبق على جميع المواقع والمنصات التابعة لنا بدون استثناء.
 </p>
 
-<h3>1. قواعد التعليقات</h3>
+<h3>📌 قواعد التعليقات</h3>
 <p>
-يُمنع نشر أي محتوى مسيء، أو مخالف للآداب العامة، أو يتضمن إساءة شخصية أو تحريض أو محتوى غير قانوني.
-جميع التعليقات تخضع للمراجعة التلقائية أو اليدوية وفق نظام المنصة.
+يُمنع نشر أي محتوى مخالف أو مسيء أو غير قانوني. جميع التعليقات تخضع للمراجعة التلقائية أو اليدوية.
 </p>
 
-<h3>2. المساهمات</h3>
+<span class="badge">ممنوع السبام</span>
+<span class="badge">ممنوع الإساءة</span>
+<span class="badge">ممنوع الروابط الضارة</span>
+
+<h3>🤝 المساهمات</h3>
 <p>
-المساهمات المنشورة داخل النظام تُعتبر ملكًا للمنصة بعد الموافقة عليها، مع الحفاظ على حقوق النشر الأساسية للمستخدم.
+المساهمات يجب أن تكون أصلية وهادفة. إدارة النظام لها حق تعديل أو حذف أي محتوى مخالف.
 </p>
 
-<h3>3. الأمان والحماية</h3>
+<h3>🌍 نطاق التطبيق</h3>
 <p>
-يحتفظ نظام Alqurmani X بحق حذف أو تعديل أي محتوى دون إشعار مسبق إذا خالف السياسات أو أثر على أمن النظام أو المستخدمين.
+تنطبق هذه السياسة على جميع منصات Alqurmani X الحالية والمستقبلية.
 </p>
 
-<h3>4. الاستخدام العام</h3>
-<p>
-جميع الخدمات والتفاعلات تخضع لسياسة الاستخدام العادل، ويحق للإدارة تحديث القوانين في أي وقت.
-</p>
-
-<p class="meta">
-هذه السياسة تطبق على جميع مواقع ومنصات Alqurmani X بشكل موحد عالمي.
-</p>
-
+<!-- روابط رئيسية -->
+<div class="card">
+<h3>🏠 الصفحة الرئيسية</h3>
+<a href="index.html">🏠 الانتقال إلى Yandex / الصفحة الرئيسية</a>
 </div>
 
-<!-- صندوق قوانين -->
-<div class="footer-box" id="alqx_rules_box">
-<div class="footer-title">⚖️ سياسات وقوانين Alqurmani X</div>
-<p>
-هذا القسم يمثل الإطار القانوني الموحد لجميع خدمات ومواقع Alqurmani X، ويشمل حماية المحتوى، تنظيم التفاعل، وضبط جودة الاستخدام.
-</p>
+<div class="card">
+<h3>🌐 منصاتنا</h3>
+<a href="platforms.html">🌍 عرض جميع منصات Alqurmani X</a>
 </div>
 
 </div>
 
-<!-- أزرار -->
-<div class="btn back" onclick="goBack()">🔙</div>
-<div class="btn top" onclick="window.scrollTo({top:0,behavior:'smooth'})">⬆️</div>
+<!-- مستطيل قوانين -->
+<div class="rules">
+<div class="rules-title">⚖️ سياسات وقوانين Alqurmani X</div>
+<p>
+هذا القسم يمثل الإطار القانوني الموحد لجميع أنظمة ومواقع Alqurmani X، ويشمل تنظيم المحتوى، حماية المستخدمين، وضبط جودة التفاعل.
+</p>
+</div>
 
-<script>
+<!-- مستطيلين تحت بعض -->
+<div class="small-boxes">
 
-/* رجوع تلقائي */
-function goBack(){
-if(document.referrer) location.href=document.referrer;
-else history.back();
-}
+<div class="small">
+🛡️ النظام القانوني موحد ويطبق على جميع المنصات.
+</div>
 
-/* حماية بسيطة */
-document.oncontextmenu=()=>false;
+<div class="small">
+⚙️ يتم تحديث السياسات بشكل دوري لضمان الامتثال العالمي.
+</div>
 
-/* تأثير ضغط */
-document.querySelectorAll('.btn').forEach(b=>{
-b.addEventListener('click',()=>b.style.transform='scale(0.8)');
-});
+</div>
 
-/* تحسين SEO وهمي (للتصميم فقط) */
-console.log("Alqurmani X Comments Policy Loaded");
-
-</script>
+</div>
 
 </body>
 </html>
