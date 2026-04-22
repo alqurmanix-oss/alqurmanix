@@ -1,28 +1,165 @@
-<script>
-(function(){
-  // تحديد المسار المركزي للملفات
-  var baseUrl = "https://alqurmanix.github.io/core/"; // تأكد من مطابقة هذا المسار لمكان ملفاتك على جيت هاب
-  var version = "1.0.4"; // غير رقم الإصدار عند كل تحديث لكسر الكاش
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alqurmani X | الإمبراطورية الرقمية</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --gold: #bf953f;
+            --dark: #050505;
+            --cyan: #00ffd5;
+        }
+        body {
+            margin: 0;
+            padding: 0;
+            background: var(--dark);
+            color: white;
+            font-family: 'Cairo', sans-serif;
+            overflow-x: hidden;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+        }
 
-  // حقن ملف الـ CSS في الهيدر
-  var link = document.createElement("link");
-  link.rel = "stylesheet";
-  link.href = baseUrl + "qx-core.css?v=" + version;
-  document.head.appendChild(link);
+        /* خلفية الشبكة المتحركة */
+        .grid {
+            position: fixed;
+            inset: 0;
+            background-image: linear-gradient(rgba(191,149,63,0.05) 1px, transparent 1px),
+                              linear-gradient(90deg, rgba(191,149,63,0.05) 1px, transparent 1px);
+            background-size: 50px 50px;
+            z-index: -1;
+            transform: perspective(500px) rotateX(60deg);
+            transform-origin: top;
+            animation: moveGrid 20s linear infinite;
+        }
+        @keyframes moveGrid {
+            from { background-position: 0 0; }
+            to { background-position: 0 100%; }
+        }
 
-  // حقن ملف الـ JS
-  var script = document.createElement("script");
-  script.src = baseUrl + "qx-core.js?v=" + version;
-  script.defer = true;
+        /* الشعار */
+        .hero {
+            text-align: center;
+            z-index: 10;
+        }
+        .hero h1 {
+            font-size: clamp(2.5rem, 8vw, 5rem);
+            font-weight: 900;
+            margin: 0;
+            background: linear-gradient(to right, #bf953f, #fcf6ba, #b38728, #fbf5b7, #aa771c);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            filter: drop-shadow(0 0 15px rgba(191,149,63,0.3));
+            letter-spacing: 5px;
+        }
+        .hero p {
+            font-size: 1.2rem;
+            color: #888;
+            letter-spacing: 2px;
+            margin-top: 10px;
+        }
 
-  // تأكيد الحقن داخل الـ Body حتى لو الكود موضوع في الهيدر غلط
-  if (document.body) {
-    document.body.appendChild(script);
-  } else {
-    // لو الـ Body لسه محملش، استنى لما يجهز
-    window.addEventListener('DOMContentLoaded', function() {
-      document.body.appendChild(script);
-    });
-  }
-})();
-</script>
+        /* الأقسام السريعة */
+        .menu {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 20px;
+            width: 90%;
+            max-width: 800px;
+            margin-top: 50px;
+        }
+        .card {
+            background: rgba(255,255,255,0.03);
+            border: 1px solid rgba(191,149,63,0.2);
+            padding: 20px;
+            text-align: center;
+            border-radius: 10px;
+            text-decoration: none;
+            color: white;
+            transition: 0.3s;
+            backdrop-filter: blur(5px);
+        }
+        .card:hover {
+            background: var(--gold);
+            color: black;
+            transform: translateY(-5px);
+            box-shadow: 0 0 30px var(--gold);
+        }
+        .card i {
+            display: block;
+            font-size: 2rem;
+            margin-bottom: 10px;
+        }
+
+        /* نبض النظام */
+        .pulse {
+            width: 15px;
+            height: 15px;
+            background: var(--cyan);
+            border-radius: 50%;
+            display: inline-block;
+            margin-left: 10px;
+            box-shadow: 0 0 10px var(--cyan);
+            animation: pulse-animation 2s infinite;
+        }
+        @keyframes pulse-animation {
+            0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(0, 255, 213, 0.7); }
+            70% { transform: scale(1); box-shadow: 0 0 0 10px rgba(0, 255, 213, 0); }
+            100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(0, 255, 213, 0); }
+        }
+
+        footer {
+            position: fixed;
+            bottom: 20px;
+            font-size: 0.8rem;
+            color: #444;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="grid"></div>
+
+    <div class="hero">
+        <p>EMPIRE PROTOCOL 77</p>
+        <h1>ALQURMANI X</h1>
+        <div style="display: flex; align-items: center; justify-content: center; margin-top: 15px;">
+            <span class="pulse"></span>
+            <span style="color: var(--cyan); font-weight: bold;">SYSTEM ONLINE</span>
+        </div>
+    </div>
+
+    <div class="menu">
+        <a href="contact.html" class="card">
+            <i>📩</i>
+            <span>مركز التواصل</span>
+        </a>
+        <a href="#" class="card">
+            <i>🚀</i>
+            <span>المشاريع</span>
+        </a>
+        <a href="#" class="card">
+            <i>🛡️</i>
+            <span>الأمان الرقمي</span>
+        </a>
+        <a href="#" class="card">
+            <i>📊</i>
+            <span>الاستثمار</span>
+        </a>
+    </div>
+
+    <footer>
+        &copy; 2026 Alqurmani X Digital Intelligence - Abu Abdullah
+    </footer>
+
+    <script>
+        // ترحيب بسيط في الكونسول
+        console.log("%c ALQURMANI X SYSTEM ACTIVATED ", "background: #bf953f; color: #000; font-size: 20px; font-weight: bold;");
+    </script>
+</body>
+</html>
