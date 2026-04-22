@@ -17,6 +17,7 @@ color:#fff;
 line-height:2;
 }
 
+/* المحتوى */
 .container{
 max-width:1000px;
 margin:auto;
@@ -41,18 +42,11 @@ background:rgba(255,255,255,0.05);
 border:1px solid rgba(255,255,255,0.1);
 padding:25px;
 border-radius:16px;
-backdrop-filter:blur(10px);
 }
 
-h2{
-color:#00ffd5;
-margin-top:25px;
-}
+h2{color:#00ffd5;margin-top:25px;}
 
-p{
-font-size:16px;
-opacity:0.95;
-}
+p{opacity:0.95;font-size:16px;}
 
 .rule{
 margin:10px 0;
@@ -61,38 +55,28 @@ background:rgba(255,255,255,0.04);
 border-left:3px solid #ffd700;
 }
 
-.footer{
-margin-top:30px;
-padding:20px;
-border-radius:14px;
-background:#0f172a;
-border:1px solid #00ffd5;
-}
-
-.footer-title{
-text-align:center;
-color:#ffd700;
-font-weight:900;
-margin-bottom:10px;
-}
-
-/* مستطيلات الربط */
-.links{
-margin-top:30px;
+/* الصناديق */
+.cards{
 display:flex;
 flex-direction:column;
 gap:12px;
+margin-top:25px;
 }
 
-.link-box{
-padding:14px;
+.card{
+padding:15px;
 border-radius:12px;
 text-align:center;
-font-weight:800;
-text-decoration:none;
+font-weight:900;
+cursor:pointer;
 transition:0.3s;
 }
 
+.card:hover{
+transform:scale(1.02);
+}
+
+/* ألوان الصناديق */
 .home{
 background:linear-gradient(90deg,#ffd700,#00ffd5,#a855f7);
 color:#000;
@@ -103,10 +87,46 @@ background:linear-gradient(90deg,#00ffd5,#ffd700,#00ff88);
 color:#000;
 }
 
-.rulesbox{
-background:linear-gradient(135deg,#111827,#0b1220);
-border:1px solid #00ffd5;
-color:#fff;
+.rules{
+background:linear-gradient(90deg,#a855f7,#00ffd5,#ffd700);
+color:#000;
+}
+
+/* السهمين */
+.nav{
+position:fixed;
+left:20px;
+z-index:999;
+display:flex;
+flex-direction:column;
+gap:10px;
+}
+
+.btn{
+width:55px;
+height:55px;
+border-radius:50%;
+display:flex;
+align-items:center;
+justify-content:center;
+font-size:20px;
+cursor:pointer;
+animation:glow 3s infinite;
+}
+
+.back{
+bottom:90px;
+background:linear-gradient(45deg,#ffcc00,#ff00ff,#00ffd5);
+}
+
+.top{
+bottom:20px;
+background:linear-gradient(45deg,#00ffd5,#ffd700,#00ff88);
+}
+
+@keyframes glow{
+0%{filter:hue-rotate(0deg);}
+100%{filter:hue-rotate(360deg);}
 }
 </style>
 
@@ -123,62 +143,51 @@ color:#fff;
 <div class="box">
 
 <p>
-تلتزم منصة Alqurmani X بوضع إطار قانوني شامل ينظم عملية التعليقات والمساهمات عبر جميع المنصات التابعة للنظام، بما يضمن بيئة رقمية آمنة، منظمة، ومحترمة لجميع المستخدمين دون استثناء.
+تضع منصة Alqurmani X هذه السياسة لتنظيم جميع التعليقات والمساهمات داخل جميع المنصات التابعة لها بهدف ضمان بيئة رقمية آمنة ومحترمة.
 </p>
 
 <h2>نطاق السياسة</h2>
-<p>
-تنطبق هذه السياسة على جميع المواقع والخدمات والتطبيقات التابعة لمنصة Alqurmani X، سواء الحالية أو المستقبلية، ويعتبر استخدام أي من هذه الخدمات موافقة كاملة على جميع البنود الواردة هنا.
-</p>
+<p>تنطبق على جميع خدمات ومنصات Alqurmani X الحالية والمستقبلية.</p>
 
-<h2>شروط التعليقات</h2>
+<h2>قواعد التعليقات</h2>
 
-<div class="rule">يجب أن تكون جميع التعليقات خالية من أي إساءة أو محتوى غير لائق أو مخالف للقوانين.</div>
-<div class="rule">يُمنع استخدام النظام في نشر محتوى دعائي غير مصرح به.</div>
-<div class="rule">يُحظر نشر روابط ضارة أو خبيثة أو مضللة.</div>
-<div class="rule">يحق لإدارة النظام حذف أو تعديل أو حظر أي محتوى مخالف دون إشعار مسبق.</div>
+<div class="rule">منع الإساءة أو المحتوى غير اللائق.</div>
+<div class="rule">منع الروابط الضارة.</div>
+<div class="rule">منع الإعلانات غير المصرح بها.</div>
+<div class="rule">حق الإدارة في الحذف أو الحظر.</div>
 
 <h2>المساهمات</h2>
 
-<p>
-جميع المساهمات المقدمة من المستخدمين يتم التعامل معها وفق سياسة داخلية صارمة تضمن الجودة والملكية الفكرية والأمان.
-</p>
-
-<div class="rule">يجب أن تكون المساهمات أصلية وغير منسوخة.</div>
-<div class="rule">لا يحق للمستخدم المطالبة بملكية كاملة للمحتوى المرسل إلا في حالات الاتفاق الرسمي.</div>
-<div class="rule">تحتفظ الإدارة بحق استخدام أو تعديل أو رفض أي محتوى.</div>
-
-<h2>المسؤولية</h2>
-<p>
-يتحمل المستخدم المسؤولية الكاملة عن المحتوى الذي يقوم بنشره داخل النظام، ولا تتحمل Alqurmani X أي مسؤولية قانونية عن الاستخدام الفردي الخاطئ.
-</p>
+<div class="rule">يجب أن تكون أصلية.</div>
+<div class="rule">تخضع للمراجعة أو الرفض.</div>
+<div class="rule">لا حقوق ملكية بدون اتفاق رسمي.</div>
 
 <h2>الإقرار</h2>
-<p>
-باستخدام النظام فإن المستخدم يقر بقبول جميع البنود والشروط المذكورة في هذه السياسة بشكل نهائي وغير قابل للنقاش.
-</p>
+<p>باستخدام النظام فأنت توافق على جميع الشروط.</p>
 
 </div>
 
-<!-- مستطيل القوانين -->
-<div class="footer">
-<div class="footer-title">⚖️ سياسات وقوانين Alqurmani X</div>
-جميع الحقوق والسياسات محمية ومطبقة على جميع منصات النظام.
-</div>
+<!-- الصناديق الثلاثة -->
+<div class="cards">
 
-<!-- روابط -->
-<div class="links">
+<a href="index.html">
+<div class="card home">🏠 الصفحة الرئيسية</div>
+</a>
 
-<a class="link-box home" href="index.html">🏠 الصفحة الرئيسية</a>
+<a href="platforms.html">
+<div class="card platforms">🌐 منصاتنا</div>
+</a>
 
-<a class="link-box platforms" href="platforms.html">🌐 منصاتنا</a>
+<div class="card rules">⚖️ سياسات وقوانين القرماني X</div>
 
-<div class="link-box rulesbox">
-⚖️ مستند القوانين الرسمي - Alqurmani X
 </div>
 
 </div>
 
+<!-- السهمين -->
+<div class="nav">
+<div class="btn back" onclick="history.back()">🔙</div>
+<div class="btn top" onclick="window.scrollTo({top:0,behavior:'smooth'})">⬆️</div>
 </div>
 
 </body>
