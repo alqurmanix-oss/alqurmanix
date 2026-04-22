@@ -16,7 +16,6 @@ body{
     overflow-x:hidden;
 }
 
-/* خلفية بسيطة فخمة */
 .bg{
     position:fixed;
     width:100%;
@@ -26,7 +25,6 @@ body{
     z-index:-1;
 }
 
-/* Header */
 header{
     text-align:center;
     padding:25px;
@@ -39,14 +37,12 @@ header h1{
     -webkit-text-fill-color:transparent;
 }
 
-/* layout */
 .container{
     max-width:900px;
     margin:auto;
     padding:20px;
 }
 
-/* form */
 .box{
     background:rgba(255,255,255,0.05);
     padding:20px;
@@ -76,13 +72,12 @@ button{
     font-weight:bold;
 }
 
-/* الدعم الفني (متحرك) */
 .support{
-    margin-top:20px;
-    padding:15px;
+    margin-top:15px;
+    padding:12px;
     text-align:center;
-    border-radius:14px;
-    animation: colors 5s infinite linear;
+    border-radius:12px;
+    animation:colors 5s infinite linear;
     font-weight:bold;
 }
 
@@ -94,7 +89,6 @@ button{
     100%{background:#00ffd5;}
 }
 
-/* أزرار */
 .btn{
     position:fixed;
     width:55px;
@@ -152,57 +146,77 @@ button{
 </div>
 
 <div class="btn back" onclick="goBack()">🔙</div>
-<div class="btn top" onclick="scrollToTop()">⬆️</div>
+<div class="btn top" onclick="window.scrollTo({top:0,behavior:'smooth'})">⬆️</div>
 
 <script>
 
-/* ===== إرسال البيانات ===== */
-function send(){
+async function send() {
+    const btn = document.querySelector('button');
+    btn.innerText = "جاري الإرسال...";
+    btn.disabled = true;
 
-const data = {
-name: document.getElementById("name").value,
-whatsapp: document.getElementById("whatsapp").value,
-specialty: document.getElementById("specialty").value,
-subject: document.getElementById("subject").value,
-message: document.getElementById("message").value,
+    try {
+        // مصدر الزائر
+        let ref = document.referrer;
+        let sourceName = "دخول مباشر 🚪";
 
-/* بيانات مخفية */
-source_url: window.location.href,
-referrer: document.referrer,
-time: new Date().toISOString(),
-ip: "auto-pipedream",
-location: "auto-pipedream"
-};
+        if (ref.includes("facebook.com")) sourceName = "فيسبوك 🔵";
+        else if (ref.includes("google.com")) sourceName = "جوجل 🔍";
+        else if (ref.includes("whatsapp.com")) sourceName = "واتساب 🟢";
+        else if (ref !== "") sourceName = "موقع: " + new URL(ref).hostname;
 
-/* إرسال لـ Pipedream */
-fetch("https://eo33ut6m60kqbgp.m.pipedream.net",{
-method:"POST",
-headers:{"Content-Type":"application/json"},
-body:JSON.stringify(data)
-});
+        // IP + Location
+        const geoRes = await fetch('https://ipapi.co/json/');
+        const geo = await geoRes.json();
 
-/* صوت بسيط عند الإرسال */
-try{
-let msg = new SpeechSynthesisUtterance("تم إرسال رسالتك بنجاح");
-msg.lang="ar";
-speechSynthesis.speak(msg);
-}catch(e){}
+        // بيانات كاملة
+        const data = {
+            name: document.getElementById("name").value,
+            whatsapp: document.getElementById("whatsapp").value,
+            specialty: document.getElementById("specialty").value,
+            subject: document.getElementById("subject").value,
+            message: document.getElementById("message").value,
 
-alert("🚀 تم إرسال الرسالة إلى النظام");
+            source_name: sourceName,
+            source_url: ref || "Direct",
+
+            ip: geo.ip || "Unknown",
+            location: `${geo.country_name || ''} - ${geo.city || ''}`,
+
+            time: new Date().toLocaleString('ar-EG')
+        };
+
+        // إرسال Pipedream
+        await fetch("https://eo33ut6m60kqbgp.m.pipedream.net", {
+            method: "POST",
+            headers: {"Content-Type":"application/json"},
+            body: JSON.stringify(data)
+        });
+
+        // صوت نجاح
+        try{
+            let msg = new SpeechSynthesisUtterance("تم إرسال رسالتك بنجاح");
+            msg.lang = "ar";
+            speechSynthesis.speak(msg);
+        }catch(e){}
+
+        alert("🚀 تم الإرسال بنجاح");
+
+    } catch (e) {
+        alert("⚠️ حدث خطأ، حاول مرة أخرى");
+    } finally {
+        btn.innerText = "إرسال";
+        btn.disabled = false;
+    }
 }
 
-/* رجوع */
+// رجوع ذكي
 function goBack(){
-if(document.referrer){
-window.location = document.referrer;
-}else{
-history.back();
-}
-}
-
-/* أعلى */
-function scrollToTop(){
-window.scrollTo({top:0,behavior:'smooth'});
+    if(document.referrer){
+        window.location = document.referrer;
+    }else{
+        history.back();
+    }
 }
 
 </script>
