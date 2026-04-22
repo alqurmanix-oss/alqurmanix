@@ -213,6 +213,176 @@
         }
     }
 </script>
+<div id="qx-royal-dua">
+    <div id="qx-dua-trigger" onclick="openRoyalDua()">
+        <span class="qx-sparkle">✨</span>
+    </div>
 
+    <div id="qx-dua-overlay">
+        <div class="qx-royal-card">
+            <div class="qx-close-x" onclick="closeRoyalDua()">&times;</div>
+            
+            <div class="qx-decoration">
+                <div class="qx-gold-line"></div>
+                <div class="qx-crown">👑</div>
+                <div class="qx-gold-line"></div>
+            </div>
+
+            <div class="qx-content">
+                <p class="qx-main-dua">
+                    "اللهم اجعل هذا العمل شاهداً لي لا عليّ، واجعله خالصاً لوجهك الكريم، وفي ميزان حسناتي وحسنات والديّ، وارزقني فيه الإخلاص والقبول، وبارك لي فيه، وانفع به عبادك يا رب العالمين."
+                </p>
+                <div class="qx-divider"></div>
+                <p class="qx-founder-title">مؤسس alqurmani  x  </p>
+                <h2 class="qx-founder-name">محمد بسيوني</h2>
+            </div>
+            
+            <div class="qx-footer-brand">
+                <span>ALQURMANI DIGITAL EMPIRE</span>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+    /* التنسيق الملكي */
+    :root {
+        --qx-gold: linear-gradient(135deg, #bf953f, #fcf6ba, #b38728, #fbf5b7, #aa771c);
+        --qx-black: #050505;
+        --qx-glass: rgba(10, 10, 10, 0.95);
+    }
+
+    #qx-dua-trigger {
+        position: fixed;
+        bottom: 20px;
+        right: 20px; /* تم التعديل إلى أقصى اليمين */
+        width: 45px;
+        height: 45px;
+        background: var(--qx-gold);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 28px;
+        cursor: pointer;
+        z-index: 99999;
+        box-shadow: 0 0 30px rgba(191, 149, 63, 0.5);
+        animation: qx-royal-pulse 2s infinite;
+        border: 2px solid rgba(255, 255, 255, 0.2);
+    }
+
+    #qx-dua-overlay {
+        display: none;
+        position: fixed;
+        inset: 0;
+        background: rgba(0, 0, 0, 0.9);
+        z-index: 100000;
+        backdrop-filter: blur(12px);
+        align-items: center;
+        justify-content: center;
+        padding: 20px;
+    }
+
+    .qx-royal-card {
+        background: var(--qx-black);
+        border: 1px solid #bf953f;
+        padding: 50px 30px;
+        border-radius: 0; /* لمسة كلاسيكية حادة */
+        max-width: 550px;
+        width: 100%;
+        text-align: center;
+        position: relative;
+        box-shadow: 0 0 100px rgba(191, 149, 63, 0.2);
+    }
+
+    .qx-close-x {
+        position: absolute;
+        top: 15px;
+        right: 20px;
+        color: #bf953f;
+        font-size: 35px;
+        cursor: pointer;
+        transition: 0.3s;
+        line-height: 1;
+    }
+
+    .qx-close-x:hover { transform: rotate(90deg); color: #fff; }
+
+    .qx-decoration {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 15px;
+        margin-bottom: 30px;
+    }
+
+    .qx-gold-line { width: 60px; height: 1px; background: var(--qx-gold); }
+    .qx-crown { font-size: 24px; }
+
+    .qx-main-dua {
+        color: #e0e0e0;
+        font-size: 20px;
+        line-height: 1.8;
+        font-family: 'serif', 'Times New Roman';
+        font-style: italic;
+        margin-bottom: 30px;
+    }
+
+    .qx-divider {
+        width: 40px;
+        height: 4px;
+        background: var(--qx-gold);
+        margin: 0 auto 25px;
+    }
+
+    .qx-founder-title {
+        color: #bf953f;
+        text-transform: uppercase;
+        letter-spacing: 3px;
+        font-size: 12px;
+        margin-bottom: 5px;
+    }
+
+    .qx-founder-name {
+        color: #fff;
+        font-size: 32px;
+        font-weight: 300;
+        letter-spacing: 1px;
+        margin: 0;
+    }
+
+    .qx-footer-brand {
+        margin-top: 40px;
+        font-size: 10px;
+        color: #444;
+        letter-spacing: 5px;
+    }
+
+    @keyframes qx-royal-pulse {
+        0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(191, 149, 63, 0.7); }
+        70% { transform: scale(1.05); box-shadow: 0 0 0 20px rgba(191, 149, 63, 0); }
+        100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(191, 149, 63, 0); }
+    }
+</style>
+
+<script>
+    function openRoyalDua() {
+        document.getElementById('qx-dua-overlay').style.display = 'flex';
+        document.body.style.overflow = 'hidden'; // منع السكرول عند الفتح
+    }
+
+    function closeRoyalDua() {
+        document.getElementById('qx-dua-overlay').style.display = 'none';
+        document.body.style.overflow = 'auto'; // إعادة السكرول
+    }
+
+    // إغلاق عند الضغط خارج الكارت
+    window.onclick = function(event) {
+        let overlay = document.getElementById('qx-dua-overlay');
+        if (event.target == overlay) {
+            closeRoyalDua();
+        }
+    }
+</script>
 </body>
 </html>
