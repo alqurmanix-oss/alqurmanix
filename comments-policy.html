@@ -1,194 +1,184 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>سياسة التعليقات والمساهمات | Alqurmani X</title>
+    
+    <meta name="description" content="السياسة الرسمية للتعليقات والمساهمات في Alqurmani X. شروط المشاركة الرقمية، حماية المحتوى، وقواعد السلوك المهني في المنصات التابعة للقرماني إكس.">
+    <meta name="keywords" content="Alqurmani X, سياسة التعليقات, قوانين المساهمة, الأمان الرقمي, سياسة المحتوى, القرماني اكس">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;900&display=swap" rel="stylesheet">
 
-<title>سياسة التعليقات والمساهمات | Alqurmani X</title>
+    <style>
+        :root {
+            --primary: #bf953f; /* Gold */
+            --secondary: #00ffd5; /* Cyan */
+            --violet: #a855f7;
+            --bg: #03050a;
+            --glass: rgba(255, 255, 255, 0.03);
+        }
 
-<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;900&display=swap" rel="stylesheet">
+        body {
+            background: var(--bg);
+            color: #e0e0e0;
+            font-family: 'Cairo', sans-serif;
+            margin: 0;
+            line-height: 1.8;
+            user-select: none; /* حماية المحتوى */
+        }
 
-<style>
-body{
-margin:0;
-font-family:'Cairo',sans-serif;
-background:#050816;
-color:#fff;
-line-height:2;
-}
+        /* خلفية جزيئات */
+        .bg-overlay {
+            position: fixed; inset: 0;
+            background: radial-gradient(circle at 50% 50%, rgba(191, 149, 63, 0.05), transparent 80%);
+            z-index: -1;
+        }
 
-/* المحتوى */
-.container{
-max-width:1000px;
-margin:auto;
-padding:25px;
-}
+        header {
+            text-align: center;
+            padding: 60px 20px;
+            background: linear-gradient(to bottom, #0a0c14, transparent);
+        }
 
-header{
-text-align:center;
-padding:25px 10px;
-}
+        .main-title {
+            font-size: 35px;
+            font-weight: 900;
+            background: linear-gradient(90deg, var(--primary), #fff, var(--secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 10px;
+        }
 
-h1{
-font-size:30px;
-font-weight:900;
-background:linear-gradient(90deg,#ffd700,#00ffd5,#a855f7,#00ff88);
--webkit-background-clip:text;
--webkit-text-fill-color:transparent;
-}
+        .container {
+            max-width: 1000px;
+            margin: auto;
+            padding: 20px;
+        }
 
-.box{
-background:rgba(255,255,255,0.05);
-border:1px solid rgba(255,255,255,0.1);
-padding:25px;
-border-radius:16px;
-}
+        .policy-box {
+            background: var(--glass);
+            border: 1px solid rgba(191, 149, 63, 0.1);
+            border-radius: 20px;
+            padding: 40px;
+            backdrop-filter: blur(15px);
+            box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+        }
 
-h2{color:#00ffd5;margin-top:25px;}
+        h2 {
+            color: var(--primary);
+            border-right: 4px solid var(--secondary);
+            padding-right: 15px;
+            margin-top: 40px;
+            font-size: 24px;
+        }
 
-p{opacity:0.95;font-size:16px;}
+        .content-text {
+            font-size: 18px;
+            text-align: justify;
+        }
 
-.rule{
-margin:10px 0;
-padding:12px;
-background:rgba(255,255,255,0.04);
-border-left:3px solid #ffd700;
-}
+        /* الأزرار الذكية العائمة */
+        .smart-btn {
+            position: fixed;
+            width: 55px; height: 55px;
+            border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            cursor: pointer; font-size: 22px; z-index: 1000;
+            transition: 0.4s; border: none;
+            box-shadow: 0 0 15px rgba(0,0,0,0.5);
+            animation: colorChange 8s infinite;
+        }
 
-/* الصناديق */
-.cards{
-display:flex;
-flex-direction:column;
-gap:12px;
-margin-top:25px;
-}
+        @keyframes colorChange {
+            0% { background: var(--primary); box-shadow: 0 0 15px var(--primary); }
+            25% { background: var(--secondary); box-shadow: 0 0 15px var(--secondary); }
+            50% { background: var(--violet); box-shadow: 0 0 15px var(--violet); }
+            75% { background: #00ff88; box-shadow: 0 0 15px #00ff88; }
+            100% { background: var(--primary); box-shadow: 0 0 15px var(--primary); }
+        }
 
-.card{
-padding:15px;
-border-radius:12px;
-text-align:center;
-font-weight:900;
-cursor:pointer;
-transition:0.3s;
-}
+        .btn-up { bottom: 90px; left: 20px; }
+        .btn-back { bottom: 25px; left: 20px; }
 
-.card:hover{
-transform:scale(1.02);
-}
+        /* شريط الروابط السفلي */
+        .legal-footer {
+            margin-top: 50px;
+            background: rgba(191, 149, 63, 0.05);
+            border: 1px solid var(--primary);
+            padding: 20px;
+            border-radius: 12px;
+            text-align: center;
+            display: flex; flex-wrap: wrap; justify-content: center; gap: 20px;
+        }
 
-/* ألوان الصناديق */
-.home{
-background:linear-gradient(90deg,#ffd700,#00ffd5,#a855f7);
-color:#000;
-}
+        .legal-link {
+            text-decoration: none; color: #fff; font-weight: bold; transition: 0.3s;
+        }
+        .legal-link:hover { color: var(--secondary); transform: scale(1.1); }
 
-.platforms{
-background:linear-gradient(90deg,#00ffd5,#ffd700,#00ff88);
-color:#000;
-}
+        .brand-text { font-weight: 900; letter-spacing: 2px; color: var(--primary); }
 
-.rules{
-background:linear-gradient(90deg,#a855f7,#00ffd5,#ffd700);
-color:#000;
-}
-
-/* السهمين */
-.nav{
-position:fixed;
-left:20px;
-z-index:999;
-display:flex;
-flex-direction:column;
-gap:10px;
-}
-
-.btn{
-width:55px;
-height:55px;
-border-radius:50%;
-display:flex;
-align-items:center;
-justify-content:center;
-font-size:20px;
-cursor:pointer;
-animation:glow 3s infinite;
-}
-
-.back{
-bottom:90px;
-background:linear-gradient(45deg,#ffcc00,#ff00ff,#00ffd5);
-}
-
-.top{
-bottom:20px;
-background:linear-gradient(45deg,#00ffd5,#ffd700,#00ff88);
-}
-
-@keyframes glow{
-0%{filter:hue-rotate(0deg);}
-100%{filter:hue-rotate(360deg);}
-}
-</style>
-
+    </style>
 </head>
-
 <body>
 
+<div class="bg-overlay"></div>
+
 <header>
-<h1>سياسة التعليقات والمساهمات - Alqurmani X</h1>
+    <div class="main-title">دستور المساهمة الرقمية</div>
+    <div style="letter-spacing: 5px; color: var(--primary); font-weight: bold;">ALQURMANI X SYSTEM</div>
 </header>
 
 <div class="container">
+    <div class="policy-box">
+        <div class="content-text">
+            <h2>1. تمهيد السياسة الاستراتيجية</h2>
+            يُعد نظام <b>Alqurmani X</b> بيئة رقمية متكاملة تهدف إلى تعزيز المحتوى التقني والاستثماري. إن مشاركتك بالتعليق أو المساهمة تعني إقرارك التام بالالتزام بالمعايير القانونية والأخلاقية الموضحة في هذه الوثيقة الموحدة. نحن هنا نبني مجتمعاً قائماً على "الذكاء الرقمي" والاحترام المتبادل.
 
-<div class="box">
+            <h2>2. معايير التعليق الفني والأدبي</h2>
+            تخضع جميع التعليقات في منصاتنا لنظام فلترة آلي وبشري متقدم. يُمنع منعاً باتاً استخدام أي لغة خارجة، أو ترويج لمحتوى غير مرخص، أو سبام. التعليق يجب أن يكون ذا قيمة مضافة، يخدم المجتمع التقني، ويعبر عن وعي المساهم. نظامنا يقوم أوتوماتيكياً بحظر أي IP يحاول التلاعب بنظام التعليقات.
 
-<p>
-تضع منصة Alqurmani X هذه السياسة لتنظيم جميع التعليقات والمساهمات داخل جميع المنصات التابعة لها بهدف ضمان بيئة رقمية آمنة ومحترمة.
-</p>
+            <h2>3. حقوق الملكية الفكرية للمساهمات</h2>
+            أي محتوى (نصي، برمجوي، أو فكري) يتم مشاركته عبر منصات Alqurmani X يصبح تحت إشراف المنصة مع حفظ الحق الأدبي لصاحبه، ولكن للمنصة الحق في إعادة توظيفه بما يخدم المصلحة العامة للنظام الرقمي. لا يُسمح بنسخ التعليقات أو المساهمات ونشرها خارج نطاقنا بدون تصريح كتابي موثق.
 
-<h2>نطاق السياسة</h2>
-<p>تنطبق على جميع خدمات ومنصات Alqurmani X الحالية والمستقبلية.</p>
+            <h2>4. الحماية والأمان السيبراني</h2>
+            نحن نطبق بروتوكولات حماية صارمة. أي مساهمة تتضمن روابط مشبوهة أو محاولات حقن كود (SQL Injection) أو أي ثغرة أمنية، سيتم التعامل معها فوراً عبر الحظر الدائم وإبلاغ الجهات التقنية المختصة. نحن نوفر بيئة آمنة 100% لمستخدمينا الجادين.
 
-<h2>قواعد التعليقات</h2>
+            <h2>5. المسؤولية القانونية</h2>
+            المساهم هو المسؤول الوحيد عن وجهة نظره. Alqurmani X لا تتبنى الآراء الواردة في التعليقات، ولكنها تلتزم بحذف أي محتوى يخالف القوانين الدولية أو المحلية في الدول التي نعمل بها (جمهورية مصر العربية - أسوان - مرسى مطروح).
 
-<div class="rule">منع الإساءة أو المحتوى غير اللائق.</div>
-<div class="rule">منع الروابط الضارة.</div>
-<div class="rule">منع الإعلانات غير المصرح بها.</div>
-<div class="rule">حق الإدارة في الحذف أو الحظر.</div>
+            <p>... (يتم التوسع هنا في بنود الخصوصية، حماية البيانات، بروتوكولات Empire 77، معايير التفاعل الدولي، والتحليل الرقمي لكل مساهمة) ...</p>
+            <p>إننا في Alqurmani X نؤمن بأن الكلمة هي أصل الاستثمار، ولذلك وضعنا هذا الدستور الموحد ليطبق على كافة مشاريعنا الحالية والمستقبلية، لضمان جودة المحتوى واستمرارية التميز.</p>
+        </div>
 
-<h2>المساهمات</h2>
-
-<div class="rule">يجب أن تكون أصلية.</div>
-<div class="rule">تخضع للمراجعة أو الرفض.</div>
-<div class="rule">لا حقوق ملكية بدون اتفاق رسمي.</div>
-
-<h2>الإقرار</h2>
-<p>باستخدام النظام فأنت توافق على جميع الشروط.</p>
-
+        <div class="legal-footer">
+            <a href="index.html" class="legal-link">🏠 الصفحة الرئيسية</a>
+            <a href="platforms.html" class="legal-link">🌐 منصاتنا</a>
+            <a href="legal-terms.html" class="legal-link">⚖️ سياسات وقوانين <span class="brand-text">Alqurmani X</span></a>
+        </div>
+    </div>
 </div>
 
-<!-- الصناديق الثلاثة -->
-<div class="cards">
+<button class="smart-btn btn-up" onclick="window.scrollTo({top:0,behavior:'smooth'})" title="للأعلى">⬆️</button>
+<button class="smart-btn btn-back" onclick="goBack()" title="رجوع">🔙</button>
 
-<a href="index.html">
-<div class="card home">🏠 الصفحة الرئيسية</div>
-</a>
+<script>
+    /* حماية المحتوى */
+    document.oncontextmenu = () => false;
+    document.onkeydown = (e) => { if(e.ctrlKey || e.keyCode === 123) return false; };
 
-<a href="platforms.html">
-<div class="card platforms">🌐 منصاتنا</div>
-</a>
+    /* وظيفة الرجوع الذكي */
+    function goBack() {
+        if(document.referrer && document.referrer.includes(window.location.hostname)) {
+            window.location = document.referrer;
+        } else {
+            window.location.href = "index.html"; // الرجوع للرئيسية كخيار آمن
+        }
+    }
 
-<div class="card rules">⚖️ سياسات وقوانين القرماني X</div>
-
-</div>
-
-</div>
-
-<!-- السهمين -->
-<div class="nav">
-<div class="btn back" onclick="history.back()">🔙</div>
-<div class="btn top" onclick="window.scrollTo({top:0,behavior:'smooth'})">⬆️</div>
-</div>
+    /* تأثيرات جمالية إضافية للكونسول */
+    console.log("%c Alqurmani X Legal System Activated ", "background: #bf953f; color: #fff; padding: 5px; border-radius: 5px;");
+</script>
 
 </body>
 </html>
