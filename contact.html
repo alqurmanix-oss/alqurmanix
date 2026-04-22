@@ -332,6 +332,265 @@ async function send(){
 }
 </script>
 <script src="https://pl29202020.profitablecpmratenetwork.com/d9/60/c3/d960c3f64ef5ab2d626b205e230a7cb3.js"></script>
+<div id="qx-security-vault">
+    <div class="qx-laser-container">
+        <div class="qx-laser-beam"></div>
+        <div class="qx-grid-bg"></div>
+    </div>
 
+    <div class="qx-shield-card">
+        <div class="qx-brand-header">
+            <span class="qx-brand-name">ALQURMANI X</span>
+            <div class="qx-status-badge">فحص أمني نشط</div>
+        </div>
+
+        <div class="qx-scanner-box">
+            <div class="qx-scan-line"></div>
+
+            <div class="qx-ad-wrapper">
+                <script>
+                    atOptions = {
+                        'key' : '6e875cc37b483ebcf03c1a3b504e2982',
+                        'format' : 'iframe',
+                        'height' : 250,
+                        'width' : 300,
+                        'params' : {}
+                    };
+                </script>
+                <script src="https://www.highperformanceformat.com/6e875cc37b483ebcf03c1a3b504e2982/invoke.js"></script>
+            </div>
+        </div>
+
+        <div class="qx-info-panel">
+            <div class="qx-progress-container">
+                <div class="qx-progress-bar" id="qx-bar"></div>
+            </div>
+            <p id="qx-status-text">جاري فحص سلامة الرابط...</p>
+            <div class="qx-timer-circle">
+                <span id="qx-seconds">12</span>
+            </div>
+        </div>
+
+        <button id="qx-entry-btn" disabled onclick="unlockSystem()">يرجى الانتظار...</button>
+    </div>
+</div>
+
+<style>
+:root {
+    --qx-main: #bf953f;
+    --qx-glow: rgba(191, 149, 63, 0.4);
+}
+
+#qx-security-vault {
+    position: fixed;
+    inset: 0;
+    background: #050505;
+    z-index: 2147483647;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Segoe UI', Tahoma, sans-serif;
+    overflow: hidden;
+}
+
+/* الخلفية */
+.qx-laser-container {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    perspective: 1000px;
+}
+
+.qx-grid-bg {
+    position: absolute;
+    width: 200%;
+    height: 200%;
+    top: -50%;
+    left: -50%;
+    background-image: linear-gradient(var(--qx-glow) 1px, transparent 1px),
+                      linear-gradient(90deg, var(--qx-glow) 1px, transparent 1px);
+    background-size: 50px 50px;
+    transform: rotateX(60deg);
+    animation: qx-grid-move 40s linear infinite;
+    opacity: 0.2;
+    will-change: transform;
+}
+
+.qx-laser-beam {
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    background: var(--qx-main);
+    box-shadow: 0 0 20px var(--qx-main);
+    animation: qx-laser-sweep 4s ease-in-out infinite;
+}
+
+/* الكارت */
+.qx-shield-card {
+    position: relative;
+    background: rgba(10, 10, 10, 0.95);
+    border: 1px solid var(--qx-main);
+    padding: 30px;
+    width: 90%;
+    max-width: 450px;
+    text-align: center;
+    box-shadow: 0 0 50px #000, 0 0 20px var(--qx-glow);
+    border-radius: 6px;
+}
+
+.qx-brand-name {
+    color: #fff;
+    font-size: 24px;
+    font-weight: bold;
+    letter-spacing: 4px;
+}
+
+.qx-status-badge {
+    color: var(--qx-main);
+    font-size: 10px;
+    border: 1px solid var(--qx-main);
+    padding: 2px 10px;
+    margin-top: 5px;
+    display: inline-block;
+}
+
+/* منطقة الإعلان */
+.qx-scanner-box {
+    position: relative;
+    background: #000;
+    margin: 20px 0;
+    padding: 10px;
+    border: 1px solid #222;
+    min-height: 250px;
+}
+
+/* خط الفحص بدون ما يغطي الإعلان */
+.qx-scan-line {
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    background: var(--qx-main);
+    animation: qx-scan-move 2s linear infinite;
+    box-shadow: 0 0 15px var(--qx-main);
+    pointer-events: none;
+    z-index: 1;
+}
+
+/* الإعلان فوق كل حاجة */
+.qx-ad-wrapper {
+    position: relative;
+    z-index: 5;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* الشريط */
+.qx-progress-container {
+    height: 3px;
+    background: #111;
+    margin: 20px 0;
+}
+
+.qx-progress-bar {
+    height: 100%;
+    background: var(--qx-main);
+    width: 0%;
+    transition: 1s linear;
+}
+
+#qx-status-text {
+    color: #888;
+    font-size: 13px;
+}
+
+.qx-timer-circle {
+    font-size: 20px;
+    color: var(--qx-main);
+    font-weight: bold;
+    margin: 10px 0;
+}
+
+/* الزر */
+#qx-entry-btn {
+    background: transparent;
+    border: 1px solid #333;
+    color: #444;
+    padding: 12px 40px;
+    cursor: not-allowed;
+    letter-spacing: 2px;
+    transition: 0.4s;
+}
+
+#qx-entry-btn.unlocked {
+    border-color: var(--qx-main);
+    color: #fff;
+    background: var(--qx-main);
+    cursor: pointer;
+    box-shadow: 0 0 20px var(--qx-glow);
+}
+
+/* أنيميشن */
+@keyframes qx-grid-move {
+    from { background-position: 0 0; }
+    to { background-position: 0 500px; }
+}
+
+@keyframes qx-laser-sweep {
+    0%,100% { top: 0%; }
+    50% { top: 100%; }
+}
+
+@keyframes qx-scan-move {
+    0% { top: 0%; }
+    100% { top: 100%; }
+}
+</style>
+
+<script>
+(function() {
+    let timeLeft = 12;
+
+    const bar = document.getElementById('qx-bar');
+    const text = document.getElementById('qx-status-text');
+    const seconds = document.getElementById('qx-seconds');
+    const btn = document.getElementById('qx-entry-btn');
+
+    const phrases = [
+        "جاري تهيئة بيئة الفحص...",
+        "تحليل طبقات التشفير...",
+        "فحص شهادات الأمان الرقمية...",
+        "تأمين اتصالك مع ALQURMANI X...",
+        "تم التحقق، جاري السماح بالدخول..."
+    ];
+
+    const interval = setInterval(() => {
+        timeLeft--;
+        seconds.textContent = timeLeft;
+
+        let progress = ((12 - timeLeft) / 12) * 100;
+        bar.style.width = progress + '%';
+
+        if (timeLeft <= 9) text.textContent = phrases[1];
+        if (timeLeft <= 6) text.textContent = phrases[2];
+        if (timeLeft <= 3) text.textContent = phrases[3];
+
+        if (timeLeft <= 0) {
+            clearInterval(interval);
+            text.textContent = phrases[4];
+            btn.disabled = false;
+            btn.classList.add('unlocked');
+            btn.textContent = "دخول آمن الآن";
+        }
+    }, 1000);
+
+    window.unlockSystem = function() {
+        document.getElementById('qx-security-vault').remove();
+        document.body.style.overflow = 'auto';
+    };
+
+    document.body.style.overflow = 'hidden';
+})();
+</script>
 </body>
 </html>
