@@ -219,7 +219,7 @@ for(let i=0;i<28;i++){
 /* ترحيب صوتي مرة واحدة */
 if(!sessionStorage.getItem("welcome")){
   try{
-    const m=new SpeechSynthesisUtterance("يسعدنا دائماً تواصلكم > بابنا مفتوح دائماً لكل فكرة، استفسار، أو تعاون جديد. لا تتردد في ترك رسالتك، فنحن نؤمن أن كل تواصل هو بداية لقصة نجاح جديدة.");
+    const m=new SpeechSynthesisUtterance("مرحباً بك في نظام القرماني إكس");
     m.lang="ar";
     speechSynthesis.speak(m);
   }catch(e){}
