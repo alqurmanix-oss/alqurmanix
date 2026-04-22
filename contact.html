@@ -1,1 +1,198 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Alqurmani X | Official System</title>
 
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;900&display=swap" rel="stylesheet">
+
+<style>
+body{
+    margin:0;
+    font-family:'Cairo',sans-serif;
+    background:#050814;
+    color:#fff;
+    overflow-x:hidden;
+}
+
+/* منع كليك يمين */
+body{
+    user-select:none;
+}
+
+/* نيون خلفية */
+.bg{
+    position:fixed;
+    width:100%;
+    height:100%;
+    background:
+    radial-gradient(circle at 20% 20%, rgba(255,215,0,0.15), transparent 40%),
+    radial-gradient(circle at 80% 80%, rgba(0,255,100,0.12), transparent 40%);
+    z-index:-1;
+}
+
+/* Header */
+header{
+    text-align:center;
+    padding:20px;
+}
+
+.logo{
+    font-size:28px;
+    font-weight:bold;
+    background:linear-gradient(90deg,#ffd700,#ffcc00,#00ff88,#00ffd5);
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
+    animation: glow 4s infinite alternate;
+}
+
+@keyframes glow{
+    from{filter:brightness(1);}
+    to{filter:brightness(1.8);}
+}
+
+/* Online light */
+.online{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    margin-top:10px;
+}
+
+.dot{
+    width:10px;
+    height:10px;
+    background:#00ff88;
+    border-radius:50%;
+    box-shadow:0 0 10px #00ff88;
+    animation: blink 1s infinite;
+}
+
+@keyframes blink{
+    50%{opacity:0.3;}
+}
+
+/* Contact box */
+.box{
+    max-width:600px;
+    margin:40px auto;
+    padding:20px;
+    background:rgba(255,255,255,0.05);
+    border:1px solid rgba(255,255,255,0.1);
+    border-radius:15px;
+    backdrop-filter:blur(10px);
+}
+
+/* Buttons */
+.btn{
+    position:fixed;
+    width:55px;
+    height:55px;
+    border-radius:50%;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    cursor:pointer;
+    font-size:18px;
+}
+
+/* back */
+.back{
+    bottom:90px;
+    left:20px;
+    background:linear-gradient(45deg,#ffd700,#ff6a00);
+}
+
+/* top */
+.top{
+    bottom:20px;
+    left:20px;
+    background:linear-gradient(45deg,#00ffd5,#00ff88,#ffd700);
+}
+
+/* home link */
+.home{
+    display:block;
+    margin-top:15px;
+    color:#00ffd5;
+    text-decoration:none;
+    font-weight:bold;
+}
+
+/* flicker effect */
+.flicker{
+    animation:flick 2s infinite;
+}
+@keyframes flick{
+    0%,100%{opacity:1;}
+    50%{opacity:0.5;}
+}
+</style>
+</head>
+
+<body oncontextmenu="return false">
+
+<div class="bg"></div>
+
+<header>
+<div class="logo flicker">⚜️ Alqurmani X Official</div>
+
+<div class="online">
+<span class="dot"></span>
+<span>متصل الآن</span>
+</div>
+</header>
+
+<div class="box">
+<h2>🏠 الصفحة الرئيسية</h2>
+
+<p>
+مرحبًا بك في النظام الرسمي لـ <b>Alqurmani X</b>  
+النظام الموحد لإدارة التواصل والدعم والخدمات الرقمية.
+</p>
+
+<a class="home" href="index.html">🏠 الصفحة الرئيسية الرئيسية</a>
+</div>
+
+<!-- أزرار التحكم -->
+<div class="btn back" onclick="goBack()">🔙</div>
+<div class="btn top" onclick="window.scrollTo({top:0,behavior:'smooth'})">⬆️</div>
+
+<script>
+
+/* منع اختصارات المطورين */
+document.onkeydown = function(e){
+if(
+e.keyCode == 123 || 
+(e.ctrlKey && e.shiftKey && e.keyCode == 73) ||
+(e.ctrlKey && e.keyCode == 85)
+){
+return false;
+}
+};
+
+/* رجوع ذكي */
+function goBack(){
+if(document.referrer){
+window.location = document.referrer;
+}else{
+history.back();
+}
+}
+
+/* صوت ترحيب (اختياري) */
+window.onload = function(){
+try{
+let msg = new SpeechSynthesisUtterance();
+msg.text = "مرحباً بك في النظام الرسمي أل قرماني إكس";
+msg.lang = "ar";
+msg.rate = 0.9;
+speechSynthesis.speak(msg);
+}catch(e){}
+}
+
+</script>
+
+</body>
+</html>
