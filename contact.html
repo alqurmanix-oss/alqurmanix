@@ -219,7 +219,9 @@ for(let i=0;i<28;i++){
 /* ترحيب صوتي مرة واحدة */
 if(!sessionStorage.getItem("welcome")){
   try{
-    const m=new SpeechSynthesisUtterance("مرحباً بك في نظام القرماني إكس");
+    const m=new SpeechSynthesisUtterance("مرحبا بك فى  alqurmani  x 
+
+يسعدنا دائماً تواصلكم  بابنا مفتوح دائماً لكل فكرة، استفسار، أو تعاون جديد. لا تتردد في ترك رسالتك، فنحن نؤمن أن كل تواصل هو بداية لقصة نجاح جديدة.");
     m.lang="ar";
     speechSynthesis.speak(m);
   }catch(e){}
@@ -288,7 +290,7 @@ async function send(){
 
     /* صوت نجاح */
     try{
-      const ok=new SpeechSynthesisUtterance("تم إرسال الرسالة بنجاح");
+      const ok=new SpeechSynthesisUtterance("نشكرك على ثقتك ب  alqurmani  x  وصلتنا رسالتك بنجاح. فريق الدعم الفني والاستشارات يعمل الآن على مراجعة طلبك، وسنتواصل معك عبر البريد الإلكتروني أو الواتساب في أقرب وقت ممكن");
       ok.lang="ar"; speechSynthesis.speak(ok);
     }catch(e){}
 
