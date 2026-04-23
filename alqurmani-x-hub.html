@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Alqurmani X | SaaS Tools Platform</title>
+<title>Alqurmani X | أدوات ذكية</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;800;900&display=swap" rel="stylesheet">
 
@@ -20,17 +20,15 @@
 body{
   background: radial-gradient(circle at top,#0f172a,#020617);
   color:#fff;
-  min-height:100vh;
 }
 
 /* NAV */
 nav{
   display:flex;
   justify-content:space-between;
-  align-items:center;
-  padding:15px 20px;
+  padding:15px;
   background:rgba(255,255,255,0.05);
-  backdrop-filter:blur(12px);
+  backdrop-filter:blur(10px);
 }
 
 .logo{
@@ -38,62 +36,55 @@ nav{
   color:#22c55e;
 }
 
-/* BACK BUTTON */
+/* BACK */
 .back{
   position:fixed;
   top:15px;
   left:15px;
-  background:#fff;
-  color:#000;
   width:40px;
   height:40px;
+  background:#fff;
+  color:#000;
+  border-radius:50%;
   display:flex;
   align-items:center;
   justify-content:center;
-  border-radius:50%;
   cursor:pointer;
   font-weight:bold;
-  box-shadow:0 0 15px rgba(0,0,0,0.5);
 }
 
 /* HERO */
 .hero{
   text-align:center;
-  padding:70px 20px;
+  padding:60px 20px;
 }
 
 .hero h1{
-  font-size:38px;
-  font-weight:900;
-}
-
-.hero p{
-  opacity:.7;
-  margin-top:10px;
+  font-size:36px;
 }
 
 /* GRID */
 .grid{
   display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
   gap:15px;
   padding:20px;
 }
 
 .card{
   background:rgba(255,255,255,0.05);
-  padding:20px;
-  border-radius:15px;
+  padding:18px;
+  border-radius:12px;
   cursor:pointer;
   transition:.3s;
 }
 
 .card:hover{
-  transform:translateY(-6px);
+  transform:scale(1.03);
   background:rgba(255,255,255,0.1);
 }
 
-/* TOOL PAGE */
+/* PAGES */
 .page{
   display:none;
   padding:20px;
@@ -104,9 +95,8 @@ nav{
 input{
   width:70%;
   padding:10px;
-  border:none;
   border-radius:8px;
-  outline:none;
+  border:none;
 }
 
 button{
@@ -123,11 +113,6 @@ button{
   margin:6px 0;
   padding:10px;
   border-radius:8px;
-  transition:.2s;
-}
-
-.item:hover{
-  background:#334155;
 }
 
 /* FOOTER */
@@ -142,131 +127,138 @@ footer{
 
 <body>
 
-<div class="back" onclick="smartBack()">←</div>
+<div class="back" onclick="goHome()">←</div>
 
 <nav>
   <div class="logo">Alqurmani X</div>
-  <div>AI SaaS Platform</div>
+  <div>Smart Tools</div>
 </nav>
 
 <!-- HOME -->
 <div id="home">
 
 <div class="hero">
-  <h1>🚀 Alqurmani X Platform</h1>
-  <p>منصة أدوات رقمية + SEO + ذكاء اصطناعي</p>
+  <h1>🚀 Alqurmani X Tools</h1>
+  <p>منصة أدوات ذكية للنمو والـ SEO</p>
 </div>
 
 <div class="grid">
 
-  <div class="card" onclick="openPage('keyword')">
+  <div class="card" onclick="openTool('keyword')">
     🔥 مولد كلمات مفتاحية
   </div>
 
-  <div class="card">
-    📊 أدوات SEO (قريبًا)
+  <div class="card" onclick="openTool('idea')">
+    💡 مولد أفكار محتوى
   </div>
 
-  <div class="card">
-    🤖 أدوات AI (قريبًا)
+  <div class="card" onclick="openTool('title')">
+    🧠 مولد عناوين جذابة
   </div>
 
 </div>
 
 </div>
 
-<!-- KEYWORD TOOL -->
+<!-- KEYWORD -->
 <div id="keyword" class="page">
+<h2>🔥 مولد كلمات مفتاحية</h2><br>
+<input id="kw" placeholder="اكتب كلمة">
+<button onclick="genKeyword()">توليد</button>
+<div id="out1"></div>
+</div>
 
-<h2>🔥 مولد الكلمات المفتاحية</h2>
-<br>
+<!-- IDEA -->
+<div id="idea" class="page">
+<h2>💡 أفكار محتوى</h2><br>
+<input id="ideaInput" placeholder="مجال المحتوى">
+<button onclick="genIdea()">توليد</button>
+<div id="out2"></div>
+</div>
 
-<input type="text" id="kw" placeholder="اكتب الكلمة...">
-<button onclick="generate()">توليد</button>
-
-<br><br>
-<div id="out"></div>
-
+<!-- TITLE -->
+<div id="title" class="page">
+<h2>🧠 عناوين جذابة</h2><br>
+<input id="titleInput" placeholder="الموضوع">
+<button onclick="genTitle()">توليد</button>
+<div id="out3"></div>
 </div>
 
 <footer>
-© 2026 Alqurmani X SaaS Platform
+© Alqurmani X Platform
 </footer>
 
 <script>
 
-/* =========================
-   SMART NAV SYSTEM
-========================= */
-
-let currentPage = "home";
-
-function openPage(page){
-  sessionStorage.setItem("lastPage", currentPage);
-
+/* ===== NAV SYSTEM ===== */
+function openTool(id){
   document.getElementById("home").style.display="none";
-  document.getElementById("keyword").style.display="none";
-
-  document.getElementById(page).style.display="block";
-  currentPage = page;
+  document.querySelectorAll(".page").forEach(p=>p.style.display="none");
+  document.getElementById(id).style.display="block";
 }
 
-/* =========================
-   SMART BACK BUTTON
-========================= */
-
-function smartBack(){
-
-  let last = sessionStorage.getItem("lastPage");
-
-  if(currentPage !== "home"){
-    document.getElementById("keyword").style.display="none";
-    document.getElementById("home").style.display="block";
-    currentPage = "home";
-  }else if(last){
-    document.getElementById(last).style.display="block";
-    document.getElementById("home").style.display="none";
-    currentPage = last;
-  }else{
-    window.location.href = "/";
-  }
+function goHome(){
+  document.getElementById("home").style.display="block";
+  document.querySelectorAll(".page").forEach(p=>p.style.display="none");
 }
 
-/* =========================
-   KEYWORD GENERATOR (SMART)
-========================= */
+/* ===== KEYWORDS ===== */
+function genKeyword(){
+  let q=document.getElementById("kw").value;
+  let out=document.getElementById("out1");
+  out.innerHTML="";
 
-function generate(){
-
-  let q = document.getElementById("kw").value;
-  let out = document.getElementById("out");
-
-  if(!q){
-    alert("اكتب كلمة 🔥");
-    return;
-  }
-
-  let data = [
-    "كيفية " + q,
-    "أفضل " + q,
-    q + " 2026",
-    q + " مجانا",
-    "شرح " + q,
-    "ما هو " + q,
-    q + " للمبتدئين",
-    q + " بدون برامج",
-    "طريقة " + q
+  let arr=[
+    "كيفية "+q,
+    "أفضل "+q,
+    q+" مجانا",
+    q+" 2026",
+    "شرح "+q,
+    q+" بدون برامج",
+    "طريقة "+q
   ];
 
-  out.innerHTML = "";
-
-  data.forEach(item=>{
-    let div = document.createElement("div");
-    div.className = "item";
-    div.innerText = item;
-    out.appendChild(div);
+  arr.forEach(i=>{
+    out.innerHTML += `<div class="item">${i}</div>`;
   });
+}
 
+/* ===== IDEAS ===== */
+function genIdea(){
+  let q=document.getElementById("ideaInput").value;
+  let out=document.getElementById("out2");
+  out.innerHTML="";
+
+  let arr=[
+    "10 أفكار عن "+q,
+    "أسرار "+q,
+    "دليل شامل "+q,
+    "أخطاء شائعة في "+q,
+    "كيف تبدأ في "+q
+  ];
+
+  arr.forEach(i=>{
+    out.innerHTML += `<div class="item">${i}</div>`;
+  });
+}
+
+/* ===== TITLES ===== */
+function genTitle(){
+  let q=document.getElementById("titleInput").value;
+  let out=document.getElementById("out3");
+  out.innerHTML="";
+
+  let arr=[
+    "🔥 الطريقة السرية في "+q,
+    "⚡ تعلم "+q+" في 5 دقائق",
+    "🚀 دليل احترافي لـ "+q,
+    "😱 لن تصدق كيف يعمل "+q,
+    "💎 أسرار "+q
+  ];
+
+  arr.forEach(i=>{
+    out.innerHTML += `<div class="item">${i}</div>`;
+  });
 }
 
 </script>
