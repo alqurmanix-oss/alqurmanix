@@ -1,1 +1,275 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+<title>Alqurmani X | SaaS Tools Platform</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;800;900&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:'Cairo',sans-serif;
+}
+
+body{
+  background: radial-gradient(circle at top,#0f172a,#020617);
+  color:#fff;
+  min-height:100vh;
+}
+
+/* NAV */
+nav{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:15px 20px;
+  background:rgba(255,255,255,0.05);
+  backdrop-filter:blur(12px);
+}
+
+.logo{
+  font-weight:900;
+  color:#22c55e;
+}
+
+/* BACK BUTTON */
+.back{
+  position:fixed;
+  top:15px;
+  left:15px;
+  background:#fff;
+  color:#000;
+  width:40px;
+  height:40px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  border-radius:50%;
+  cursor:pointer;
+  font-weight:bold;
+  box-shadow:0 0 15px rgba(0,0,0,0.5);
+}
+
+/* HERO */
+.hero{
+  text-align:center;
+  padding:70px 20px;
+}
+
+.hero h1{
+  font-size:38px;
+  font-weight:900;
+}
+
+.hero p{
+  opacity:.7;
+  margin-top:10px;
+}
+
+/* GRID */
+.grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+  gap:15px;
+  padding:20px;
+}
+
+.card{
+  background:rgba(255,255,255,0.05);
+  padding:20px;
+  border-radius:15px;
+  cursor:pointer;
+  transition:.3s;
+}
+
+.card:hover{
+  transform:translateY(-6px);
+  background:rgba(255,255,255,0.1);
+}
+
+/* TOOL PAGE */
+.page{
+  display:none;
+  padding:20px;
+  max-width:800px;
+  margin:auto;
+}
+
+input{
+  width:70%;
+  padding:10px;
+  border:none;
+  border-radius:8px;
+  outline:none;
+}
+
+button{
+  padding:10px 15px;
+  border:none;
+  border-radius:8px;
+  background:#22c55e;
+  cursor:pointer;
+  font-weight:bold;
+}
+
+.item{
+  background:#1e293b;
+  margin:6px 0;
+  padding:10px;
+  border-radius:8px;
+  transition:.2s;
+}
+
+.item:hover{
+  background:#334155;
+}
+
+/* FOOTER */
+footer{
+  text-align:center;
+  padding:30px;
+  opacity:.5;
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="back" onclick="smartBack()">←</div>
+
+<nav>
+  <div class="logo">Alqurmani X</div>
+  <div>AI SaaS Platform</div>
+</nav>
+
+<!-- HOME -->
+<div id="home">
+
+<div class="hero">
+  <h1>🚀 Alqurmani X Platform</h1>
+  <p>منصة أدوات رقمية + SEO + ذكاء اصطناعي</p>
+</div>
+
+<div class="grid">
+
+  <div class="card" onclick="openPage('keyword')">
+    🔥 مولد كلمات مفتاحية
+  </div>
+
+  <div class="card">
+    📊 أدوات SEO (قريبًا)
+  </div>
+
+  <div class="card">
+    🤖 أدوات AI (قريبًا)
+  </div>
+
+</div>
+
+</div>
+
+<!-- KEYWORD TOOL -->
+<div id="keyword" class="page">
+
+<h2>🔥 مولد الكلمات المفتاحية</h2>
+<br>
+
+<input type="text" id="kw" placeholder="اكتب الكلمة...">
+<button onclick="generate()">توليد</button>
+
+<br><br>
+<div id="out"></div>
+
+</div>
+
+<footer>
+© 2026 Alqurmani X SaaS Platform
+</footer>
+
+<script>
+
+/* =========================
+   SMART NAV SYSTEM
+========================= */
+
+let currentPage = "home";
+
+function openPage(page){
+  sessionStorage.setItem("lastPage", currentPage);
+
+  document.getElementById("home").style.display="none";
+  document.getElementById("keyword").style.display="none";
+
+  document.getElementById(page).style.display="block";
+  currentPage = page;
+}
+
+/* =========================
+   SMART BACK BUTTON
+========================= */
+
+function smartBack(){
+
+  let last = sessionStorage.getItem("lastPage");
+
+  if(currentPage !== "home"){
+    document.getElementById("keyword").style.display="none";
+    document.getElementById("home").style.display="block";
+    currentPage = "home";
+  }else if(last){
+    document.getElementById(last).style.display="block";
+    document.getElementById("home").style.display="none";
+    currentPage = last;
+  }else{
+    window.location.href = "/";
+  }
+}
+
+/* =========================
+   KEYWORD GENERATOR (SMART)
+========================= */
+
+function generate(){
+
+  let q = document.getElementById("kw").value;
+  let out = document.getElementById("out");
+
+  if(!q){
+    alert("اكتب كلمة 🔥");
+    return;
+  }
+
+  let data = [
+    "كيفية " + q,
+    "أفضل " + q,
+    q + " 2026",
+    q + " مجانا",
+    "شرح " + q,
+    "ما هو " + q,
+    q + " للمبتدئين",
+    q + " بدون برامج",
+    "طريقة " + q
+  ];
+
+  out.innerHTML = "";
+
+  data.forEach(item=>{
+    let div = document.createElement("div");
+    div.className = "item";
+    div.innerText = item;
+    out.appendChild(div);
+  });
+
+}
+
+</script>
+
+</body>
+</html>
